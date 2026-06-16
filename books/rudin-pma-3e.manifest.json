@@ -1,0 +1,76 @@
+{
+  "slug": "rudin-pma-3e",
+  "title": "Principles of Mathematical Analysis",
+  "author": "Walter Rudin",
+  "edition": 3,
+  "year": 1976,
+  "pdfPath": "Principles_of_Mathematical_Analysis-Rudin.pdf",
+  "chapters": [
+    {
+      "number": 1,
+      "title": "The Real and Complex Number Systems",
+      "exerciseStartPage": 21,
+      "exerciseEndPage": 24
+    },
+    {
+      "number": 2,
+      "title": "Basic Topology",
+      "exerciseStartPage": 43,
+      "exerciseEndPage": 46
+    },
+    {
+      "number": 3,
+      "title": "Numerical Sequences and Series",
+      "exerciseStartPage": 78,
+      "exerciseEndPage": 82
+    },
+    {
+      "number": 4,
+      "title": "Continuity",
+      "exerciseStartPage": 98,
+      "exerciseEndPage": 101
+    },
+    {
+      "number": 5,
+      "title": "Differentiation",
+      "exerciseStartPage": 114,
+      "exerciseEndPage": 117
+    },
+    {
+      "number": 6,
+      "title": "The Riemann-Stieltjes Integral",
+      "exerciseStartPage": 136,
+      "exerciseEndPage": 141
+    },
+    {
+      "number": 7,
+      "title": "Sequences and Series of Functions",
+      "exerciseStartPage": 165,
+      "exerciseEndPage": 168
+    },
+    {
+      "number": 8,
+      "title": "Some Special Functions",
+      "exerciseStartPage": 196,
+      "exerciseEndPage": 198
+    },
+    {
+      "number": 9,
+      "title": "Functions of Several Variables",
+      "exerciseStartPage": 227,
+      "exerciseEndPage": 232
+    },
+    {
+      "number": 10,
+      "title": "Integration of Differential Forms",
+      "exerciseStartPage": 252,
+      "exerciseEndPage": 258
+    },
+    {
+      "number": 11,
+      "title": "The Lebesgue Theory",
+      "exerciseStartPage": 310,
+      "exerciseEndPage": 318
+    }
+  ]
+}

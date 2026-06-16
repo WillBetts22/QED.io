@@ -1,0 +1,30 @@
+You are extracting numbered exercises from a scanned mathematics textbook (Rudin's Principles of Mathematical Analysis).
+
+The attached PDF pages contain exercises for one chapter. Your task:
+1. Find every numbered exercise on these pages (they are numbered sequentially: 1, 2, 3, …)
+2. Transcribe each exercise statement faithfully into LaTeX
+3. Preserve all mathematical notation, quantifiers, and sub-parts exactly as written
+4. If an exercise has labeled parts (a), (b), (c), include them in the statement
+
+Rules:
+- Transcribe the problem statement verbatim; do not paraphrase or simplify
+- Use standard LaTeX math delimiters: $...$ for inline math, $$...$$ for display math
+- Greek letters, set notation, and special symbols must be in LaTeX (e.g., $\epsilon$, $\mathbb{R}$, $\sup$, $\limsup$)
+- If a problem references a previous result (e.g., "Using Exercise 3…"), keep that reference
+- If the scan is unclear for a portion, transcribe what is legible and mark unclear sections with [unclear]
+- Do not include solution hints, chapter text, theorems, or definitions — exercises only
+
+Return ONLY valid JSON — no markdown fences, no extra keys:
+{
+  "chapter": {
+    "number": <integer>,
+    "title": "<chapter title>",
+    "problems": [
+      {
+        "number": "<exercise number as string>",
+        "statement": "<full LaTeX statement of the exercise>",
+        "sourcePageRef": "<e.g. 'p. 22'>"
+      }
+    ]
+  }
+}

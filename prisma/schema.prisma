@@ -1,0 +1,145 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model Book {
+  id        String    @id @default(cuid())
+  title     String
+  author    String
+  edition   Int?
+  year      Int?
+  slug      String    @unique
+  chapters  Chapter[]
+  createdAt DateTime  @default(now())
+}
+
+model Chapter {
+  id       String    @id @default(cuid())
+  bookId   String
+  book     Book      @relation(fields: [bookId], references: [id])
+  number   Int
+  title    String
+  problems Problem[]
+
+  @@unique([bookId, number])
+}
+
+model Problem {
+  id            String       @id @default(cuid())
+  chapterId     String
+  chapter       Chapter      @relation(fields: [chapterId], references: [id])
+  number        String
+  statement     String
+  difficulty    Difficulty
+  sourcePageRef String?
+  hints         Hint[]
+  tags          ProblemTag[]
+  submissions   Submission[]
+
+  @@unique([chapterId, number])
+}
+
+model Tag {
+  id       String       @id @default(cuid())
+  name     String       @unique
+  problems ProblemTag[]
+}
+
+model ProblemTag {
+  problemId String
+  tagId     String
+  problem   Problem @relation(fields: [problemId], references: [id])
+  tag       Tag     @relation(fields: [tagId], references: [id])
+
+  @@id([problemId, tagId])
+}
+
+model Hint {
+  id        String  @id @default(cuid())
+  problemId String
+  problem   Problem @relation(fields: [problemId], references: [id])
+  order     Int
+  content   String
+
+  @@unique([problemId, order])
+}
+
+// ── NextAuth required models ──────────────────────────────────────────────────
+
+model User {
+  id            String       @id @default(cuid())
+  email         String       @unique
+  emailVerified DateTime?
+  name          String?
+  image         String?
+  passwordHash  String?
+  accounts      Account[]
+  sessions      Session[]
+  submissions   Submission[]
+  createdAt     DateTime     @default(now())
+}
+
+model Account {
+  id                String  @id @default(cuid())
+  userId            String
+  type              String
+  provider          String
+  providerAccountId String
+  refresh_token     String?
+  access_token      String?
+  expires_at        Int?
+  token_type        String?
+  scope             String?
+  id_token          String?
+  session_state     String?
+  user              User    @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@unique([provider, providerAccountId])
+}
+
+model Session {
+  id           String   @id @default(cuid())
+  sessionToken String   @unique
+  userId       String
+  expires      DateTime
+  user         User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+}
+
+model VerificationToken {
+  identifier String
+  token      String   @unique
+  expires    DateTime
+
+  @@unique([identifier, token])
+}
+
+// ── Submissions ───────────────────────────────────────────────────────────────
+
+model Submission {
+  id          String   @id @default(cuid())
+  userId      String
+  problemId   String
+  proof       String
+  verdict     Verdict
+  feedback    Json
+  submittedAt DateTime @default(now())
+  user        User     @relation(fields: [userId], references: [id])
+  problem     Problem  @relation(fields: [problemId], references: [id])
+}
+
+enum Difficulty {
+  EASY
+  MEDIUM
+  HARD
+}
+
+enum Verdict {
+  CORRECT
+  FLAWED
+  INCOMPLETE
+}
