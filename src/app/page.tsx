@@ -2,14 +2,23 @@ import Link from "next/link";
 import { getServerSession } from "next-auth";
 import { authOptions } from "@/lib/auth";
 import { prisma } from "@/lib/prisma";
+import { DEMO_MODE, DEMO_PROBLEMS } from "@/lib/demo-data";
 
 export default async function HomePage() {
-  const session = await getServerSession(authOptions);
+  const session = DEMO_MODE ? null : await getServerSession(authOptions);
 
-  const [problemCount, bookCount] = await Promise.all([
-    prisma.problem.count(),
-    prisma.book.count(),
-  ]);
+  let problemCount: number;
+  let bookCount: number;
+
+  if (DEMO_MODE) {
+    problemCount = DEMO_PROBLEMS.length;
+    bookCount = 1;
+  } else {
+    [problemCount, bookCount] = await Promise.all([
+      prisma.problem.count(),
+      prisma.book.count(),
+    ]);
+  }
 
   return (
     <div className="py-16 text-center space-y-8">
@@ -39,7 +48,7 @@ export default async function HomePage() {
         >
           Browse problems
         </Link>
-        {!session && (
+        {!session && !DEMO_MODE && (
           <Link
             href="/auth/signup"
             className="rounded-md border border-slate-300 px-5 py-2.5 text-sm font-medium text-slate-700 hover:bg-slate-50 transition-colors"

@@ -4,18 +4,14 @@ import { z } from "zod";
 import { authOptions } from "@/lib/auth";
 import { prisma } from "@/lib/prisma";
 import { evaluateProof } from "@/lib/claude";
+import { DEMO_MODE, getDemoProblem } from "@/lib/demo-data";
 
 const submitSchema = z.object({
-  problemId: z.string().cuid(),
+  problemId: z.string().min(1),
   proof: z.string().min(1).max(50000),
 });
 
 export async function POST(req: Request) {
-  const session = await getServerSession(authOptions);
-  if (!session?.user?.id) {
-    return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
-  }
-
   const body = await req.json().catch(() => null);
   const parsed = submitSchema.safeParse(body);
   if (!parsed.success) {
@@ -23,6 +19,25 @@ export async function POST(req: Request) {
   }
 
   const { problemId, proof } = parsed.data;
+
+  if (DEMO_MODE) {
+    const demoProblem = getDemoProblem(problemId);
+    if (!demoProblem) {
+      return NextResponse.json({ error: "Problem not found" }, { status: 404 });
+    }
+    const feedback = await evaluateProof(demoProblem.statement, proof);
+    return NextResponse.json({
+      id: `demo-${Date.now()}`,
+      verdict: feedback.verdict,
+      feedback,
+      submittedAt: new Date().toISOString(),
+    });
+  }
+
+  const session = await getServerSession(authOptions);
+  if (!session?.user?.id) {
+    return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
+  }
 
   const problem = await prisma.problem.findUnique({ where: { id: problemId } });
   if (!problem) {
@@ -37,7 +52,8 @@ export async function POST(req: Request) {
       problemId,
       proof,
       verdict: feedback.verdict,
-      feedback,
+      // eslint-disable-next-line @typescript-eslint/no-explicit-any
+      feedback: feedback as any,
     },
   });
 
@@ -50,6 +66,10 @@ export async function POST(req: Request) {
 }
 
 export async function GET(req: Request) {
+  if (DEMO_MODE) {
+    return NextResponse.json([]);
+  }
+
   const session = await getServerSession(authOptions);
   if (!session?.user?.id) {
     return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
