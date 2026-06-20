@@ -1,11 +1,20 @@
 "use client";
 
-import { useState } from "react";
+import { Suspense, useState } from "react";
 import { signIn } from "next-auth/react";
 import { useRouter, useSearchParams } from "next/navigation";
 import Link from "next/link";
 
 export default function SignInPage() {
+  // useSearchParams must be inside a Suspense boundary for static prerender.
+  return (
+    <Suspense fallback={null}>
+      <SignInForm />
+    </Suspense>
+  );
+}
+
+function SignInForm() {
   const router = useRouter();
   const searchParams = useSearchParams();
   const callbackUrl = searchParams.get("callbackUrl") ?? "/";
@@ -36,10 +45,10 @@ export default function SignInPage() {
     <div className="min-h-[60vh] flex items-center justify-center">
       <div className="w-full max-w-sm space-y-6">
         <div className="text-center">
-          <h1 className="text-2xl font-bold text-slate-900">Sign in</h1>
-          <p className="mt-1 text-sm text-slate-500">
+          <h1 className="text-2xl" style={{ color: "var(--chalk)" }}>Sign in</h1>
+          <p className="mt-1 text-sm" style={{ color: "var(--chalk-faint)" }}>
             Don&apos;t have an account?{" "}
-            <Link href="/auth/signup" className="text-indigo-600 hover:underline">
+            <Link href="/auth/signup" className="chalk-link">
               Sign up
             </Link>
           </p>
@@ -48,7 +57,7 @@ export default function SignInPage() {
         {/* GitHub */}
         <button
           onClick={() => signIn("github", { callbackUrl })}
-          className="w-full flex items-center justify-center gap-2 rounded-md border border-slate-300 bg-white px-4 py-2.5 text-sm font-medium text-slate-700 hover:bg-slate-50 transition-colors"
+          className="chalk-btn w-full flex items-center justify-center gap-2 px-4 py-2.5 text-sm"
         >
           <GitHubIcon />
           Continue with GitHub
@@ -56,17 +65,17 @@ export default function SignInPage() {
 
         <div className="relative">
           <div className="absolute inset-0 flex items-center">
-            <div className="w-full border-t border-slate-200" />
+            <div className="w-full border-t" style={{ borderColor: "var(--board-edge)" }} />
           </div>
-          <div className="relative flex justify-center text-xs text-slate-400">
-            <span className="bg-slate-50 px-2">or</span>
+          <div className="relative flex justify-center text-xs" style={{ color: "var(--chalk-faint)" }}>
+            <span className="px-2" style={{ backgroundColor: "var(--board)" }}>or</span>
           </div>
         </div>
 
         {/* Credentials */}
         <form onSubmit={handleCredentials} className="space-y-4">
           <div>
-            <label className="block text-sm font-medium text-slate-700 mb-1" htmlFor="email">
+            <label className="block text-sm mb-1" style={{ color: "var(--chalk-dim)" }} htmlFor="email">
               Email
             </label>
             <input
@@ -75,12 +84,12 @@ export default function SignInPage() {
               required
               value={email}
               onChange={(e) => setEmail(e.target.value)}
-              className="w-full rounded-md border border-slate-300 px-3 py-2 text-sm text-slate-900 placeholder-slate-400 focus:border-indigo-500 focus:outline-none focus:ring-1 focus:ring-indigo-500"
+              className="chalk-input w-full px-3 py-2 text-sm"
               placeholder="you@example.com"
             />
           </div>
           <div>
-            <label className="block text-sm font-medium text-slate-700 mb-1" htmlFor="password">
+            <label className="block text-sm mb-1" style={{ color: "var(--chalk-dim)" }} htmlFor="password">
               Password
             </label>
             <input
@@ -89,20 +98,16 @@ export default function SignInPage() {
               required
               value={password}
               onChange={(e) => setPassword(e.target.value)}
-              className="w-full rounded-md border border-slate-300 px-3 py-2 text-sm text-slate-900 placeholder-slate-400 focus:border-indigo-500 focus:outline-none focus:ring-1 focus:ring-indigo-500"
+              className="chalk-input w-full px-3 py-2 text-sm"
               placeholder="••••••••"
             />
           </div>
 
           {error && (
-            <p className="text-sm text-red-600">{error}</p>
+            <p className="text-sm" style={{ color: "var(--chalk-rose)" }}>{error}</p>
           )}
 
-          <button
-            type="submit"
-            disabled={loading}
-            className="w-full rounded-md bg-slate-900 px-4 py-2.5 text-sm font-medium text-white hover:bg-slate-700 disabled:opacity-50 transition-colors"
-          >
+          <button type="submit" disabled={loading} className="chalk-btn-solid w-full px-4 py-2.5 text-sm">
             {loading ? "Signing in…" : "Sign in with email"}
           </button>
         </form>

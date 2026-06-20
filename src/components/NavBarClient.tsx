@@ -14,14 +14,12 @@ export default function NavBarClient({ session }: NavBarClientProps) {
       <div className="flex items-center gap-3">
         <Link
           href="/auth/signin"
-          className="text-sm text-slate-600 hover:text-slate-900 transition-colors"
+          className="text-sm transition-colors"
+          style={{ color: "var(--chalk-dim)" }}
         >
           Sign in
         </Link>
-        <Link
-          href="/auth/signup"
-          className="rounded-md bg-slate-900 px-3 py-1.5 text-sm text-white hover:bg-slate-700 transition-colors"
-        >
+        <Link href="/auth/signup" className="chalk-btn-solid px-3 py-1.5 text-sm">
           Sign up
         </Link>
       </div>
@@ -30,10 +28,13 @@ export default function NavBarClient({ session }: NavBarClientProps) {
 
   return (
     <div className="flex items-center gap-3">
-      <span className="text-sm text-slate-600">{session.user?.name ?? session.user?.email}</span>
+      <span className="text-sm" style={{ color: "var(--chalk-dim)" }}>
+        {session.user?.name ?? session.user?.email}
+      </span>
       <button
         onClick={() => signOut({ callbackUrl: "/" })}
-        className="text-sm text-slate-600 hover:text-slate-900 transition-colors"
+        className="text-sm transition-colors"
+        style={{ color: "var(--chalk-dim)" }}
       >
         Sign out
       </button>

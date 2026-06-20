@@ -1,10 +1,7 @@
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
 import "./globals.css";
 import NavBar from "@/components/NavBar";
 import SessionProvider from "@/components/SessionProvider";
-
-const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
   title: "QED.io — Math Proof Practice",
@@ -16,10 +13,24 @@ const DEMO_MODE = process.env.DEMO_MODE === "true";
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en">
-      <body className={inter.className}>
+      <head>
+        {/* Latin Modern — Computer Modern clone for the textbook/chalkboard feel */}
+        <link
+          rel="stylesheet"
+          href="https://cdn.jsdelivr.net/npm/lm-webfont@1.0.0/style.css"
+        />
+      </head>
+      <body>
         <SessionProvider>
           {DEMO_MODE && (
-            <div className="bg-amber-50 border-b border-amber-200 px-4 py-2 text-center text-xs text-amber-800">
+            <div
+              className="border-b px-4 py-2 text-center text-xs"
+              style={{
+                borderColor: "var(--board-edge)",
+                color: "var(--chalk-yellow)",
+                backgroundColor: "rgba(242, 233, 200, 0.06)",
+              }}
+            >
               Demo mode — 3 sample problems, submissions graded by Claude but not saved.
             </div>
           )}

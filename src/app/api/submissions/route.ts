@@ -25,7 +25,12 @@ export async function POST(req: Request) {
     if (!demoProblem) {
       return NextResponse.json({ error: "Problem not found" }, { status: 404 });
     }
-    const feedback = await evaluateProof(demoProblem.statement, proof);
+    let feedback;
+    try {
+      feedback = await evaluateProof(demoProblem.statement, proof);
+    } catch {
+      return NextResponse.json({ error: "Grading failed — please try again" }, { status: 502 });
+    }
     return NextResponse.json({
       id: `demo-${Date.now()}`,
       verdict: feedback.verdict,
@@ -44,7 +49,12 @@ export async function POST(req: Request) {
     return NextResponse.json({ error: "Problem not found" }, { status: 404 });
   }
 
-  const feedback = await evaluateProof(problem.statement, proof);
+  let feedback;
+  try {
+    feedback = await evaluateProof(problem.statement, proof);
+  } catch {
+    return NextResponse.json({ error: "Grading failed — please try again" }, { status: 502 });
+  }
 
   const submission = await prisma.submission.create({
     data: {

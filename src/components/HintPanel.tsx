@@ -16,24 +16,35 @@ export default function HintPanel({ hints }: HintPanelProps) {
   return (
     <div className="space-y-3">
       <div className="flex items-center justify-between">
-        <h3 className="text-sm font-semibold text-slate-700">Hints</h3>
+        <h3 className="text-sm" style={{ color: "var(--chalk-dim)" }}>Hints</h3>
         {revealed < hints.length && (
           <button
             onClick={() => setRevealed((n) => n + 1)}
-            className="text-xs text-indigo-600 hover:text-indigo-800 font-medium transition-colors"
+            className="chalk-link text-xs"
           >
             Reveal hint {revealed + 1} of {hints.length}
           </button>
         )}
         {revealed === hints.length && (
-          <span className="text-xs text-slate-400">All hints revealed</span>
+          <span className="text-xs" style={{ color: "var(--chalk-faint)" }}>
+            All hints revealed
+          </span>
         )}
       </div>
 
       {hints.slice(0, revealed).map((hint) => (
-        <div key={hint.id} className="rounded-md bg-indigo-50 border border-indigo-100 px-4 py-3">
-          <div className="text-xs font-medium text-indigo-500 mb-1">Hint {hint.order}</div>
-          <div className="text-sm text-slate-700">
+        <div
+          key={hint.id}
+          className="rounded px-4 py-3"
+          style={{
+            backgroundColor: "rgba(188, 214, 230, 0.06)",
+            border: "1px solid var(--board-edge)",
+          }}
+        >
+          <div className="text-xs mb-1" style={{ color: "var(--chalk-blue)" }}>
+            Hint {hint.order}
+          </div>
+          <div className="text-sm" style={{ color: "var(--chalk-dim)" }}>
             <LatexRenderer content={hint.content} />
           </div>
         </div>

@@ -26,7 +26,11 @@ export default async function ProblemsPage({
   if (DEMO_MODE) {
     books = DEMO_BOOKS;
     tags = DEMO_TAGS;
-    problemsWithStatus = getDemoProblems();
+    problemsWithStatus = getDemoProblems({
+      book: params.book,
+      difficulty: params.difficulty,
+      tag: params.tag,
+    });
   } else {
     const session = await getServerSession(authOptions);
 
@@ -92,17 +96,15 @@ export default async function ProblemsPage({
   return (
     <div className="space-y-6">
       <div className="flex items-center justify-between">
-        <h1 className="text-2xl font-bold text-slate-900">Problems</h1>
-        <span className="text-sm text-slate-500">{problemsWithStatus.length} problems</span>
+        <h1 className="text-2xl" style={{ color: "var(--chalk)" }}>Problems</h1>
+        <span className="text-sm" style={{ color: "var(--chalk-faint)" }}>
+          {problemsWithStatus.length} problems
+        </span>
       </div>
 
       {/* Filters */}
       <form className="flex flex-wrap gap-3" method="GET">
-        <select
-          name="book"
-          defaultValue={params.book ?? ""}
-          className="rounded-md border border-slate-300 bg-white px-3 py-1.5 text-sm text-slate-700 focus:border-indigo-500 focus:outline-none"
-        >
+        <select name="book" defaultValue={params.book ?? ""} className="chalk-input px-3 py-1.5 text-sm">
           <option value="">All books</option>
           {books.map((b) => (
             <option key={b.slug} value={b.slug}>
@@ -111,22 +113,14 @@ export default async function ProblemsPage({
           ))}
         </select>
 
-        <select
-          name="difficulty"
-          defaultValue={params.difficulty ?? ""}
-          className="rounded-md border border-slate-300 bg-white px-3 py-1.5 text-sm text-slate-700 focus:border-indigo-500 focus:outline-none"
-        >
+        <select name="difficulty" defaultValue={params.difficulty ?? ""} className="chalk-input px-3 py-1.5 text-sm">
           <option value="">Any difficulty</option>
           <option value="EASY">Easy</option>
           <option value="MEDIUM">Medium</option>
           <option value="HARD">Hard</option>
         </select>
 
-        <select
-          name="tag"
-          defaultValue={params.tag ?? ""}
-          className="rounded-md border border-slate-300 bg-white px-3 py-1.5 text-sm text-slate-700 focus:border-indigo-500 focus:outline-none"
-        >
+        <select name="tag" defaultValue={params.tag ?? ""} className="chalk-input px-3 py-1.5 text-sm">
           <option value="">All topics</option>
           {tags.map((t) => (
             <option key={t.name} value={t.name}>
@@ -135,18 +129,12 @@ export default async function ProblemsPage({
           ))}
         </select>
 
-        <button
-          type="submit"
-          className="rounded-md bg-slate-900 px-3 py-1.5 text-sm font-medium text-white hover:bg-slate-700 transition-colors"
-        >
+        <button type="submit" className="chalk-btn-solid px-3 py-1.5 text-sm">
           Filter
         </button>
 
         {(params.book || params.difficulty || params.tag) && (
-          <a
-            href="/problems"
-            className="rounded-md border border-slate-300 px-3 py-1.5 text-sm text-slate-600 hover:bg-slate-50 transition-colors"
-          >
+          <a href="/problems" className="chalk-btn px-3 py-1.5 text-sm">
             Clear
           </a>
         )}
@@ -154,7 +142,7 @@ export default async function ProblemsPage({
 
       {/* Grid */}
       {problemsWithStatus.length === 0 ? (
-        <div className="py-16 text-center text-slate-500 text-sm">
+        <div className="py-16 text-center text-sm" style={{ color: "var(--chalk-faint)" }}>
           No problems match these filters.
         </div>
       ) : (

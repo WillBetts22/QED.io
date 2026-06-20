@@ -1,13 +1,132 @@
 @import "tailwindcss";
 
-body {
-  background-color: #f8fafc; /* slate-50 */
-  color: #0f172a; /* slate-900 */
+/* Latin Modern (the open clone of Computer Modern, Knuth's TeX typeface) is
+   loaded via a <link> in layout.tsx — CSS @import must precede all rules and
+   would conflict with Tailwind's expansion. */
+
+/* ── Chalkboard palette ─────────────────────────────────────────────────────
+   Dark slate-green "slate" with chalk-white text. Centralized here so the
+   whole app inherits it; components reference these vars, not raw hex. */
+:root {
+  --board: #16302b;        /* deep blackboard green */
+  --board-2: #1d3a33;      /* raised panels (cards) */
+  --board-edge: #2f4f46;   /* faint chalk-dust borders */
+  --chalk: #f4f4ec;        /* primary chalk white (slightly warm) */
+  --chalk-dim: #c7cfc4;    /* secondary text */
+  --chalk-faint: #8fa195;  /* tertiary / metadata */
+  --chalk-yellow: #f2e9c8; /* accent — yellow chalk */
+  --chalk-blue: #bcd6e6;   /* accent — blue chalk */
+  --chalk-rose: #e9b8b0;   /* error / flawed */
+  --chalk-green: #b6d6a8;  /* success / correct */
 }
 
-/* KaTeX display math overflow handling */
+body {
+  background-color: var(--board);
+  /* Subtle chalk-dust texture: faint noise via layered radial gradients. */
+  background-image:
+    radial-gradient(circle at 18% 28%, rgba(255, 255, 255, 0.018) 0, transparent 38%),
+    radial-gradient(circle at 82% 72%, rgba(255, 255, 255, 0.015) 0, transparent 40%),
+    radial-gradient(circle at 50% 50%, rgba(0, 0, 0, 0.12) 0, transparent 80%);
+  color: var(--chalk);
+  font-family: "Latin Modern Roman", Georgia, "Times New Roman", serif;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Headings get the same serif; the platform feels like a printed text. */
+h1, h2, h3, h4 {
+  font-family: "Latin Modern Roman", Georgia, serif;
+  letter-spacing: 0.01em;
+}
+
+/* ── Reusable chalk surfaces ────────────────────────────────────────────────
+   Defined once so components don't repeat long class strings. */
+.chalk-panel {
+  background-color: var(--board-2);
+  border: 1px solid var(--board-edge);
+  border-radius: 0.25rem;
+  box-shadow: 0 1px 0 rgba(255, 255, 255, 0.03) inset;
+}
+
+/* A chalk-outlined button: looks hand-drawn on the board. */
+.chalk-btn {
+  border: 1px solid var(--chalk-dim);
+  color: var(--chalk);
+  background: transparent;
+  border-radius: 0.25rem;
+  transition: background-color 0.15s, border-color 0.15s;
+}
+.chalk-btn:hover:not(:disabled) {
+  background-color: rgba(244, 244, 236, 0.08);
+  border-color: var(--chalk);
+}
+.chalk-btn:disabled {
+  opacity: 0.45;
+  cursor: not-allowed;
+}
+
+/* Filled (primary action) variant — chalk fill, board text. */
+.chalk-btn-solid {
+  background-color: var(--chalk);
+  color: var(--board);
+  border: 1px solid var(--chalk);
+  border-radius: 0.25rem;
+  transition: opacity 0.15s;
+}
+.chalk-btn-solid:hover:not(:disabled) { opacity: 0.85; }
+.chalk-btn-solid:disabled { opacity: 0.45; cursor: not-allowed; }
+
+/* Form fields on the board. */
+.chalk-input,
+select.chalk-input {
+  background-color: var(--board);
+  border: 1px solid var(--board-edge);
+  color: var(--chalk);
+  border-radius: 0.25rem;
+}
+.chalk-input:focus {
+  outline: none;
+  border-color: var(--chalk-dim);
+}
+select.chalk-input option {
+  background-color: var(--board-2);
+  color: var(--chalk);
+}
+
+/* Tag / pill chips, drawn in chalk outline. */
+.chalk-chip {
+  border: 1px solid var(--board-edge);
+  color: var(--chalk-dim);
+  border-radius: 999px;
+}
+
+/* Links underline like a chalk annotation. */
+.chalk-link {
+  color: var(--chalk-blue);
+  text-decoration: underline;
+  text-decoration-style: dotted;
+  text-underline-offset: 3px;
+}
+.chalk-link:hover { color: var(--chalk); }
+
+/* KaTeX: render math in chalk and let display math scroll horizontally. */
+.katex { color: var(--chalk); }
 .katex-display {
   overflow-x: auto;
   overflow-y: hidden;
   padding: 0.5rem 0;
+}
+
+/* CodeMirror editor styled as a chalk writing surface. */
+.cm-editor {
+  background-color: var(--board) !important;
+  color: var(--chalk) !important;
+  font-family: "Latin Modern Mono", ui-monospace, monospace !important;
+}
+.cm-editor .cm-content { caret-color: var(--chalk); }
+.cm-editor .cm-cursor { border-left-color: var(--chalk) !important; }
+.cm-editor .cm-placeholder { color: var(--chalk-faint) !important; }
+.cm-editor.cm-focused { outline: none !important; }
+.cm-editor .cm-selectionBackground,
+.cm-editor .cm-content ::selection {
+  background-color: rgba(244, 244, 236, 0.18) !important;
 }

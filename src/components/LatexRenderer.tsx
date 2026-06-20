@@ -9,7 +9,7 @@ function renderLatex(content: string): string {
     try {
       return katex.renderToString(math.trim(), { displayMode: true, throwOnError: false });
     } catch {
-      return `<span class="text-red-500 font-mono text-sm">$$${math}$$</span>`;
+      return `<span class="font-mono text-sm" style="color:var(--chalk-rose)">$$${math}$$</span>`;
     }
   });
 
@@ -17,7 +17,7 @@ function renderLatex(content: string): string {
     try {
       return katex.renderToString(math.trim(), { displayMode: false, throwOnError: false });
     } catch {
-      return `<span class="text-red-500 font-mono text-sm">$${math}$</span>`;
+      return `<span class="font-mono text-sm" style="color:var(--chalk-rose)">$${math}$</span>`;
     }
   });
 

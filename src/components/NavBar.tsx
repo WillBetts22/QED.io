@@ -7,23 +7,25 @@ export default async function NavBar() {
   const session = await getServerSession(authOptions);
 
   return (
-    <nav className="border-b border-slate-200 bg-white">
+    <nav className="border-b" style={{ borderColor: "var(--board-edge)" }}>
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="flex h-14 items-center justify-between">
           <div className="flex items-center gap-6">
-            <Link href="/" className="text-lg font-semibold tracking-tight text-slate-900">
+            <Link href="/" className="text-lg tracking-tight" style={{ color: "var(--chalk)" }}>
               QED.io
             </Link>
             <Link
               href="/problems"
-              className="text-sm text-slate-600 hover:text-slate-900 transition-colors"
+              className="text-sm transition-colors"
+              style={{ color: "var(--chalk-dim)" }}
             >
               Problems
             </Link>
             {session && (
               <Link
                 href="/dashboard"
-                className="text-sm text-slate-600 hover:text-slate-900 transition-colors"
+                className="text-sm transition-colors"
+                style={{ color: "var(--chalk-dim)" }}
               >
                 Dashboard
               </Link>

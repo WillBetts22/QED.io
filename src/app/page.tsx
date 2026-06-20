@@ -23,44 +23,35 @@ export default async function HomePage() {
   return (
     <div className="py-16 text-center space-y-8">
       <div className="space-y-4">
-        <h1 className="text-5xl font-bold tracking-tight text-slate-900">QED.io</h1>
-        <p className="text-xl text-slate-500 max-w-xl mx-auto">
+        <h1 className="text-5xl tracking-tight" style={{ color: "var(--chalk)" }}>QED.io</h1>
+        <p className="text-xl max-w-xl mx-auto" style={{ color: "var(--chalk-dim)" }}>
           Practice writing rigorous proofs. Get instant AI feedback on logical soundness, gaps, and
           unjustified steps.
         </p>
       </div>
 
-      <div className="flex justify-center gap-8 text-sm text-slate-500">
+      <div className="flex justify-center gap-8 text-sm" style={{ color: "var(--chalk-faint)" }}>
         <div>
-          <span className="block text-2xl font-bold text-slate-900">{problemCount}</span>
+          <span className="block text-2xl" style={{ color: "var(--chalk)" }}>{problemCount}</span>
           problems
         </div>
         <div>
-          <span className="block text-2xl font-bold text-slate-900">{bookCount}</span>
+          <span className="block text-2xl" style={{ color: "var(--chalk)" }}>{bookCount}</span>
           {bookCount === 1 ? "book" : "books"}
         </div>
       </div>
 
       <div className="flex justify-center gap-3">
-        <Link
-          href="/problems"
-          className="rounded-md bg-slate-900 px-5 py-2.5 text-sm font-medium text-white hover:bg-slate-700 transition-colors"
-        >
+        <Link href="/problems" className="chalk-btn-solid px-5 py-2.5 text-sm">
           Browse problems
         </Link>
         {!session && !DEMO_MODE && (
-          <Link
-            href="/auth/signup"
-            className="rounded-md border border-slate-300 px-5 py-2.5 text-sm font-medium text-slate-700 hover:bg-slate-50 transition-colors"
-          >
+          <Link href="/auth/signup" className="chalk-btn px-5 py-2.5 text-sm">
             Create account
           </Link>
         )}
         {session && (
-          <Link
-            href="/dashboard"
-            className="rounded-md border border-slate-300 px-5 py-2.5 text-sm font-medium text-slate-700 hover:bg-slate-50 transition-colors"
-          >
+          <Link href="/dashboard" className="chalk-btn px-5 py-2.5 text-sm">
             My progress
           </Link>
         )}
@@ -81,12 +72,9 @@ export default async function HomePage() {
             body: "Filter by book, chapter, topic, and difficulty. See exactly where you need more work.",
           },
         ].map(({ title, body }) => (
-          <div
-            key={title}
-            className="rounded-lg border border-slate-200 bg-white p-5 text-left shadow-sm"
-          >
-            <h3 className="font-semibold text-slate-900 mb-1">{title}</h3>
-            <p className="text-sm text-slate-500">{body}</p>
+          <div key={title} className="chalk-panel p-5 text-left">
+            <h3 className="mb-1" style={{ color: "var(--chalk)" }}>{title}</h3>
+            <p className="text-sm" style={{ color: "var(--chalk-dim)" }}>{body}</p>
           </div>
         ))}
       </div>

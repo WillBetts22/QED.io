@@ -51,9 +51,9 @@ export default function ProofEditor({
 
   if (!isAuthenticated) {
     return (
-      <div className="rounded-lg border border-slate-200 bg-slate-50 p-8 text-center">
-        <p className="text-sm text-slate-600">
-          <a href="/auth/signin" className="text-indigo-600 hover:underline font-medium">
+      <div className="chalk-panel p-8 text-center">
+        <p className="text-sm" style={{ color: "var(--chalk-dim)" }}>
+          <a href="/auth/signin" className="chalk-link">
             Sign in
           </a>{" "}
           to write and submit proofs.
@@ -62,32 +62,27 @@ export default function ProofEditor({
     );
   }
 
+  const tabClass = (active: boolean) =>
+    `px-4 py-2 text-sm transition-colors ${active ? "" : "hover:brightness-125"}`;
+  const tabStyle = (active: boolean) => ({
+    color: active ? "var(--chalk)" : "var(--chalk-faint)",
+    borderBottom: active ? "2px solid var(--chalk)" : "2px solid transparent",
+  });
+
   return (
     <div className="space-y-4">
-      <div className="rounded-lg border border-slate-200 overflow-hidden">
+      <div className="chalk-panel overflow-hidden">
         {/* Tab bar */}
-        <div className="flex border-b border-slate-200 bg-slate-50">
-          <button
-            onClick={() => setTab("write")}
-            className={`px-4 py-2 text-sm font-medium transition-colors ${
-              tab === "write"
-                ? "bg-white border-b-2 border-indigo-500 text-indigo-600"
-                : "text-slate-500 hover:text-slate-700"
-            }`}
-          >
+        <div className="flex border-b" style={{ borderColor: "var(--board-edge)" }}>
+          <button onClick={() => setTab("write")} className={tabClass(tab === "write")} style={tabStyle(tab === "write")}>
             Write
           </button>
-          <button
-            onClick={() => setTab("preview")}
-            className={`px-4 py-2 text-sm font-medium transition-colors ${
-              tab === "preview"
-                ? "bg-white border-b-2 border-indigo-500 text-indigo-600"
-                : "text-slate-500 hover:text-slate-700"
-            }`}
-          >
+          <button onClick={() => setTab("preview")} className={tabClass(tab === "preview")} style={tabStyle(tab === "preview")}>
             Preview
           </button>
-          <div className="ml-auto px-3 py-2 text-xs text-slate-400 self-center">LaTeX</div>
+          <div className="ml-auto px-3 py-2 text-xs self-center" style={{ color: "var(--chalk-faint)" }}>
+            LaTeX
+          </div>
         </div>
 
         {/* Editor / Preview */}
@@ -97,6 +92,7 @@ export default function ProofEditor({
               value={proof}
               onChange={setProof}
               extensions={[markdown()]}
+              theme="dark"
               className="text-sm"
               basicSetup={{ lineNumbers: false, foldGutter: false, highlightActiveLine: false }}
               placeholder="Write your proof here using LaTeX…&#10;&#10;Inline math: $x \in \mathbb{R}$&#10;Display math: $$\lim_{n \to \infty} a_n = L$$"
@@ -104,9 +100,11 @@ export default function ProofEditor({
           ) : (
             <div className="p-4 min-h-64">
               {proof.trim() ? (
-                <LatexRenderer content={proof} className="text-sm text-slate-800" />
+                <LatexRenderer content={proof} className="text-sm" />
               ) : (
-                <p className="text-sm text-slate-400 italic">Nothing to preview yet.</p>
+                <p className="text-sm italic" style={{ color: "var(--chalk-faint)" }}>
+                  Nothing to preview yet.
+                </p>
               )}
             </div>
           )}
@@ -118,19 +116,26 @@ export default function ProofEditor({
         <button
           onClick={handleSubmit}
           disabled={isSubmitting || !proof.trim()}
-          className="rounded-md bg-indigo-600 px-4 py-2 text-sm font-medium text-white hover:bg-indigo-700 disabled:opacity-50 disabled:cursor-not-allowed transition-colors"
+          className="chalk-btn-solid px-4 py-2 text-sm"
         >
           {isSubmitting ? "Evaluating…" : "Submit Proof"}
         </button>
         {isSubmitting && (
-          <span className="text-xs text-slate-500">
+          <span className="text-xs" style={{ color: "var(--chalk-faint)" }}>
             Claude is grading your proof…
           </span>
         )}
       </div>
 
       {error && (
-        <div className="rounded-md bg-red-50 border border-red-200 px-4 py-3 text-sm text-red-700">
+        <div
+          className="rounded px-4 py-3 text-sm"
+          style={{
+            color: "var(--chalk-rose)",
+            border: "1px solid var(--chalk-rose)",
+            backgroundColor: "rgba(233, 184, 176, 0.06)",
+          }}
+        >
           {error}
         </div>
       )}
@@ -138,7 +143,7 @@ export default function ProofEditor({
       {/* Latest feedback */}
       {latestFeedback && (
         <div>
-          <h3 className="text-sm font-semibold text-slate-700 mb-2">Feedback</h3>
+          <h3 className="text-sm mb-2" style={{ color: "var(--chalk-dim)" }}>Feedback</h3>
           <FeedbackPanel feedback={latestFeedback} />
         </div>
       )}
@@ -146,13 +151,13 @@ export default function ProofEditor({
       {/* Past submissions */}
       {pastSubmissions.length > 0 && !latestFeedback && (
         <details className="group">
-          <summary className="cursor-pointer text-sm text-slate-500 hover:text-slate-700 select-none">
+          <summary className="cursor-pointer text-sm select-none chalk-link">
             Past submissions ({pastSubmissions.length})
           </summary>
           <div className="mt-3 space-y-3">
             {pastSubmissions.map((sub) => (
               <div key={sub.id} className="space-y-2">
-                <div className="text-xs text-slate-400">
+                <div className="text-xs" style={{ color: "var(--chalk-faint)" }}>
                   {new Date(sub.submittedAt).toLocaleString()}
                 </div>
                 <FeedbackPanel feedback={sub.feedback} />
