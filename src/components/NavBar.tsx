@@ -1,9 +1,11 @@
 import Link from "next/link";
+import { cookies } from "next/headers";
 import { getServerSession } from "next-auth";
 import { authOptions } from "@/lib/auth";
 import NavBarClient from "./NavBarClient";
 
 export default async function NavBar() {
+  await cookies(); // forces dynamic render so Next 15 doesn't freeze the session
   const session = await getServerSession(authOptions);
 
   return (
@@ -23,11 +25,11 @@ export default async function NavBar() {
             </Link>
             {session && (
               <Link
-                href="/dashboard"
+                href="/account"
                 className="text-sm transition-colors"
                 style={{ color: "var(--chalk-dim)" }}
               >
-                Dashboard
+                Account
               </Link>
             )}
           </div>

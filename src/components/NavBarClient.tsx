@@ -28,9 +28,23 @@ export default function NavBarClient({ session }: NavBarClientProps) {
 
   return (
     <div className="flex items-center gap-3">
-      <span className="text-sm" style={{ color: "var(--chalk-dim)" }}>
+      <Link
+        href="/account"
+        className="flex items-center gap-2 text-sm transition-colors"
+        style={{ color: "var(--chalk-dim)" }}
+      >
+        {session.user?.image && (
+          // eslint-disable-next-line @next/next/no-img-element
+          <img
+            src={session.user.image}
+            alt=""
+            width={28}
+            height={28}
+            className="rounded-full"
+          />
+        )}
         {session.user?.name ?? session.user?.email}
-      </span>
+      </Link>
       <button
         onClick={() => signOut({ callbackUrl: "/" })}
         className="text-sm transition-colors"
