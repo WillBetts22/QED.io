@@ -3,6 +3,7 @@
 import { useState } from "react";
 import CodeMirror from "@uiw/react-codemirror";
 import { markdown } from "@codemirror/lang-markdown";
+import { EditorView } from "@codemirror/view";
 import LatexRenderer from "./LatexRenderer";
 import FeedbackPanel from "./FeedbackPanel";
 import type { GraderFeedback, SubmissionResult } from "@/types";
@@ -24,7 +25,6 @@ export default function ProofEditor({
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [latestFeedback, setLatestFeedback] = useState<GraderFeedback | null>(null);
   const [error, setError] = useState<string | null>(null);
-  const [tab, setTab] = useState<"write" | "preview">("write");
 
   const handleSubmit = async () => {
     if (!proof.trim()) return;
@@ -62,51 +62,27 @@ export default function ProofEditor({
     );
   }
 
-  const tabClass = (active: boolean) =>
-    `px-4 py-2 text-sm transition-colors ${active ? "" : "hover:brightness-125"}`;
-  const tabStyle = (active: boolean) => ({
-    color: active ? "var(--chalk)" : "var(--chalk-faint)",
-    borderBottom: active ? "2px solid var(--chalk)" : "2px solid transparent",
-  });
-
   return (
     <div className="space-y-4">
       <div className="chalk-panel overflow-hidden">
-        {/* Tab bar */}
-        <div className="flex border-b" style={{ borderColor: "var(--board-edge)" }}>
-          <button onClick={() => setTab("write")} className={tabClass(tab === "write")} style={tabStyle(tab === "write")}>
-            Write
-          </button>
-          <button onClick={() => setTab("preview")} className={tabClass(tab === "preview")} style={tabStyle(tab === "preview")}>
-            Preview
-          </button>
-          <div className="ml-auto px-3 py-2 text-xs self-center" style={{ color: "var(--chalk-faint)" }}>
-            LaTeX
-          </div>
-        </div>
-
-        {/* Editor / Preview */}
-        <div className="min-h-64">
-          {tab === "write" ? (
-            <CodeMirror
-              value={proof}
-              onChange={setProof}
-              extensions={[markdown()]}
-              theme="dark"
-              className="text-sm"
-              basicSetup={{ lineNumbers: false, foldGutter: false, highlightActiveLine: false }}
-              placeholder="Write your proof here using LaTeX…&#10;&#10;Inline math: $x \in \mathbb{R}$&#10;Display math: $$\lim_{n \to \infty} a_n = L$$"
-            />
+        <CodeMirror
+          value={proof}
+          onChange={setProof}
+          extensions={[markdown(), EditorView.lineWrapping]}
+          theme="dark"
+          className="text-sm"
+          style={{ minHeight: "180px" }}
+          basicSetup={{ lineNumbers: false, foldGutter: false, highlightActiveLine: false }}
+          placeholder="Write your proof here using LaTeX…&#10;&#10;Inline math: $x \in \mathbb{R}$&#10;Display math: $$\lim_{n \to \infty} a_n = L$$"
+        />
+        <div className="border-t p-4" style={{ borderColor: "var(--board-edge)" }}>
+          <div className="text-xs mb-2" style={{ color: "var(--chalk-faint)" }}>Preview</div>
+          {proof.trim() ? (
+            <LatexRenderer content={proof} className="text-sm" />
           ) : (
-            <div className="p-4 min-h-64">
-              {proof.trim() ? (
-                <LatexRenderer content={proof} className="text-sm" />
-              ) : (
-                <p className="text-sm italic" style={{ color: "var(--chalk-faint)" }}>
-                  Nothing to preview yet.
-                </p>
-              )}
-            </div>
+            <p className="text-sm italic" style={{ color: "var(--chalk-faint)" }}>
+              Your proof will appear here…
+            </p>
           )}
         </div>
       </div>
