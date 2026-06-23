@@ -15,11 +15,11 @@ export default async function NavBar() {
               QED.io
             </Link>
             <Link
-              href="/problems"
+              href="/books"
               className="text-sm transition-colors"
               style={{ color: "var(--chalk-dim)" }}
             >
-              Problems
+              Books
             </Link>
             {session && (
               <Link
