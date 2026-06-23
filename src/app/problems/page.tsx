@@ -1,9 +1,9 @@
 import { getServerSession } from "next-auth";
 import { authOptions } from "@/lib/auth";
-import { prisma } from "@/lib/prisma";
+import { adminDb } from "@/lib/firebase-admin";
 import ProblemCard from "@/components/ProblemCard";
-import { DEMO_MODE, getDemoProblems, DEMO_BOOKS, DEMO_TAGS } from "@/lib/demo-data";
 import type { ProblemSummary, ProblemStatus, Difficulty } from "@/types";
+import type { FSProblem } from "@/lib/firestore-types";
 
 interface SearchParams {
   book?: string;
@@ -18,80 +18,70 @@ export default async function ProblemsPage({
   searchParams: Promise<SearchParams>;
 }) {
   const params = await searchParams;
+  const session = await getServerSession(authOptions);
 
-  let books: { slug: string; title: string }[];
-  let tags: { name: string }[];
-  let problemsWithStatus: ProblemSummary[];
+  const [problemsSnap, booksSnap] = await Promise.all([
+    adminDb.collection("problems").get(),
+    adminDb.collection("books").get(),
+  ]);
 
-  if (DEMO_MODE) {
-    books = DEMO_BOOKS;
-    tags = DEMO_TAGS;
-    problemsWithStatus = getDemoProblems({
-      book: params.book,
-      difficulty: params.difficulty,
-      tag: params.tag,
-    });
-  } else {
-    const session = await getServerSession(authOptions);
+  const allProblems = problemsSnap.docs.map((doc) => doc.data() as FSProblem);
 
-    const [booksData, tagsData, problems] = await Promise.all([
-      prisma.book.findMany({ select: { slug: true, title: true } }),
-      prisma.tag.findMany({ select: { name: true }, orderBy: { name: "asc" } }),
-      prisma.problem.findMany({
-        where: {
-          ...(params.difficulty
-            ? { difficulty: params.difficulty as Difficulty }
-            : {}),
-          chapter: {
-            ...(params.chapter ? { number: parseInt(params.chapter) } : {}),
-            book: { ...(params.book ? { slug: params.book } : {}) },
-          },
-          ...(params.tag ? { tags: { some: { tag: { name: params.tag } } } } : {}),
-        },
-        include: {
-          chapter: { include: { book: true } },
-          tags: { include: { tag: true } },
-          ...(session?.user?.id
-            ? {
-                submissions: {
-                  where: { userId: session.user.id },
-                  orderBy: { submittedAt: "desc" },
-                  take: 1,
-                  select: { verdict: true },
-                },
-              }
-            : {}),
-        },
-        orderBy: [
-          { chapter: { book: { title: "asc" } } },
-          { chapter: { number: "asc" } },
-          { number: "asc" },
-        ],
-      }),
-    ]);
-
-    books = booksData;
-    tags = tagsData;
-    problemsWithStatus = problems.map((p) => {
-      const subs = (p as { submissions?: { verdict: string }[] }).submissions ?? [];
-      let status: ProblemStatus | undefined;
-      if (session?.user) {
-        if (subs.some((s) => s.verdict === "CORRECT")) status = "SOLVED";
-        else if (subs.length > 0) status = "IN_PROGRESS";
-        else status = "NOT_STARTED";
-      }
-      return {
-        id: p.id,
-        number: p.number,
-        statement: p.statement,
-        difficulty: p.difficulty as Difficulty,
-        sourcePageRef: p.sourcePageRef,
-        chapter: p.chapter,
-        tags: p.tags,
-        status,
-      };
-    });
+  const tagSet = new Set<string>();
+  for (const p of allProblems) {
+    for (const t of p.tags ?? []) tagSet.add(t);
   }
+  const tags = Array.from(tagSet).sort();
+  const books = booksSnap.docs.map((doc) => ({ slug: doc.id, title: (doc.data() as { title: string }).title }));
+
+  const filtered = allProblems
+    .filter((p) => !params.book || p.bookSlug === params.book)
+    .filter((p) => !params.chapter || String(p.chapterNumber) === params.chapter)
+    .filter((p) => !params.difficulty || p.difficulty === params.difficulty)
+    .filter((p) => !params.tag || p.tags.includes(params.tag))
+    .sort((a, b) => {
+      const bt = a.bookTitle.localeCompare(b.bookTitle);
+      if (bt !== 0) return bt;
+      if (a.chapterNumber !== b.chapterNumber) return a.chapterNumber - b.chapterNumber;
+      return a.number.localeCompare(b.number, undefined, { numeric: true });
+    });
+
+  const verdictMap = new Map<string, string>();
+  if (session?.user?.id) {
+    const subSnap = await adminDb
+      .collection("submissions")
+      .where("userId", "==", session.user.id)
+      .get();
+    for (const doc of subSnap.docs) {
+      const d = doc.data();
+      if (!verdictMap.has(d.problemId) || d.verdict === "CORRECT") {
+        verdictMap.set(d.problemId, d.verdict);
+      }
+    }
+  }
+
+  const problemsWithStatus: ProblemSummary[] = filtered.map((p) => {
+    let status: ProblemStatus | undefined;
+    if (session?.user) {
+      const v = verdictMap.get(p.id);
+      status = v === "CORRECT" ? "SOLVED" : v ? "IN_PROGRESS" : "NOT_STARTED";
+    }
+    return {
+      id: p.id,
+      number: p.number,
+      statement: p.statement,
+      difficulty: p.difficulty as Difficulty,
+      sourcePageRef: p.sourcePageRef,
+      chapter: {
+        id: `${p.bookSlug}-${p.chapterNumber}`,
+        number: p.chapterNumber,
+        title: p.chapterTitle,
+        book: { id: p.bookSlug, title: p.bookTitle, author: p.bookAuthor, slug: p.bookSlug },
+      },
+      tags: p.tags.map((name) => ({ tag: { id: name, name } })),
+      status,
+    };
+  });
 
   return (
     <div className="space-y-6">
@@ -102,14 +92,11 @@ export default async function ProblemsPage({
         </span>
       </div>
 
-      {/* Filters */}
       <form className="flex flex-wrap gap-3" method="GET">
         <select name="book" defaultValue={params.book ?? ""} className="chalk-input px-3 py-1.5 text-sm">
           <option value="">All books</option>
           {books.map((b) => (
-            <option key={b.slug} value={b.slug}>
-              {b.title}
-            </option>
+            <option key={b.slug} value={b.slug}>{b.title}</option>
           ))}
         </select>
 
@@ -123,24 +110,17 @@ export default async function ProblemsPage({
         <select name="tag" defaultValue={params.tag ?? ""} className="chalk-input px-3 py-1.5 text-sm">
           <option value="">All topics</option>
           {tags.map((t) => (
-            <option key={t.name} value={t.name}>
-              {t.name}
-            </option>
+            <option key={t} value={t}>{t}</option>
           ))}
         </select>
 
-        <button type="submit" className="chalk-btn-solid px-3 py-1.5 text-sm">
-          Filter
-        </button>
+        <button type="submit" className="chalk-btn-solid px-3 py-1.5 text-sm">Filter</button>
 
         {(params.book || params.difficulty || params.tag) && (
-          <a href="/problems" className="chalk-btn px-3 py-1.5 text-sm">
-            Clear
-          </a>
+          <a href="/problems" className="chalk-btn px-3 py-1.5 text-sm">Clear</a>
         )}
       </form>
 
-      {/* Grid */}
       {problemsWithStatus.length === 0 ? (
         <div className="py-16 text-center text-sm" style={{ color: "var(--chalk-faint)" }}>
           No problems match these filters.

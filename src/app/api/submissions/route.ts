@@ -1,10 +1,10 @@
 import { NextResponse } from "next/server";
 import { getServerSession } from "next-auth";
 import { z } from "zod";
+import { randomUUID } from "crypto";
 import { authOptions } from "@/lib/auth";
-import { prisma } from "@/lib/prisma";
+import { adminDb } from "@/lib/firebase-admin";
 import { evaluateProof } from "@/lib/claude";
-import { DEMO_MODE, getDemoProblem } from "@/lib/demo-data";
 
 const submitSchema = z.object({
   problemId: z.string().min(1),
@@ -20,34 +20,16 @@ export async function POST(req: Request) {
 
   const { problemId, proof } = parsed.data;
 
-  if (DEMO_MODE) {
-    const demoProblem = getDemoProblem(problemId);
-    if (!demoProblem) {
-      return NextResponse.json({ error: "Problem not found" }, { status: 404 });
-    }
-    let feedback;
-    try {
-      feedback = await evaluateProof(demoProblem.statement, proof);
-    } catch {
-      return NextResponse.json({ error: "Grading failed — please try again" }, { status: 502 });
-    }
-    return NextResponse.json({
-      id: `demo-${Date.now()}`,
-      verdict: feedback.verdict,
-      feedback,
-      submittedAt: new Date().toISOString(),
-    });
-  }
-
   const session = await getServerSession(authOptions);
   if (!session?.user?.id) {
     return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
   }
 
-  const problem = await prisma.problem.findUnique({ where: { id: problemId } });
-  if (!problem) {
+  const problemDoc = await adminDb.collection("problems").doc(problemId).get();
+  if (!problemDoc.exists) {
     return NextResponse.json({ error: "Problem not found" }, { status: 404 });
   }
+  const problem = problemDoc.data()!;
 
   let feedback;
   try {
@@ -56,30 +38,27 @@ export async function POST(req: Request) {
     return NextResponse.json({ error: "Grading failed — please try again" }, { status: 502 });
   }
 
-  const submission = await prisma.submission.create({
-    data: {
-      userId: session.user.id,
-      problemId,
-      proof,
-      verdict: feedback.verdict,
-      // eslint-disable-next-line @typescript-eslint/no-explicit-any
-      feedback: feedback as any,
-    },
+  const id = randomUUID();
+  const submittedAt = new Date();
+  await adminDb.collection("submissions").doc(id).set({
+    id,
+    userId: session.user.id,
+    problemId,
+    proof,
+    verdict: feedback.verdict,
+    feedback,
+    submittedAt,
   });
 
   return NextResponse.json({
-    id: submission.id,
-    verdict: submission.verdict,
-    feedback: submission.feedback,
-    submittedAt: submission.submittedAt.toISOString(),
+    id,
+    verdict: feedback.verdict,
+    feedback,
+    submittedAt: submittedAt.toISOString(),
   });
 }
 
 export async function GET(req: Request) {
-  if (DEMO_MODE) {
-    return NextResponse.json([]);
-  }
-
   const session = await getServerSession(authOptions);
   if (!session?.user?.id) {
     return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
@@ -88,23 +67,26 @@ export async function GET(req: Request) {
   const { searchParams } = new URL(req.url);
   const problemId = searchParams.get("problemId");
 
-  const submissions = await prisma.submission.findMany({
-    where: {
-      userId: session.user.id,
-      ...(problemId ? { problemId } : {}),
-    },
-    orderBy: { submittedAt: "desc" },
-    select: {
-      id: true,
-      verdict: true,
-      feedback: true,
-      submittedAt: true,
-      proof: true,
-      problemId: true,
-    },
-  });
+  // Filter by userId only (single-field index, always available), then filter
+  // problemId in memory. This avoids depending on a Firestore composite index.
+  const snap = await adminDb
+    .collection("submissions")
+    .where("userId", "==", session.user.id)
+    .get();
+  const submissions = snap.docs
+    .map((doc) => doc.data())
+    .filter((d) => !problemId || d.problemId === problemId)
+    .map((d) => {
+      return {
+        id: d.id,
+        verdict: d.verdict,
+        feedback: d.feedback,
+        proof: d.proof,
+        problemId: d.problemId,
+        submittedAt: d.submittedAt?.toDate?.()?.toISOString() ?? new Date().toISOString(),
+      };
+    })
+    .sort((a, b) => new Date(b.submittedAt).getTime() - new Date(a.submittedAt).getTime());
 
-  return NextResponse.json(
-    submissions.map((s) => ({ ...s, submittedAt: s.submittedAt.toISOString() }))
-  );
+  return NextResponse.json(submissions);
 }

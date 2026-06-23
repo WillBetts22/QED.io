@@ -1,19 +1,47 @@
 /**
- * ingest: Upsert a reviewed book JSON into the database.
+ * ingest: Upsert a reviewed book JSON into Firestore.
  *
  * Usage:
  *   npm run ingest -- --book books/rudin-pma-3e.json [--dry-run]
  *
- * Idempotent: re-running is safe. Problems are upserted by (chapterId, number).
- * Tags are upserted by name; hints are replaced per problem on each run.
+ * Idempotent: re-running is safe. Problems are keyed by <slug>-ch<N>-<number>.
  */
 
 import fs from "fs";
 import path from "path";
-import { PrismaClient } from "@prisma/client";
+import { initializeApp, getApps, cert } from "firebase-admin/app";
+import { getFirestore } from "firebase-admin/firestore";
 import type { BookJson } from "../src/types";
 
-const prisma = new PrismaClient();
+// Load .env.local manually (tsx doesn't auto-load it)
+function loadEnv() {
+  const envPath = path.resolve(".env.local");
+  if (!fs.existsSync(envPath)) return;
+  const lines = fs.readFileSync(envPath, "utf-8").split("\n");
+  for (const line of lines) {
+    const trimmed = line.trim();
+    if (!trimmed || trimmed.startsWith("#")) continue;
+    const eqIdx = trimmed.indexOf("=");
+    if (eqIdx === -1) continue;
+    const key = trimmed.slice(0, eqIdx).trim();
+    const val = trimmed.slice(eqIdx + 1).trim().replace(/^["']|["']$/g, "");
+    if (!process.env[key]) process.env[key] = val;
+  }
+}
+loadEnv();
+
+const app =
+  getApps().length > 0
+    ? getApps()[0]
+    : initializeApp({
+        credential: cert({
+          projectId: process.env.FIREBASE_PROJECT_ID,
+          clientEmail: process.env.FIREBASE_CLIENT_EMAIL,
+          privateKey: process.env.FIREBASE_PRIVATE_KEY?.replace(/\\n/g, "\n"),
+        }),
+      });
+
+const db = getFirestore(app);
 
 function parseArgs() {
   const args = process.argv.slice(2);
@@ -50,7 +78,6 @@ async function main() {
 
   const book: BookJson = JSON.parse(fs.readFileSync(absPath, "utf-8"));
 
-  // Validate required fields
   if (!book.slug || !book.title || !book.author || !book.chapters?.length) {
     console.error("Invalid book JSON: missing slug, title, author, or chapters");
     process.exit(1);
@@ -59,7 +86,7 @@ async function main() {
   const totalProblems = book.chapters.reduce((n, c) => n + c.problems.length, 0);
   console.log(`\nIngesting: ${book.title} (${book.author})`);
   console.log(`  ${book.chapters.length} chapters, ${totalProblems} problems`);
-  if (dryRun) console.log("  [DRY RUN — no database writes]\n");
+  if (dryRun) console.log("  [DRY RUN — no Firestore writes]\n");
 
   if (dryRun) {
     for (const chapter of book.chapters) {
@@ -71,80 +98,53 @@ async function main() {
     return;
   }
 
-  // Upsert book
-  const dbBook = await prisma.book.upsert({
-    where: { slug: book.slug },
-    update: { title: book.title, author: book.author, edition: book.edition, year: book.year },
-    create: { slug: book.slug, title: book.title, author: book.author, edition: book.edition, year: book.year },
-  });
-  console.log(`\nBook: ${dbBook.title} (id: ${dbBook.id})`);
+  // Upsert book document
+  await db.collection("books").doc(book.slug).set(
+    {
+      slug: book.slug,
+      title: book.title,
+      author: book.author,
+      ...(book.edition != null ? { edition: book.edition } : {}),
+      ...(book.year != null ? { year: book.year } : {}),
+    },
+    { merge: true }
+  );
+  console.log(`\nBook: ${book.title} (id: ${book.slug})`);
 
   for (const chapter of book.chapters) {
     process.stdout.write(`  Chapter ${chapter.number}: ${chapter.title}…`);
 
-    const dbChapter = await prisma.chapter.upsert({
-      where: { bookId_number: { bookId: dbBook.id, number: chapter.number } },
-      update: { title: chapter.title },
-      create: { bookId: dbBook.id, number: chapter.number, title: chapter.title },
-    });
-
+    const batch = db.batch();
     for (const problem of chapter.problems) {
-      // Upsert problem
-      const dbProblem = await prisma.problem.upsert({
-        where: { chapterId_number: { chapterId: dbChapter.id, number: problem.number } },
-        update: {
-          statement: problem.statement,
-          difficulty: problem.difficulty,
-          sourcePageRef: problem.sourcePageRef ?? null,
-        },
-        create: {
-          chapterId: dbChapter.id,
+      const docId = `${book.slug}-ch${chapter.number}-${problem.number}`;
+      const ref = db.collection("problems").doc(docId);
+      batch.set(
+        ref,
+        {
+          id: docId,
           number: problem.number,
           statement: problem.statement,
           difficulty: problem.difficulty,
           sourcePageRef: problem.sourcePageRef ?? null,
+          bookSlug: book.slug,
+          bookTitle: book.title,
+          bookAuthor: book.author,
+          chapterNumber: chapter.number,
+          chapterTitle: chapter.title,
+          tags: problem.tags,
+          hints: problem.hints,
         },
-      });
-
-      // Upsert tags and connect
-      if (problem.tags.length > 0) {
-        // Remove existing tags for this problem
-        await prisma.problemTag.deleteMany({ where: { problemId: dbProblem.id } });
-
-        for (const tagName of problem.tags) {
-          const tag = await prisma.tag.upsert({
-            where: { name: tagName },
-            update: {},
-            create: { name: tagName },
-          });
-          await prisma.problemTag.create({
-            data: { problemId: dbProblem.id, tagId: tag.id },
-          });
-        }
-      }
-
-      // Replace hints
-      await prisma.hint.deleteMany({ where: { problemId: dbProblem.id } });
-      if (problem.hints.length > 0) {
-        await prisma.hint.createMany({
-          data: problem.hints.map((h) => ({
-            problemId: dbProblem.id,
-            order: h.order,
-            content: h.content,
-          })),
-        });
-      }
+        { merge: true }
+      );
     }
-
+    await batch.commit();
     console.log(` ${chapter.problems.length} problems`);
   }
 
   console.log("\nDone.");
 }
 
-main()
-  .catch((err) => {
-    console.error(err);
-    process.exit(1);
-  })
-  .finally(() => prisma.$disconnect());
+main().catch((err) => {
+  console.error(err);
+  process.exit(1);
+});

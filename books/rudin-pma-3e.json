@@ -1,0 +1,4139 @@
+{
+  "slug": "rudin-pma-3e",
+  "title": "Principles of Mathematical Analysis",
+  "author": "Walter Rudin",
+  "edition": 3,
+  "year": 1976,
+  "chapters": [
+    {
+      "number": 1,
+      "title": "The Real and Complex Number Systems",
+      "problems": [
+        {
+          "number": "1",
+          "statement": "If $r$ is rational ($r \\neq 0$) and $x$ is irrational, prove that $r + x$ and $rx$ are irrational.",
+          "difficulty": "EASY",
+          "tags": [
+            "rational numbers",
+            "irrational numbers",
+            "fields"
+          ],
+          "hints": [
+            {
+              "order": 1,
+              "content": "Assume $r+x$ is rational and derive that $x$ would be rational, a contradiction. Use that rationals are closed under subtraction and division."
+            }
+          ],
+          "sourcePageRef": "p. 21"
+        },
+        {
+          "number": "2",
+          "statement": "Prove that there is no rational number whose square is $12$.",
+          "difficulty": "EASY",
+          "tags": [
+            "rational numbers",
+            "irrational numbers",
+            "number theory"
+          ],
+          "hints": [
+            {
+              "order": 1,
+              "content": "Mimic Rudin's proof that $\\sqrt{2}$ is irrational: suppose $p/q$ is in lowest terms with $(p/q)^2 = 12$ and reach a contradiction about common factors."
+            }
+          ],
+          "sourcePageRef": "p. 21"
+        },
+        {
+          "number": "3",
+          "statement": "Prove Proposition 1.15: the axioms for multiplication imply (a) if $x \\neq 0$ and $xy = xz$ then $y = z$; (b) if $x \\neq 0$ and $xy = x$ then $y = 1$; (c) if $x \\neq 0$ and $xy = 1$ then $y = 1/x$; (d) if $x \\neq 0$ then $1/(1/x) = x$.",
+          "difficulty": "EASY",
+          "tags": [
+            "fields",
+            "axioms",
+            "algebra"
+          ],
+          "hints": [
+            {
+              "order": 1,
+              "content": "For each part, multiply by the multiplicative inverse $1/x$ and apply the field axioms in sequence."
+            }
+          ],
+          "sourcePageRef": "p. 21"
+        },
+        {
+          "number": "4",
+          "statement": "Let $E$ be a nonempty subset of an ordered set; suppose $\\alpha$ is a lower bound of $E$ and $\\beta$ is an upper bound of $E$. Prove that $\\alpha \\leq \\beta$.",
+          "difficulty": "EASY",
+          "tags": [
+            "ordered sets",
+            "bounds"
+          ],
+          "hints": [
+            {
+              "order": 1,
+              "content": "Pick any element $x \\in E$ (possible since $E$ is nonempty) and chain the inequalities $\\alpha \\le x \\le \\beta$."
+            }
+          ],
+          "sourcePageRef": "p. 22"
+        },
+        {
+          "number": "5",
+          "statement": "Let $A$ be a nonempty set of real numbers which is bounded below. Let $-A$ be the set of all numbers $-x$, where $x \\in A$. Prove that $\\inf A = -\\sup(-A)$.",
+          "difficulty": "MEDIUM",
+          "tags": [
+            "real numbers",
+            "supremum",
+            "infimum",
+            "bounds"
+          ],
+          "hints": [
+            {
+              "order": 1,
+              "content": "Show $-\\sup(-A)$ is a lower bound of $A$, then show it is the greatest lower bound by using the least-upper-bound property of $-A$."
+            }
+          ],
+          "sourcePageRef": "p. 22"
+        },
+        {
+          "number": "6",
+          "statement": "Fix $b > 1$. (a) If $m, n, p, q$ are integers, $n > 0$, $q > 0$, and $r = m/n = p/q$, prove that $(b^m)^{1/n} = (b^p)^{1/q}$, so that $b^r$ is well defined. (b) Prove that $b^{r+s} = b^r b^s$ for rational $r, s$. (c) For real $x$, define $B(x)$ to be the set of all $b^t$ with $t$ rational and $t \\le x$; prove that $b^r = \\sup B(r)$ when $r$ is rational. (d) Prove that $b^{x+y} = b^x b^y$ for all real $x, y$, where $b^x = \\sup B(x)$.",
+          "difficulty": "HARD",
+          "tags": [
+            "real numbers",
+            "exponents",
+            "supremum",
+            "real exponentiation"
+          ],
+          "hints": [
+            {
+              "order": 1,
+              "content": "Raise both sides to integer powers to reduce rational-exponent identities to integer ones; for (d) use that products of suprema relate to suprema of products for positive reals."
+            }
+          ],
+          "sourcePageRef": "p. 22"
+        },
+        {
+          "number": "7",
+          "statement": "Fix $b > 1$, $y > 0$, and prove that there is a unique real $x$ such that $b^x = y$, by completing the following outline (this $x$ is called $\\log_b y$): (a) For any positive integer $n$, $b^n - 1 \\ge n(b-1)$. (b) Hence $b - 1 \\ge n(b^{1/n} - 1)$. (c) If $t > 1$ and $n > (b-1)/(t-1)$, then $b^{1/n} < t$. (d) If $w$ is such that $b^w < y$, then $b^{w + (1/n)} < y$ for sufficiently large $n$. (e) If $b^w > y$, then $b^{w - (1/n)} > y$ for sufficiently large $n$. (f) Let $A$ be the set of all $w$ such that $b^w < y$, and show that $x = \\sup A$ satisfies $b^x = y$. (g) Prove that this $x$ is unique.",
+          "difficulty": "HARD",
+          "tags": [
+            "real numbers",
+            "logarithms",
+            "exponents",
+            "supremum"
+          ],
+          "hints": [
+            {
+              "order": 1,
+              "content": "Follow the outline part by part; the key inequalities in (a)-(c) let you nudge $b^w$ above or below $y$, forcing the supremum to hit $y$ exactly."
+            }
+          ],
+          "sourcePageRef": "p. 22"
+        },
+        {
+          "number": "8",
+          "statement": "Prove that no order can be defined in the complex field that turns it into an ordered field. (Hint: $-1$ is a square.)",
+          "difficulty": "MEDIUM",
+          "tags": [
+            "complex numbers",
+            "ordered fields"
+          ],
+          "hints": [
+            {
+              "order": 1,
+              "content": "In any ordered field every square is nonnegative; but $i^2 = -1$ and $1^2 = 1$, forcing $-1 \\ge 0$ and $1 \\ge 0$ simultaneously, a contradiction."
+            }
+          ],
+          "sourcePageRef": "p. 22"
+        },
+        {
+          "number": "9",
+          "statement": "Suppose $z = a + bi$, $w = c + di$. Define $z < w$ if $a < c$, and also if $a = c$ but $b < d$. Prove that this turns the set of all complex numbers into an ordered set. (This type of order is called a dictionary order, or lexicographic order.) Does this ordered set have the least-upper-bound property?",
+          "difficulty": "MEDIUM",
+          "tags": [
+            "complex numbers",
+            "ordered sets",
+            "lexicographic order",
+            "least upper bound"
+          ],
+          "hints": [
+            {
+              "order": 1,
+              "content": "Verify trichotomy and transitivity for the lexicographic order; then test the LUB property on a set like $\\{z : \\operatorname{Re} z < 0\\}$."
+            }
+          ],
+          "sourcePageRef": "p. 22"
+        },
+        {
+          "number": "10",
+          "statement": "Suppose $z = a + bi$, $w = u + iv$, and $a = \\left(\\frac{|w| + u}{2}\\right)^{1/2}$, $b = \\left(\\frac{|w| - u}{2}\\right)^{1/2}$. Prove that $z^2 = w$ if $v \\ge 0$ and that $\\bar{z}^2 = w$ if $v \\le 0$. Conclude that every complex number (with one exception!) has two complex square roots.",
+          "difficulty": "MEDIUM",
+          "tags": [
+            "complex numbers",
+            "square roots"
+          ],
+          "hints": [
+            {
+              "order": 1,
+              "content": "Compute $z^2 = (a^2 - b^2) + 2abi$ and verify $a^2 - b^2 = u$ and $2ab = |v|$ using $|w|^2 = u^2 + v^2$."
+            }
+          ],
+          "sourcePageRef": "p. 22"
+        },
+        {
+          "number": "11",
+          "statement": "If $z$ is a complex number, prove that there exists an $r \\ge 0$ and a complex number $w$ with $|w| = 1$ such that $z = rw$. Are $w$ and $r$ always uniquely determined by $z$?",
+          "difficulty": "EASY",
+          "tags": [
+            "complex numbers",
+            "modulus",
+            "polar form"
+          ],
+          "hints": [
+            {
+              "order": 1,
+              "content": "Take $r = |z|$ and $w = z/|z|$ when $z \\neq 0$; consider what happens at $z = 0$ for uniqueness."
+            }
+          ],
+          "sourcePageRef": "p. 22"
+        },
+        {
+          "number": "12",
+          "statement": "If $z_1, \\ldots, z_n$ are complex, prove that $|z_1 + z_2 + \\cdots + z_n| \\le |z_1| + |z_2| + \\cdots + |z_n|$.",
+          "difficulty": "EASY",
+          "tags": [
+            "complex numbers",
+            "triangle inequality"
+          ],
+          "hints": [
+            {
+              "order": 1,
+              "content": "Induct on $n$, applying the two-term triangle inequality at each step."
+            }
+          ],
+          "sourcePageRef": "p. 22"
+        },
+        {
+          "number": "13",
+          "statement": "If $x, y$ are complex, prove that $\\big| |x| - |y| \\big| \\le |x - y|$.",
+          "difficulty": "EASY",
+          "tags": [
+            "complex numbers",
+            "triangle inequality",
+            "modulus"
+          ],
+          "hints": [
+            {
+              "order": 1,
+              "content": "Apply the triangle inequality to $x = (x-y) + y$ and to $y = (y-x) + x$."
+            }
+          ],
+          "sourcePageRef": "p. 22"
+        },
+        {
+          "number": "14",
+          "statement": "If $z$ is a complex number such that $|z| = 1$, that is, such that $z\\bar{z} = 1$, compute $|1 + z|^2 + |1 - z|^2$.",
+          "difficulty": "EASY",
+          "tags": [
+            "complex numbers",
+            "modulus"
+          ],
+          "hints": [
+            {
+              "order": 1,
+              "content": "Expand each squared modulus using $|a|^2 = a\\bar a$ and use $z \\bar z = 1$; the cross terms cancel."
+            }
+          ],
+          "sourcePageRef": "p. 22"
+        },
+        {
+          "number": "15",
+          "statement": "Under what conditions does equality hold in the Schwarz inequality $\\left| \\sum_{j=1}^n a_j \\bar{b}_j \\right|^2 \\le \\sum_{j=1}^n |a_j|^2 \\sum_{j=1}^n |b_j|^2$?",
+          "difficulty": "MEDIUM",
+          "tags": [
+            "complex numbers",
+            "Schwarz inequality",
+            "linear dependence"
+          ],
+          "hints": [
+            {
+              "order": 1,
+              "content": "Examine when the discriminant-style argument in the proof gives equality; this corresponds to the vectors $(a_j)$ and $(b_j)$ being linearly dependent."
+            }
+          ],
+          "sourcePageRef": "p. 23"
+        },
+        {
+          "number": "16",
+          "statement": "Suppose $k \\ge 3$, $\\mathbf{x}, \\mathbf{y} \\in \\mathbb{R}^k$, $|\\mathbf{x} - \\mathbf{y}| = d > 0$, and $r > 0$. Prove: (a) If $2r > d$, there are infinitely many $\\mathbf{z} \\in \\mathbb{R}^k$ such that $|\\mathbf{z} - \\mathbf{x}| = |\\mathbf{z} - \\mathbf{y}| = r$. (b) If $2r = d$, there is exactly one such $\\mathbf{z}$. (c) If $2r < d$, there is no such $\\mathbf{z}$. How must these statements be modified if $k$ is $2$ or $1$?",
+          "difficulty": "MEDIUM",
+          "tags": [
+            "euclidean space",
+            "geometry",
+            "metric"
+          ],
+          "hints": [
+            {
+              "order": 1,
+              "content": "Place the midpoint of $\\mathbf{x},\\mathbf{y}$ at the origin; the solution set is the intersection of a sphere of radius $\\sqrt{r^2 - (d/2)^2}$ with the hyperplane bisecting the segment."
+            }
+          ],
+          "sourcePageRef": "p. 23"
+        },
+        {
+          "number": "17",
+          "statement": "Prove that $|\\mathbf{x} + \\mathbf{y}|^2 + |\\mathbf{x} - \\mathbf{y}|^2 = 2|\\mathbf{x}|^2 + 2|\\mathbf{y}|^2$ if $\\mathbf{x}, \\mathbf{y} \\in \\mathbb{R}^k$. Interpret this geometrically, as a statement about parallelograms.",
+          "difficulty": "EASY",
+          "tags": [
+            "euclidean space",
+            "inner product",
+            "parallelogram law"
+          ],
+          "hints": [
+            {
+              "order": 1,
+              "content": "Expand both squared norms via inner products; the cross terms cancel. Geometrically it relates the diagonals of a parallelogram to its sides."
+            }
+          ],
+          "sourcePageRef": "p. 23"
+        },
+        {
+          "number": "18",
+          "statement": "If $k \\ge 2$ and $\\mathbf{x} \\in \\mathbb{R}^k$, prove that there exists $\\mathbf{y} \\in \\mathbb{R}^k$ such that $\\mathbf{y} \\neq \\mathbf{0}$ but $\\mathbf{x} \\cdot \\mathbf{y} = 0$. Is this also true if $k = 1$?",
+          "difficulty": "EASY",
+          "tags": [
+            "euclidean space",
+            "inner product",
+            "orthogonality"
+          ],
+          "hints": [
+            {
+              "order": 1,
+              "content": "Construct $\\mathbf{y}$ by swapping two coordinates of $\\mathbf{x}$ and negating one; in dimension $1$ no nonzero orthogonal vector exists."
+            }
+          ],
+          "sourcePageRef": "p. 23"
+        },
+        {
+          "number": "19",
+          "statement": "Suppose $\\mathbf{a} \\in \\mathbb{R}^k$, $\\mathbf{b} \\in \\mathbb{R}^k$. Find $\\mathbf{c} \\in \\mathbb{R}^k$ and $r > 0$ such that $|\\mathbf{x} - \\mathbf{a}| = 2|\\mathbf{x} - \\mathbf{b}|$ if and only if $|\\mathbf{x} - \\mathbf{c}| = r$. (Solution: $3\\mathbf{c} = 4\\mathbf{b} - \\mathbf{a}$, $3r = 2|\\mathbf{b} - \\mathbf{a}|$.)",
+          "difficulty": "MEDIUM",
+          "tags": [
+            "euclidean space",
+            "geometry",
+            "spheres"
+          ],
+          "hints": [
+            {
+              "order": 1,
+              "content": "Square the condition $|\\mathbf{x}-\\mathbf{a}|^2 = 4|\\mathbf{x}-\\mathbf{b}|^2$ and complete the square in $\\mathbf{x}$ to recognize a sphere."
+            }
+          ],
+          "sourcePageRef": "p. 23"
+        },
+        {
+          "number": "20",
+          "statement": "With reference to the Appendix, suppose that property (III) were omitted from the definition of a cut. Keep the same definitions of order and addition. Show that the resulting ordered set has the least-upper-bound property, that addition satisfies axioms (A1) to (A4) (with a slightly different zero element!) but that (A5) fails.",
+          "difficulty": "HARD",
+          "tags": [
+            "dedekind cuts",
+            "construction of reals",
+            "ordered fields"
+          ],
+          "hints": [
+            {
+              "order": 1,
+              "content": "Without the no-largest-element property, cuts may have a maximum; track how this affects the additive inverse axiom (A5)."
+            }
+          ],
+          "sourcePageRef": "p. 23"
+        }
+      ]
+    },
+    {
+      "number": 2,
+      "title": "Basic Topology",
+      "problems": [
+        {
+          "number": "1",
+          "statement": "Prove that the empty set is a subset of every set.",
+          "difficulty": "EASY",
+          "tags": [
+            "set theory"
+          ],
+          "hints": [
+            {
+              "order": 1,
+              "content": "The implication \"$x \\in \\emptyset \\Rightarrow x \\in A$\" is vacuously true since the hypothesis is never satisfied."
+            }
+          ],
+          "sourcePageRef": "p. 43"
+        },
+        {
+          "number": "2",
+          "statement": "A complex number $z$ is said to be algebraic if there are integers $a_0, \\ldots, a_n$, not all zero, such that $a_0 z^n + a_1 z^{n-1} + \\cdots + a_{n-1} z + a_n = 0$. Prove that the set of all algebraic numbers is countable. (Hint: For every positive integer $N$ there are only finitely many equations with $n + |a_0| + |a_1| + \\cdots + |a_n| = N$.)",
+          "difficulty": "MEDIUM",
+          "tags": [
+            "countability",
+            "algebraic numbers",
+            "set theory"
+          ],
+          "hints": [
+            {
+              "order": 1,
+              "content": "Group polynomials by the integer $N = n + \\sum |a_i|$; each group is finite, each polynomial has finitely many roots, and a countable union of finite sets is countable."
+            }
+          ],
+          "sourcePageRef": "p. 43"
+        },
+        {
+          "number": "3",
+          "statement": "Prove that there exist real numbers which are not algebraic.",
+          "difficulty": "EASY",
+          "tags": [
+            "countability",
+            "transcendental numbers",
+            "algebraic numbers"
+          ],
+          "hints": [
+            {
+              "order": 1,
+              "content": "The algebraic numbers are countable (Exercise 2) but $\\mathbb{R}$ is uncountable, so some reals must be transcendental."
+            }
+          ],
+          "sourcePageRef": "p. 43"
+        },
+        {
+          "number": "4",
+          "statement": "Is the set of all irrational real numbers countable?",
+          "difficulty": "EASY",
+          "tags": [
+            "countability",
+            "irrational numbers"
+          ],
+          "hints": [
+            {
+              "order": 1,
+              "content": "If the irrationals were countable, then $\\mathbb{R} = \\mathbb{Q} \\cup (\\text{irrationals})$ would be a union of two countable sets, hence countable — contradiction."
+            }
+          ],
+          "sourcePageRef": "p. 43"
+        },
+        {
+          "number": "5",
+          "statement": "Construct a bounded set of real numbers with exactly three limit points.",
+          "difficulty": "EASY",
+          "tags": [
+            "limit points",
+            "sequences",
+            "metric spaces"
+          ],
+          "hints": [
+            {
+              "order": 1,
+              "content": "Take three convergent sequences (e.g. accumulating at $0$, $1$, and $2$) and union them, such as $\\{1/n\\} \\cup \\{1 + 1/n\\} \\cup \\{2 + 1/n\\}$."
+            }
+          ],
+          "sourcePageRef": "p. 43"
+        },
+        {
+          "number": "6",
+          "statement": "Let $E'$ be the set of all limit points of a set $E$. Prove that $E'$ is closed. Prove that $E$ and $\\bar{E}$ have the same limit points. (Recall that $\\bar{E} = E \\cup E'$.) Do $E$ and $E'$ always have the same limit points?",
+          "difficulty": "MEDIUM",
+          "tags": [
+            "limit points",
+            "closed sets",
+            "closure",
+            "topology"
+          ],
+          "hints": [
+            {
+              "order": 1,
+              "content": "Show every limit point of $E'$ is a limit point of $E$ by finding points of $E$ near a limit point of $E'$; for the last part, find a set where $E'$ has fewer limit points than $E$."
+            }
+          ],
+          "sourcePageRef": "p. 43"
+        },
+        {
+          "number": "7",
+          "statement": "Let $A_1, A_2, A_3, \\ldots$ be subsets of a metric space. (a) If $B_n = \\bigcup_{i=1}^n A_i$, prove that $\\bar{B}_n = \\bigcup_{i=1}^n \\bar{A}_i$, for $n = 1, 2, 3, \\ldots$. (b) If $B = \\bigcup_{i=1}^\\infty A_i$, prove that $\\bar{B} \\supset \\bigcup_{i=1}^\\infty \\bar{A}_i$. Show, by an example, that this inclusion can be proper.",
+          "difficulty": "MEDIUM",
+          "tags": [
+            "closure",
+            "metric spaces",
+            "topology"
+          ],
+          "hints": [
+            {
+              "order": 1,
+              "content": "Closure of a finite union equals the union of closures; for infinite unions only one inclusion holds — try $A_i$ enumerating the rationals to make it proper."
+            }
+          ],
+          "sourcePageRef": "p. 44"
+        },
+        {
+          "number": "8",
+          "statement": "Is every point of every open set $E \\subset \\mathbb{R}^2$ a limit point of $E$? Answer the same question for closed sets in $\\mathbb{R}^2$.",
+          "difficulty": "EASY",
+          "tags": [
+            "open sets",
+            "closed sets",
+            "limit points",
+            "topology"
+          ],
+          "hints": [
+            {
+              "order": 1,
+              "content": "For open sets, every point has a neighborhood inside $E$, which contains other points of $E$. For closed sets, consider an isolated point."
+            }
+          ],
+          "sourcePageRef": "p. 44"
+        },
+        {
+          "number": "9",
+          "statement": "Let $E^\\circ$ denote the set of all interior points of a set $E$ (the interior of $E$). (a) Prove that $E^\\circ$ is always open. (b) Prove that $E$ is open if and only if $E^\\circ = E$. (c) If $G \\subset E$ and $G$ is open, prove that $G \\subset E^\\circ$. (d) Prove that the complement of $E^\\circ$ is the closure of the complement of $E$. (e) Do $E$ and $\\bar{E}$ always have the same interiors? (f) Do $E$ and $E^\\circ$ always have the same closures?",
+          "difficulty": "MEDIUM",
+          "tags": [
+            "interior",
+            "open sets",
+            "closure",
+            "topology"
+          ],
+          "hints": [
+            {
+              "order": 1,
+              "content": "The interior is the largest open subset; parts (a)-(d) follow from this and De Morgan duality. For (e),(f) test $E = \\mathbb{Q}$."
+            }
+          ],
+          "sourcePageRef": "p. 44"
+        },
+        {
+          "number": "10",
+          "statement": "Let $X$ be an infinite set. For $p \\in X$ and $q \\in X$, define $d(p, q) = 1$ if $p \\neq q$ and $d(p, q) = 0$ if $p = q$. Prove that this is a metric. Which subsets of the resulting metric space are open? Which are closed? Which are compact?",
+          "difficulty": "MEDIUM",
+          "tags": [
+            "metric spaces",
+            "discrete metric",
+            "compactness",
+            "open sets"
+          ],
+          "hints": [
+            {
+              "order": 1,
+              "content": "Every singleton is open (use radius $1/2$), so every subset is open and closed. A set is compact iff it is finite."
+            }
+          ],
+          "sourcePageRef": "p. 44"
+        },
+        {
+          "number": "11",
+          "statement": "For $x \\in \\mathbb{R}$ and $y \\in \\mathbb{R}$, define $d_1(x,y) = (x-y)^2$, $d_2(x,y) = \\sqrt{|x-y|}$, $d_3(x,y) = |x^2 - y^2|$, $d_4(x,y) = |x - 2y|$, $d_5(x,y) = \\frac{|x-y|}{1 + |x-y|}$. Determine, for each of these, whether it is a metric or not.",
+          "difficulty": "MEDIUM",
+          "tags": [
+            "metric spaces",
+            "triangle inequality"
+          ],
+          "hints": [
+            {
+              "order": 1,
+              "content": "Check the triangle inequality and the requirement that $d(x,y)=0$ iff $x=y$; $d_1$ fails the triangle inequality and $d_3, d_4$ fail the distinctness condition."
+            }
+          ],
+          "sourcePageRef": "p. 44"
+        },
+        {
+          "number": "12",
+          "statement": "Let $K \\subset \\mathbb{R}$ consist of $0$ and the numbers $1/n$, for $n = 1, 2, 3, \\ldots$. Prove that $K$ is compact directly from the definition (without using the Heine-Borel theorem).",
+          "difficulty": "MEDIUM",
+          "tags": [
+            "compactness",
+            "open covers",
+            "metric spaces"
+          ],
+          "hints": [
+            {
+              "order": 1,
+              "content": "Given an open cover, one set covers $0$ and hence all but finitely many $1/n$; cover the remaining finitely many points individually."
+            }
+          ],
+          "sourcePageRef": "p. 44"
+        },
+        {
+          "number": "13",
+          "statement": "Construct a compact set of real numbers whose limit points form a countable set.",
+          "difficulty": "HARD",
+          "tags": [
+            "compactness",
+            "limit points",
+            "countability"
+          ],
+          "hints": [
+            {
+              "order": 1,
+              "content": "Build a set whose limit points are themselves $0, 1, 1/2, 1/3, \\ldots$ by clustering small sequences around each $1/n$ and around $0$."
+            }
+          ],
+          "sourcePageRef": "p. 44"
+        },
+        {
+          "number": "14",
+          "statement": "Give an example of an open cover of the segment $(0,1)$ which has no finite subcover.",
+          "difficulty": "EASY",
+          "tags": [
+            "compactness",
+            "open covers"
+          ],
+          "hints": [
+            {
+              "order": 1,
+              "content": "Use the cover $\\{(1/n, 1) : n = 2, 3, \\ldots\\}$; no finite collection reaches arbitrarily close to $0$."
+            }
+          ],
+          "sourcePageRef": "p. 44"
+        },
+        {
+          "number": "15",
+          "statement": "Show that Theorem 2.36 and its Corollary become false (in $\\mathbb{R}^1$, for example) if the word \"compact\" is replaced by \"closed\" or by \"bounded.\"",
+          "difficulty": "MEDIUM",
+          "tags": [
+            "compactness",
+            "closed sets",
+            "finite intersection property"
+          ],
+          "hints": [
+            {
+              "order": 1,
+              "content": "For closed: nested closed sets $[n, \\infty)$ have empty intersection. For bounded: nested bounded open sets $(0, 1/n)$ have empty intersection."
+            }
+          ],
+          "sourcePageRef": "p. 44"
+        },
+        {
+          "number": "16",
+          "statement": "Regard $\\mathbb{Q}$, the set of all rational numbers, as a metric space, with $d(p,q) = |p - q|$. Let $E$ be the set of all $p \\in \\mathbb{Q}$ such that $2 < p^2 < 3$. Show that $E$ is closed and bounded in $\\mathbb{Q}$, but that $E$ is not compact. Is $E$ open in $\\mathbb{Q}$?",
+          "difficulty": "HARD",
+          "tags": [
+            "metric spaces",
+            "compactness",
+            "rational numbers",
+            "subspace topology"
+          ],
+          "hints": [
+            {
+              "order": 1,
+              "content": "In $\\mathbb{Q}$ the bounding values $\\sqrt 2, \\sqrt 3$ are absent, so $E$ is both closed and open in $\\mathbb{Q}$; it fails compactness because a sequence approaching $\\sqrt 2$ or $\\sqrt 3$ has no limit in $\\mathbb{Q}$."
+            }
+          ],
+          "sourcePageRef": "p. 44"
+        },
+        {
+          "number": "17",
+          "statement": "Let $E$ be the set of all $x \\in [0,1]$ whose decimal expansion contains only the digits $4$ and $7$. Is $E$ countable? Is $E$ dense in $[0,1]$? Is $E$ compact? Is $E$ perfect?",
+          "difficulty": "HARD",
+          "tags": [
+            "perfect sets",
+            "compactness",
+            "countability",
+            "cantor set"
+          ],
+          "hints": [
+            {
+              "order": 1,
+              "content": "$E$ is in bijection with infinite binary sequences (uncountable), nowhere dense, closed and bounded (compact), and has no isolated points (perfect) — like a Cantor-type set."
+            }
+          ],
+          "sourcePageRef": "p. 44"
+        },
+        {
+          "number": "18",
+          "statement": "Is there a nonempty perfect set in $\\mathbb{R}^1$ which contains no rational number?",
+          "difficulty": "HARD",
+          "tags": [
+            "perfect sets",
+            "rational numbers",
+            "cantor set"
+          ],
+          "hints": [
+            {
+              "order": 1,
+              "content": "Yes: build a Cantor-like set by recursively removing intervals around each rational, keeping endpoints irrational, so the result is perfect and avoids $\\mathbb{Q}$."
+            }
+          ],
+          "sourcePageRef": "p. 45"
+        },
+        {
+          "number": "19",
+          "statement": "(a) If $A$ and $B$ are disjoint closed sets in some metric space $X$, prove that they are separated. (b) Prove the same for disjoint open sets. (c) Fix $p \\in X$, $\\delta > 0$, define $A$ to be the set of all $q \\in X$ for which $d(p,q) < \\delta$, define $B$ similarly, with $>$ in place of $<$. Prove that $A$ and $B$ are separated. (d) Prove that every connected metric space with at least two points is uncountable. (Hint: Use (c).)",
+          "difficulty": "HARD",
+          "tags": [
+            "connectedness",
+            "separated sets",
+            "metric spaces",
+            "topology"
+          ],
+          "hints": [
+            {
+              "order": 1,
+              "content": "Separated means neither set meets the other's closure. For (d), if the space had two points it would have infinitely many distinct distances $\\delta$, each giving a separation unless every $\\delta$-sphere is nonempty."
+            }
+          ],
+          "sourcePageRef": "p. 45"
+        },
+        {
+          "number": "20",
+          "statement": "Are closures and interiors of connected sets always connected? (Look at subsets of $\\mathbb{R}^2$.)",
+          "difficulty": "MEDIUM",
+          "tags": [
+            "connectedness",
+            "closure",
+            "interior",
+            "topology"
+          ],
+          "hints": [
+            {
+              "order": 1,
+              "content": "Closure of a connected set is connected; interior need not be — take two tangent closed disks, whose interior splits into two pieces."
+            }
+          ],
+          "sourcePageRef": "p. 45"
+        },
+        {
+          "number": "21",
+          "statement": "Let $A$ and $B$ be separated subsets of some $\\mathbb{R}^k$, suppose $\\mathbf{a} \\in A$, $\\mathbf{b} \\in B$, and define $\\mathbf{p}(t) = (1-t)\\mathbf{a} + t\\mathbf{b}$ for $t \\in \\mathbb{R}^1$. Put $A_0 = \\mathbf{p}^{-1}(A)$, $B_0 = \\mathbf{p}^{-1}(B)$. (a) Prove that $A_0$ and $B_0$ are separated subsets of $\\mathbb{R}^1$. (b) Prove that there exists $t_0 \\in (0,1)$ such that $\\mathbf{p}(t_0) \\notin A \\cup B$. (c) Prove that every convex subset of $\\mathbb{R}^k$ is connected.",
+          "difficulty": "HARD",
+          "tags": [
+            "connectedness",
+            "convexity",
+            "separated sets",
+            "euclidean space"
+          ],
+          "hints": [
+            {
+              "order": 1,
+              "content": "Pull back the separation along the line segment to $\\mathbb{R}^1$; a gap point $t_0$ in $[0,1]$ must exist since $[0,1]$ is connected, giving a point of the segment outside $A \\cup B$."
+            }
+          ],
+          "sourcePageRef": "p. 45"
+        },
+        {
+          "number": "22",
+          "statement": "A metric space is called separable if it contains a countable dense subset. Show that $\\mathbb{R}^k$ is separable. (Hint: Consider the set of points which have only rational coordinates.)",
+          "difficulty": "EASY",
+          "tags": [
+            "separability",
+            "dense sets",
+            "countability",
+            "euclidean space"
+          ],
+          "hints": [
+            {
+              "order": 1,
+              "content": "Points with rational coordinates form a countable dense subset of $\\mathbb{R}^k$."
+            }
+          ],
+          "sourcePageRef": "p. 45"
+        },
+        {
+          "number": "23",
+          "statement": "A collection $\\{V_\\alpha\\}$ of open subsets of $X$ is said to be a base for $X$ if the following is true: For every $x \\in X$ and every open set $G \\subset X$ such that $x \\in G$, we have $x \\in V_\\alpha \\subset G$ for some $\\alpha$. In other words, every open set in $X$ is the union of a subcollection of $\\{V_\\alpha\\}$. Prove that every separable metric space has a countable base.",
+          "difficulty": "MEDIUM",
+          "tags": [
+            "separability",
+            "base",
+            "topology",
+            "countability"
+          ],
+          "hints": [
+            {
+              "order": 1,
+              "content": "Take all balls with rational radius centered at points of a countable dense set; show every open set is a union of these."
+            }
+          ],
+          "sourcePageRef": "p. 45"
+        },
+        {
+          "number": "24",
+          "statement": "Let $X$ be a metric space in which every infinite subset has a limit point. Prove that $X$ is separable. (Hint: Fix $\\delta > 0$, and pick $x_1 \\in X$. Having chosen $x_1, \\ldots, x_j$, choose $x_{j+1} \\in X$, if possible, so that $d(x_i, x_{j+1}) \\ge \\delta$ for $i = 1, \\ldots, j$. Show that this process must stop after a finite number of steps, and that $X$ can therefore be covered by finitely many neighborhoods of radius $\\delta$. Take $\\delta = 1/n$.)",
+          "difficulty": "HARD",
+          "tags": [
+            "separability",
+            "limit point compactness",
+            "metric spaces"
+          ],
+          "hints": [
+            {
+              "order": 1,
+              "content": "For each $1/n$ build a maximal $1/n$-separated set; it must be finite (else its points would have a limit point), and the union over all $n$ is a countable dense set."
+            }
+          ],
+          "sourcePageRef": "p. 45"
+        },
+        {
+          "number": "25",
+          "statement": "Prove that every compact metric space $K$ has a countable base, and that $K$ is therefore separable. (Hint: For every positive integer $n$, there are finitely many neighborhoods of radius $1/n$ whose union covers $K$.)",
+          "difficulty": "MEDIUM",
+          "tags": [
+            "compactness",
+            "separability",
+            "base",
+            "metric spaces"
+          ],
+          "hints": [
+            {
+              "order": 1,
+              "content": "Compactness gives, for each $1/n$, a finite subcover by $1/n$-balls; collect their centers over all $n$ for a countable dense set, and the balls form a countable base."
+            }
+          ],
+          "sourcePageRef": "p. 45"
+        },
+        {
+          "number": "26",
+          "statement": "Let $X$ be a metric space in which every infinite subset has a limit point. Prove that $X$ is compact. (Hint: By Exercises 23 and 24, $X$ has a countable base. It follows that every open cover of $X$ has a countable subcover $\\{G_n\\}$, $n = 1, 2, 3, \\ldots$. If no finite subcollection of $\\{G_n\\}$ covers $X$, then the complement $F_n$ of $G_1 \\cup \\cdots \\cup G_n$ is nonempty for each $n$, but $\\bigcap F_n$ is empty. If $E$ is a set which contains a point from each $F_n$, consider a limit point of $E$, and obtain a contradiction.)",
+          "difficulty": "HARD",
+          "tags": [
+            "compactness",
+            "limit point compactness",
+            "metric spaces",
+            "open covers"
+          ],
+          "hints": [
+            {
+              "order": 1,
+              "content": "Reduce to countable covers via the countable base, then use the nested nonempty complements $F_n$ and a limit point of a transversal set $E$ to contradict $\\bigcap F_n = \\emptyset$."
+            }
+          ],
+          "sourcePageRef": "p. 45"
+        },
+        {
+          "number": "27",
+          "statement": "Define a point $p$ in a metric space $X$ to be a condensation point of a set $E \\subset X$ if every neighborhood of $p$ contains uncountably many points of $E$. Suppose $E \\subset \\mathbb{R}^k$, $E$ is uncountable, and let $P$ be the set of all condensation points of $E$. Prove that $P$ is perfect and that at most countably many points of $E$ are not in $P$. In other words, show that $P^c \\cap E$ is at most countable. (Hint: Let $\\{V_n\\}$ be a countable base of $\\mathbb{R}^k$, let $W$ be the union of those $V_n$ for which $E \\cap V_n$ is at most countable, and show that $P = W^c$.)",
+          "difficulty": "HARD",
+          "tags": [
+            "condensation points",
+            "perfect sets",
+            "countability",
+            "euclidean space"
+          ],
+          "hints": [
+            {
+              "order": 1,
+              "content": "Using a countable base, $W$ (the union of base sets meeting $E$ countably) is countable and equals the complement of $P$; deduce $P$ is closed with no isolated points."
+            }
+          ],
+          "sourcePageRef": "p. 45"
+        },
+        {
+          "number": "28",
+          "statement": "Prove that every closed set in a separable metric space is the union of a (possibly empty) perfect set and a set which is at most countable. (Corollary: Every countable closed set in $\\mathbb{R}^k$ has isolated points.) (Hint: Use Exercise 27.)",
+          "difficulty": "HARD",
+          "tags": [
+            "perfect sets",
+            "condensation points",
+            "closed sets",
+            "separability"
+          ],
+          "hints": [
+            {
+              "order": 1,
+              "content": "Apply Exercise 27 to the closed set; its condensation points form the perfect part, and the rest is countable. This is the Cantor–Bendixson theorem."
+            }
+          ],
+          "sourcePageRef": "p. 45"
+        },
+        {
+          "number": "29",
+          "statement": "Prove that every open set in $\\mathbb{R}^1$ is the union of an at most countable collection of disjoint segments. (Hint: Use Exercise 22.)",
+          "difficulty": "MEDIUM",
+          "tags": [
+            "open sets",
+            "real line",
+            "topology",
+            "countability"
+          ],
+          "hints": [
+            {
+              "order": 1,
+              "content": "For each point of the open set take the maximal open interval containing it; distinct such intervals are disjoint and each contains a rational, so there are countably many."
+            }
+          ],
+          "sourcePageRef": "p. 45"
+        },
+        {
+          "number": "30",
+          "statement": "Imitate the proof of Theorem 2.43 to obtain the following result: If $\\mathbb{R}^k = \\bigcup_{n=1}^\\infty F_n$, where each $F_n$ is a closed subset of $\\mathbb{R}^k$, then at least one $F_n$ has a nonempty interior. (Equivalent statement: If $G_n$ is a dense open subset of $\\mathbb{R}^k$, for $n = 1, 2, 3, \\ldots$, then $\\bigcap_{n=1}^\\infty G_n$ is not empty. This is a special case of Baire's theorem; see Exercise 22, Chap. 3, for the general case.)",
+          "difficulty": "HARD",
+          "tags": [
+            "baire category",
+            "closed sets",
+            "completeness",
+            "euclidean space"
+          ],
+          "hints": [
+            {
+              "order": 1,
+              "content": "If every $F_n$ had empty interior, build a nested sequence of closed balls avoiding each $F_n$; their common point lies in no $F_n$, contradicting the cover."
+            }
+          ],
+          "sourcePageRef": "p. 45"
+        }
+      ]
+    },
+    {
+      "number": 3,
+      "title": "Numerical Sequences and Series",
+      "problems": [
+        {
+          "number": "1",
+          "statement": "Prove that convergence of $\\{s_n\\}$ implies convergence of $\\{|s_n|\\}$. Is the converse true?",
+          "difficulty": "EASY",
+          "tags": [
+            "sequences",
+            "convergence",
+            "absolute value"
+          ],
+          "hints": [
+            {
+              "order": 1,
+              "content": "Use $\\big| |s_n| - |s| \\big| \\le |s_n - s|$. The converse fails: consider $s_n = (-1)^n$."
+            }
+          ],
+          "sourcePageRef": "p. 78"
+        },
+        {
+          "number": "2",
+          "statement": "Calculate $\\lim_{n \\to \\infty} (\\sqrt{n^2 + n} - n)$.",
+          "difficulty": "EASY",
+          "tags": [
+            "sequences",
+            "limits"
+          ],
+          "hints": [
+            {
+              "order": 1,
+              "content": "Multiply and divide by the conjugate $\\sqrt{n^2+n}+n$; the limit is $1/2$."
+            }
+          ],
+          "sourcePageRef": "p. 78"
+        },
+        {
+          "number": "3",
+          "statement": "If $s_1 = \\sqrt{2}$, and $s_{n+1} = \\sqrt{2 + \\sqrt{s_n}}$ for $n = 1, 2, 3, \\ldots$, prove that $\\{s_n\\}$ converges, and that $s_n < 2$ for $n = 1, 2, 3, \\ldots$.",
+          "difficulty": "MEDIUM",
+          "tags": [
+            "sequences",
+            "recursive sequences",
+            "monotone convergence"
+          ],
+          "hints": [
+            {
+              "order": 1,
+              "content": "Show by induction that the sequence is increasing and bounded above by $2$, then apply the monotone convergence theorem."
+            }
+          ],
+          "sourcePageRef": "p. 78"
+        },
+        {
+          "number": "4",
+          "statement": "Find the upper and lower limits of the sequence $\\{s_n\\}$ defined by $s_1 = 0$; $s_{2m} = \\frac{s_{2m-1}}{2}$; $s_{2m+1} = \\frac{1}{2} + s_{2m}$.",
+          "difficulty": "MEDIUM",
+          "tags": [
+            "sequences",
+            "limsup",
+            "liminf",
+            "subsequences"
+          ],
+          "hints": [
+            {
+              "order": 1,
+              "content": "Track the even and odd subsequences separately; the odd terms approach $1$ and the even terms approach $1/2$, giving $\\limsup = 1$, $\\liminf = 1/2$."
+            }
+          ],
+          "sourcePageRef": "p. 78"
+        },
+        {
+          "number": "5",
+          "statement": "For any two real sequences $\\{a_n\\}$, $\\{b_n\\}$, prove that $\\limsup_{n \\to \\infty} (a_n + b_n) \\le \\limsup_{n \\to \\infty} a_n + \\limsup_{n \\to \\infty} b_n$, provided the sum on the right is not of the form $\\infty - \\infty$.",
+          "difficulty": "MEDIUM",
+          "tags": [
+            "sequences",
+            "limsup",
+            "inequalities"
+          ],
+          "hints": [
+            {
+              "order": 1,
+              "content": "Bound the tail suprema: for large $n$, $\\sup_{k \\ge n}(a_k + b_k) \\le \\sup_{k \\ge n} a_k + \\sup_{k \\ge n} b_k$, then take limits."
+            }
+          ],
+          "sourcePageRef": "p. 78"
+        },
+        {
+          "number": "6",
+          "statement": "Investigate the behavior (convergence or divergence) of $\\sum a_n$ if (a) $a_n = \\sqrt{n+1} - \\sqrt{n}$; (b) $a_n = \\frac{\\sqrt{n+1} - \\sqrt{n}}{n}$; (c) $a_n = (\\sqrt[n]{n} - 1)^n$; (d) $a_n = \\frac{1}{1 + z^n}$, for complex values of $z$.",
+          "difficulty": "MEDIUM",
+          "tags": [
+            "series",
+            "convergence tests",
+            "complex numbers"
+          ],
+          "hints": [
+            {
+              "order": 1,
+              "content": "(a) telescopes and diverges; (b) compare with $n^{-3/2}$ and converges; (c) use root test; (d) split into cases $|z|<1$, $|z|=1$, $|z|>1$."
+            }
+          ],
+          "sourcePageRef": "p. 78"
+        },
+        {
+          "number": "7",
+          "statement": "Prove that the convergence of $\\sum a_n$ implies the convergence of $\\sum \\frac{\\sqrt{a_n}}{n}$, if $a_n \\ge 0$.",
+          "difficulty": "MEDIUM",
+          "tags": [
+            "series",
+            "convergence tests",
+            "Schwarz inequality"
+          ],
+          "hints": [
+            {
+              "order": 1,
+              "content": "Apply the Cauchy–Schwarz inequality to $\\sum \\frac{\\sqrt{a_n}}{n}$, bounding it by $\\sqrt{\\sum a_n} \\cdot \\sqrt{\\sum 1/n^2}$."
+            }
+          ],
+          "sourcePageRef": "p. 78"
+        },
+        {
+          "number": "8",
+          "statement": "If $\\sum a_n$ converges, and if $\\{b_n\\}$ is monotonic and bounded, prove that $\\sum a_n b_n$ converges.",
+          "difficulty": "MEDIUM",
+          "tags": [
+            "series",
+            "summation by parts",
+            "convergence tests"
+          ],
+          "hints": [
+            {
+              "order": 1,
+              "content": "Apply summation by parts (Abel/Dirichlet): the partial sums of $\\sum a_n$ are bounded and $\\{b_n\\}$ is monotone bounded."
+            }
+          ],
+          "sourcePageRef": "p. 78"
+        },
+        {
+          "number": "9",
+          "statement": "Find the radius of convergence of each of the following power series: (a) $\\sum n^3 z^n$; (b) $\\sum \\frac{2^n}{n!} z^n$; (c) $\\sum \\frac{2^n}{n^2} z^n$; (d) $\\sum \\frac{n^3}{3^n} z^n$.",
+          "difficulty": "EASY",
+          "tags": [
+            "power series",
+            "radius of convergence",
+            "root test"
+          ],
+          "hints": [
+            {
+              "order": 1,
+              "content": "Use $R = 1/\\limsup |a_n|^{1/n}$ or the ratio test: (a) $R=1$; (b) $R=\\infty$; (c) $R=1/2$; (d) $R=3$."
+            }
+          ],
+          "sourcePageRef": "p. 78"
+        },
+        {
+          "number": "10",
+          "statement": "Suppose that the coefficients of the power series $\\sum a_n z^n$ are integers, infinitely many of which are distinct from zero. Prove that the radius of convergence is at most $1$.",
+          "difficulty": "MEDIUM",
+          "tags": [
+            "power series",
+            "radius of convergence",
+            "integers"
+          ],
+          "hints": [
+            {
+              "order": 1,
+              "content": "Infinitely many integer coefficients are at least $1$ in absolute value, so $\\limsup |a_n|^{1/n} \\ge 1$, forcing $R \\le 1$."
+            }
+          ],
+          "sourcePageRef": "p. 79"
+        },
+        {
+          "number": "11",
+          "statement": "Suppose $a_n > 0$, $s_n = a_1 + \\cdots + a_n$, and $\\sum a_n$ diverges. (a) Prove that $\\sum \\frac{a_n}{1 + a_n}$ diverges. (b) Prove that $\\frac{a_{N+1}}{s_{N+1}} + \\cdots + \\frac{a_{N+k}}{s_{N+k}} \\ge 1 - \\frac{s_N}{s_{N+k}}$ and deduce that $\\sum \\frac{a_n}{s_n}$ diverges. (c) Prove that $\\frac{a_n}{s_n^2} \\le \\frac{1}{s_{n-1}} - \\frac{1}{s_n}$ and deduce that $\\sum \\frac{a_n}{s_n^2}$ converges. (d) What can be said about $\\sum \\frac{a_n}{1 + n a_n}$ and $\\sum \\frac{a_n}{1 + n^2 a_n}$?",
+          "difficulty": "HARD",
+          "tags": [
+            "series",
+            "convergence tests",
+            "partial sums"
+          ],
+          "hints": [
+            {
+              "order": 1,
+              "content": "Parts (a)-(c) use telescoping and Cauchy-criterion comparisons with the partial sums $s_n$. Part (d) shows neither convergence nor divergence is forced in general."
+            }
+          ],
+          "sourcePageRef": "p. 79"
+        },
+        {
+          "number": "12",
+          "statement": "Suppose $a_n > 0$ and $\\sum a_n$ converges. Put $r_n = \\sum_{m=n}^\\infty a_m$. (a) Prove that $\\frac{a_m}{r_m} + \\cdots + \\frac{a_n}{r_n} > 1 - \\frac{r_n}{r_m}$ if $m < n$, and deduce that $\\sum \\frac{a_n}{r_n}$ diverges. (b) Prove that $\\frac{a_n}{\\sqrt{r_n}} < 2(\\sqrt{r_n} - \\sqrt{r_{n+1}})$ and deduce that $\\sum \\frac{a_n}{\\sqrt{r_n}}$ converges.",
+          "difficulty": "HARD",
+          "tags": [
+            "series",
+            "convergence tests",
+            "tails"
+          ],
+          "hints": [
+            {
+              "order": 1,
+              "content": "Use the tail sums $r_n$ in place of partial sums: (a) is a Cauchy-criterion argument, (b) telescopes via $\\sqrt{r_n}-\\sqrt{r_{n+1}}$."
+            }
+          ],
+          "sourcePageRef": "p. 79"
+        },
+        {
+          "number": "13",
+          "statement": "Prove that the Cauchy product of two absolutely convergent series converges absolutely.",
+          "difficulty": "MEDIUM",
+          "tags": [
+            "series",
+            "Cauchy product",
+            "absolute convergence"
+          ],
+          "hints": [
+            {
+              "order": 1,
+              "content": "Bound the absolute values of the Cauchy-product terms by the product of the two absolute-value series, which converges."
+            }
+          ],
+          "sourcePageRef": "p. 79"
+        },
+        {
+          "number": "14",
+          "statement": "If $\\{s_n\\}$ is a complex sequence, define its arithmetic means $\\sigma_n$ by $\\sigma_n = \\frac{s_0 + s_1 + \\cdots + s_n}{n+1}$. (a) If $\\lim s_n = s$, prove that $\\lim \\sigma_n = s$. (b) Construct a sequence $\\{s_n\\}$ which does not converge, although $\\lim \\sigma_n = 0$. (c) Can it happen that $s_n > 0$ for all $n$ and that $\\limsup s_n = \\infty$, although $\\lim \\sigma_n = 0$? (d) Put $a_n = s_n - s_{n-1}$, for $n \\ge 1$. Show that $s_n - \\sigma_n = \\frac{1}{n+1} \\sum_{k=1}^n k a_k$. Assume that $\\lim (n a_n) = 0$ and that $\\{\\sigma_n\\}$ converges. Prove that $\\{s_n\\}$ converges. (e) Derive the last conclusion from a weaker hypothesis: Assume $M < \\infty$, $|n a_n| \\le M$ for all $n$, and $\\lim \\sigma_n = \\sigma$. Prove that $\\lim s_n = \\sigma$.",
+          "difficulty": "HARD",
+          "tags": [
+            "sequences",
+            "Cesaro means",
+            "convergence",
+            "summability"
+          ],
+          "hints": [
+            {
+              "order": 1,
+              "content": "(a) is the Cesàro mean theorem; for (d),(e) use the identity for $s_n - \\sigma_n$ and the Tauberian conditions on $n a_n$ to control the difference."
+            }
+          ],
+          "sourcePageRef": "p. 80"
+        },
+        {
+          "number": "15",
+          "statement": "Definition 3.21 can be extended to the case in which the $a_n$ lie in some fixed $\\mathbb{R}^k$. Absolute convergence is defined as convergence of $\\sum |a_n|$. Show that Theorems 3.22, 3.23, 3.25(a), 3.33, 3.34, 3.42, 3.45, 3.47, and 3.55 are true in this more general setting. (Only slight modifications are required in any of the proofs.)",
+          "difficulty": "HARD",
+          "tags": [
+            "series",
+            "euclidean space",
+            "absolute convergence",
+            "vector series"
+          ],
+          "hints": [
+            {
+              "order": 1,
+              "content": "Reduce vector statements to coordinates or use the norm inequality $|\\sum a_n| \\le \\sum |a_n|$; completeness of $\\mathbb{R}^k$ replaces completeness of $\\mathbb{R}$."
+            }
+          ],
+          "sourcePageRef": "p. 80"
+        },
+        {
+          "number": "16",
+          "statement": "Fix a positive number $\\alpha$. Choose $x_1 > \\sqrt{\\alpha}$, and define $x_2, x_3, x_4, \\ldots$ by the recursion formula $x_{n+1} = \\frac{1}{2}\\left(x_n + \\frac{\\alpha}{x_n}\\right)$. (a) Prove that $\\{x_n\\}$ decreases monotonically and that $\\lim x_n = \\sqrt{\\alpha}$. (b) Put $\\varepsilon_n = x_n - \\sqrt{\\alpha}$, and show that $\\varepsilon_{n+1} = \\frac{\\varepsilon_n^2}{2 x_n} < \\frac{\\varepsilon_n^2}{2\\sqrt{\\alpha}}$ so that, setting $\\beta = 2\\sqrt{\\alpha}$, $\\varepsilon_{n+1} < \\beta \\left(\\frac{\\varepsilon_1}{\\beta}\\right)^{2^n}$. (c) This is a good algorithm for computing square roots, since the recursion formula is simple and the convergence is extremely rapid. For example, if $\\alpha = 3$ and $x_1 = 2$, show that $\\varepsilon_1/\\beta < 1/10$ and that therefore $\\varepsilon_5 < 4 \\cdot 10^{-16}$, $\\varepsilon_6 < 4 \\cdot 10^{-32}$.",
+          "difficulty": "HARD",
+          "tags": [
+            "sequences",
+            "recursive sequences",
+            "Newton's method",
+            "quadratic convergence"
+          ],
+          "hints": [
+            {
+              "order": 1,
+              "content": "This is Newton's method for $\\sqrt\\alpha$. Show the sequence stays above $\\sqrt\\alpha$ and decreases; the error recursion $\\varepsilon_{n+1} = \\varepsilon_n^2/(2x_n)$ gives quadratic (doubly exponential) convergence."
+            }
+          ],
+          "sourcePageRef": "p. 80"
+        },
+        {
+          "number": "17",
+          "statement": "Fix $\\alpha > 1$. Take $x_1 > \\sqrt{\\alpha}$, and define $x_{n+1} = \\frac{\\alpha + x_n}{1 + x_n} = x_n + \\frac{\\alpha - x_n^2}{1 + x_n}$. (a) Prove that $x_1 > x_3 > x_5 > \\cdots$. (b) Prove that $x_2 < x_4 < x_6 < \\cdots$. (c) Prove that $\\lim x_n = \\sqrt{\\alpha}$. (d) Compare the rapidity of convergence of this process with the one described in Exercise 16.",
+          "difficulty": "HARD",
+          "tags": [
+            "sequences",
+            "recursive sequences",
+            "convergence",
+            "fixed points"
+          ],
+          "hints": [
+            {
+              "order": 1,
+              "content": "The map alternates above and below $\\sqrt\\alpha$; analyze the second-iterate map to show the odd and even subsequences are monotone and converge to the fixed point $\\sqrt\\alpha$, but only linearly."
+            }
+          ],
+          "sourcePageRef": "p. 80"
+        },
+        {
+          "number": "18",
+          "statement": "Replace the recursion formula of Exercise 16 by $x_{n+1} = \\frac{p-1}{p} x_n + \\frac{\\alpha}{p} x_n^{-p+1}$ where $p$ is a fixed positive integer, and describe the behavior of the resulting sequences $\\{x_n\\}$.",
+          "difficulty": "HARD",
+          "tags": [
+            "sequences",
+            "recursive sequences",
+            "Newton's method",
+            "roots"
+          ],
+          "hints": [
+            {
+              "order": 1,
+              "content": "This is Newton's method for the $p$-th root: the sequence converges to $\\alpha^{1/p}$ with quadratic convergence, analogous to Exercise 16."
+            }
+          ],
+          "sourcePageRef": "p. 81"
+        },
+        {
+          "number": "19",
+          "statement": "Associate to each sequence $a = \\{\\alpha_n\\}$, in which $\\alpha_n$ is $0$ or $2$, the real number $x(a) = \\sum_{n=1}^\\infty \\frac{\\alpha_n}{3^n}$. Prove that the set of all $x(a)$ is precisely the Cantor set described in Sec. 2.44.",
+          "difficulty": "MEDIUM",
+          "tags": [
+            "cantor set",
+            "series",
+            "ternary expansion"
+          ],
+          "hints": [
+            {
+              "order": 1,
+              "content": "Numbers with a base-3 expansion using only digits $0$ and $2$ are exactly those that survive every stage of removing middle thirds."
+            }
+          ],
+          "sourcePageRef": "p. 81"
+        },
+        {
+          "number": "20",
+          "statement": "Suppose $\\{p_n\\}$ is a Cauchy sequence in a metric space $X$, and some subsequence $\\{p_{n_i}\\}$ converges to a point $p \\in X$. Prove that the full sequence $\\{p_n\\}$ converges to $p$.",
+          "difficulty": "EASY",
+          "tags": [
+            "Cauchy sequences",
+            "subsequences",
+            "metric spaces",
+            "convergence"
+          ],
+          "hints": [
+            {
+              "order": 1,
+              "content": "Combine the Cauchy property with closeness of a subsequence term to $p$: $d(p_n, p) \\le d(p_n, p_{n_i}) + d(p_{n_i}, p)$."
+            }
+          ],
+          "sourcePageRef": "p. 82"
+        },
+        {
+          "number": "21",
+          "statement": "Prove the following analogue of Theorem 3.10(b): If $\\{E_n\\}$ is a sequence of closed nonempty and bounded sets in a complete metric space $X$, if $E_n \\supset E_{n+1}$, and if $\\lim_{n \\to \\infty} \\operatorname{diam} E_n = 0$, then $\\bigcap_{n=1}^\\infty E_n$ consists of exactly one point.",
+          "difficulty": "MEDIUM",
+          "tags": [
+            "complete metric spaces",
+            "nested sets",
+            "diameter",
+            "Cantor intersection"
+          ],
+          "hints": [
+            {
+              "order": 1,
+              "content": "Pick a point from each $E_n$; shrinking diameters make this sequence Cauchy, so it converges, and the limit lies in every $E_n$. Uniqueness follows from diameter $\\to 0$."
+            }
+          ],
+          "sourcePageRef": "p. 82"
+        },
+        {
+          "number": "22",
+          "statement": "Suppose $X$ is a nonempty complete metric space, and $\\{G_n\\}$ is a sequence of dense open subsets of $X$. Prove Baire's theorem, namely, that $\\bigcap_{n=1}^\\infty G_n$ is not empty. (In fact, it is dense in $X$.) (Hint: Find a shrinking sequence of neighborhoods $E_n$ such that $\\bar{E}_n \\subset G_n$, and apply Exercise 21.)",
+          "difficulty": "HARD",
+          "tags": [
+            "baire category",
+            "complete metric spaces",
+            "dense sets",
+            "open sets"
+          ],
+          "hints": [
+            {
+              "order": 1,
+              "content": "Recursively choose nested closed balls $\\bar E_n \\subset G_n \\cap E_{n-1}$ with shrinking radii; Exercise 21 gives a common point lying in every $G_n$."
+            }
+          ],
+          "sourcePageRef": "p. 82"
+        },
+        {
+          "number": "23",
+          "statement": "Suppose $\\{p_n\\}$ and $\\{q_n\\}$ are Cauchy sequences in a metric space $X$. Show that the sequence $\\{d(p_n, q_n)\\}$ converges. (Hint: For any $m, n$, $d(p_n, q_n) \\le d(p_n, p_m) + d(p_m, q_m) + d(q_m, q_n)$; it follows that $|d(p_n, q_n) - d(p_m, q_m)|$ is small if $m$ and $n$ are large.)",
+          "difficulty": "MEDIUM",
+          "tags": [
+            "Cauchy sequences",
+            "metric spaces",
+            "convergence"
+          ],
+          "hints": [
+            {
+              "order": 1,
+              "content": "Show $\\{d(p_n,q_n)\\}$ is a Cauchy sequence of reals using the four-term triangle inequality, then use completeness of $\\mathbb{R}$."
+            }
+          ],
+          "sourcePageRef": "p. 82"
+        },
+        {
+          "number": "24",
+          "statement": "Let $X$ be a metric space. (a) Call two Cauchy sequences $\\{p_n\\}$, $\\{q_n\\}$ in $X$ equivalent if $\\lim_{n \\to \\infty} d(p_n, q_n) = 0$. Prove that this is an equivalence relation. (b) Let $X^*$ be the set of all equivalence classes so obtained. If $P \\in X^*$, $Q \\in X^*$, $\\{p_n\\} \\in P$, $\\{q_n\\} \\in Q$, define $\\Delta(P, Q) = \\lim_{n \\to \\infty} d(p_n, q_n)$; by Exercise 23, this limit exists. Show that the number $\\Delta(P, Q)$ is unchanged if $\\{p_n\\}$ and $\\{q_n\\}$ are replaced by equivalent sequences, and hence that $\\Delta$ is a distance function in $X^*$. (c) Prove that the resulting metric space $X^*$ is complete. (d) For each $p \\in X$, there is a Cauchy sequence all of whose terms are $p$; let $P_p$ be the element of $X^*$ which contains this sequence. Prove that $\\Delta(P_p, P_q) = d(p, q)$ for all $p, q \\in X$. In other words, the mapping $\\varphi$ defined by $\\varphi(p) = P_p$ is an isometry (i.e., a distance-preserving mapping) of $X$ into $X^*$. (e) Prove that $\\varphi(X)$ is dense in $X^*$, and that $\\varphi(X) = X^*$ if $X$ is complete. By (d), we may identify $X$ and $\\varphi(X)$ and thus regard $X$ as embedded in the complete metric space $X^*$. We call $X^*$ the completion of $X$.",
+          "difficulty": "HARD",
+          "tags": [
+            "completion",
+            "Cauchy sequences",
+            "metric spaces",
+            "isometry"
+          ],
+          "hints": [
+            {
+              "order": 1,
+              "content": "This constructs the completion of $X$. Verify each metric axiom on equivalence classes, then for completeness use a diagonal argument on a Cauchy sequence of classes."
+            }
+          ],
+          "sourcePageRef": "p. 82"
+        },
+        {
+          "number": "25",
+          "statement": "Let $X$ be the metric space whose points are the rational numbers, with the metric $d(x, y) = |x - y|$. What is the completion of this space? (Compare Exercise 24.)",
+          "difficulty": "EASY",
+          "tags": [
+            "completion",
+            "rational numbers",
+            "real numbers",
+            "metric spaces"
+          ],
+          "hints": [
+            {
+              "order": 1,
+              "content": "The completion of $\\mathbb{Q}$ under the usual metric is $\\mathbb{R}$."
+            }
+          ],
+          "sourcePageRef": "p. 82"
+        }
+      ]
+    },
+    {
+      "number": 4,
+      "title": "Continuity",
+      "problems": [
+        {
+          "number": "1",
+          "statement": "Suppose $ is a real function defined on $\\mathbb{R}^1$ which satisfies $\\lim_{h\\to 0}[f(x+h)-f(x-h)]=0$ for every \\in\\mathbb{R}^1$. Does this imply that $ is continuous? Give a proof or a counterexample.",
+          "difficulty": "MEDIUM",
+          "tags": [
+            "continuity",
+            "limits"
+          ],
+          "hints": [
+            {
+              "order": 1,
+              "content": "Try (x)=1$ for =0$ and (x)=0$ otherwise."
+            }
+          ],
+          "sourcePageRef": "p. 98"
+        },
+        {
+          "number": "2",
+          "statement": "If $ is a continuous mapping of a metric space $ into a metric space $, prove that (\\overline{E})\\subset\\overline{f(E)}$ for every set \\subset X$. Is it true that (\\overline{E})=\\overline{f(E)}0",
+          "difficulty": "MEDIUM",
+          "tags": [
+            "continuity",
+            "metric spaces",
+            "closure"
+          ],
+          "hints": [
+            {
+              "order": 1,
+              "content": "Use the sequential characterization of closure and continuity."
+            }
+          ],
+          "sourcePageRef": "p. 98"
+        },
+        {
+          "number": "3",
+          "statement": "Let $ be a continuous real function on a metric space $. Let (f)=\\{p\\in X: f(p)=0\\}$. Prove that (f)$ is closed.",
+          "difficulty": "EASY",
+          "tags": [
+            "continuity",
+            "metric spaces"
+          ],
+          "hints": [
+            {
+              "order": 1,
+              "content": "(f)=f^{-1}(\\{0\\})$ and the preimage of a closed set under a continuous map is closed."
+            }
+          ],
+          "sourcePageRef": "p. 98"
+        },
+        {
+          "number": "4",
+          "statement": "Let $ and $ be continuous mappings of a metric space $ into a metric space $, and let $ be a dense subset of $. (a) Prove that (E)$ is dense in (X)$. (b) If (p)=f(p)$ for all \\in E$, prove that (p)=f(p)$ for all \\in X$.",
+          "difficulty": "MEDIUM",
+          "tags": [
+            "continuity",
+            "dense sets",
+            "metric spaces"
+          ],
+          "hints": [
+            {
+              "order": 1,
+              "content": "For (b), fix \\in X$ and choose \\in E$ with \\to p$; use continuity of $ and $."
+            }
+          ],
+          "sourcePageRef": "p. 98"
+        },
+        {
+          "number": "5",
+          "statement": "If $ is a real continuous function defined on a closed set \\subset\\mathbb{R}^1$, prove that there exist continuous real functions $ on $\\mathbb{R}^1$ such that (x)=f(x)$ for all \\in E$. (Such functions $ are called continuous extensions of $ from $ to $\\mathbb{R}^1$.)",
+          "difficulty": "HARD",
+          "tags": [
+            "continuity",
+            "Tietze extension"
+          ],
+          "hints": [
+            {
+              "order": 1,
+              "content": "The complement of $ is a countable union of open intervals $. On each interval, interpolate linearly between (a_n)$ and (b_n)$."
+            }
+          ],
+          "sourcePageRef": "p. 98"
+        },
+        {
+          "number": "6",
+          "statement": "If $ is defined on $, the graph of $ is the set $\\Gamma=\\{(x,f(x)):x\\in E\\}\\subset X\\times Y$. Suppose $ is compact. Prove that $ is continuous on $ if and only if $\\Gamma$ is compact.",
+          "difficulty": "MEDIUM",
+          "tags": [
+            "continuity",
+            "compactness",
+            "graphs"
+          ],
+          "hints": [
+            {
+              "order": 1,
+              "content": "($\\Rightarrow$) $\\Gamma$ is the image of the compact set $ under the continuous map \\mapsto(x,f(x))$. ($\\Leftarrow$) If \\to x_0$, extract a subsequence so \\to(x_0,y_0)\\in\\Gamma$, hence =f(x_0)$."
+            }
+          ],
+          "sourcePageRef": "p. 99"
+        },
+        {
+          "number": "7",
+          "statement": "Define $ and $ on $\\mathbb{R}^2$ by (0,0)=g(0,0)=0$, and for \\neq(0,0)$: (x,y)=\\frac{xy^2}{x^2+y^4}$, (x,y)=\\frac{xy^2}{x^2+y^6}$. Prove: (a) $ is bounded on $\\mathbb{R}^2$; (b) $ is unbounded in every neighborhood of $; (c) $ is not continuous at $; (d) nevertheless the restriction of both $ and $ to every straight line is continuous.",
+          "difficulty": "HARD",
+          "tags": [
+            "continuity",
+            "functions of several variables",
+            "limits"
+          ],
+          "hints": [
+            {
+              "order": 1,
+              "content": "For (a), use AM-GM: ^2+y^4\\geq 2|x|y^2$. For (c), approach along the curve =y^2$."
+            }
+          ],
+          "sourcePageRef": "p. 99"
+        },
+        {
+          "number": "8",
+          "statement": "Let $ be a real uniformly continuous function on the bounded set $ in $\\mathbb{R}^1$. Prove that $ is bounded on $. Show that the conclusion is false if boundedness of $ is omitted from the hypothesis, or if uniform continuity is replaced by continuity.",
+          "difficulty": "MEDIUM",
+          "tags": [
+            "uniform continuity",
+            "bounded sets"
+          ],
+          "hints": [
+            {
+              "order": 1,
+              "content": "$\\overline{E}$ is compact; extend $ to $\\overline{E}$ using uniform continuity, then compactness gives boundedness."
+            }
+          ],
+          "sourcePageRef": "p. 99"
+        },
+        {
+          "number": "9",
+          "statement": "Show that the requirement in the definition of uniform continuity can be rephrased: To every $\\varepsilon>0$ there exists $\\delta>0$ such that $\\operatorname{diam}f(E)<\\varepsilon$ for all \\subset X$ with $\\operatorname{diam}E<\\delta$.",
+          "difficulty": "EASY",
+          "tags": [
+            "uniform continuity"
+          ],
+          "hints": [],
+          "sourcePageRef": "p. 99"
+        },
+        {
+          "number": "10",
+          "statement": "Complete the details of the following alternative proof that every closed bounded subset $ of $\\mathbb{R}^k$ is compact: Given $\\{x_n\\}\\subset F$, write =(a_{1,n},\\ldots,a_{k,n})$. Apply the Bolzano-Weierstrass theorem to $\\{a_{1,n}\\}$ to extract a convergent subsequence, then apply it again to the second coordinates of that subsequence, and so on.",
+          "difficulty": "MEDIUM",
+          "tags": [
+            "compactness",
+            "Bolzano-Weierstrass"
+          ],
+          "hints": [],
+          "sourcePageRef": "p. 99"
+        },
+        {
+          "number": "11",
+          "statement": "Suppose :X\\to Y$ is uniformly continuous and $\\{x_n\\}$ is a Cauchy sequence in $. Prove that $\\{f(x_n)\\}$ is a Cauchy sequence in $.",
+          "difficulty": "EASY",
+          "tags": [
+            "uniform continuity",
+            "Cauchy sequences"
+          ],
+          "hints": [
+            {
+              "order": 1,
+              "content": "Given $\\varepsilon>0$, choose $\\delta$ from uniform continuity, then $ so (x_m,x_n)<\\delta$ for ,n>N$."
+            }
+          ],
+          "sourcePageRef": "p. 99"
+        },
+        {
+          "number": "12",
+          "statement": "A uniformly continuous function of a uniformly continuous function is uniformly continuous. State this more precisely and prove it.",
+          "difficulty": "EASY",
+          "tags": [
+            "uniform continuity",
+            "composition"
+          ],
+          "hints": [],
+          "sourcePageRef": "p. 99"
+        },
+        {
+          "number": "13",
+          "statement": "Let $ be a dense subset of a metric space $, and let $ be a uniformly continuous real function on $. Prove that $ has a continuous extension from $ to $ (i.e., there exists a continuous $ on $ such that (p)=f(p)$ for all \\in E$). Show the result fails for continuous (not uniformly continuous) $.",
+          "difficulty": "HARD",
+          "tags": [
+            "uniform continuity",
+            "extension",
+            "dense sets"
+          ],
+          "hints": [
+            {
+              "order": 1,
+              "content": "For each \\in X$, pick \\in E$ with \\to p$; show $\\{f(p_n)\\}$ is Cauchy and define (p)=\\lim f(p_n)$."
+            }
+          ],
+          "sourcePageRef": "p. 100"
+        },
+        {
+          "number": "14",
+          "statement": "Let =[0,1]$. Suppose $ is a continuous mapping of $ into $. Prove that (x)=x$ for at least one \\in I$.",
+          "difficulty": "EASY",
+          "tags": [
+            "continuity",
+            "fixed point theorem",
+            "intermediate value theorem"
+          ],
+          "hints": [
+            {
+              "order": 1,
+              "content": "Apply IVT to (x)=f(x)-x$."
+            }
+          ],
+          "sourcePageRef": "p. 100"
+        },
+        {
+          "number": "15",
+          "statement": "Call a mapping :X\\to Y$ open if (V)$ is open in $ whenever $ is open in $. Prove that every continuous open mapping of $\\mathbb{R}^1$ into $\\mathbb{R}^1$ is monotonic.",
+          "difficulty": "HARD",
+          "tags": [
+            "continuity",
+            "open mappings",
+            "monotone functions"
+          ],
+          "hints": [
+            {
+              "order": 1,
+              "content": "Suppose $ is not monotone; find <b<c$ with (b)>\\max(f(a),f(c))$ or (b)<\\min(f(a),f(c))$ and derive a contradiction using the open mapping property."
+            }
+          ],
+          "sourcePageRef": "p. 100"
+        },
+        {
+          "number": "16",
+          "statement": "Let 0$ denote the largest integer $\\leq x$ and =x-[x]$ the fractional part. What discontinuities do the functions 0$ and $ have?",
+          "difficulty": "EASY",
+          "tags": [
+            "continuity",
+            "simple discontinuities"
+          ],
+          "hints": [],
+          "sourcePageRef": "p. 100"
+        },
+        {
+          "number": "17",
+          "statement": "Let $ be a real function defined on $. Prove that the set of points at which $ has a simple discontinuity is at most countable. (Recall: $ is a simple discontinuity if the one-sided limits (p^+)$ and (p^-)$ exist.)",
+          "difficulty": "HARD",
+          "tags": [
+            "continuity",
+            "simple discontinuities",
+            "countability"
+          ],
+          "hints": [
+            {
+              "order": 1,
+              "content": "With each simple discontinuity associate a rational number strictly between $\\min(f(p^-),f(p^+))$ and $\\max(f(p^-),f(p^+))$, and show this assignment is injective."
+            }
+          ],
+          "sourcePageRef": "p. 100"
+        },
+        {
+          "number": "18",
+          "statement": "Define :\\mathbb{R}^1\\to\\mathbb{R}^1$ by (x)=0$ if $ is irrational, and (m/n)=1/n$ if =m/n$ in lowest terms with >0$. Prove that $ is continuous at every irrational and has a simple discontinuity at every rational point.",
+          "difficulty": "MEDIUM",
+          "tags": [
+            "continuity",
+            "simple discontinuities",
+            "rational numbers"
+          ],
+          "hints": [
+            {
+              "order": 1,
+              "content": "For irrationals, note there are only finitely many rationals with denominator $\\leq N$ in any bounded interval."
+            }
+          ],
+          "sourcePageRef": "p. 100"
+        },
+        {
+          "number": "19",
+          "statement": "Suppose :\\mathbb{R}^1\\to\\mathbb{R}^1$ has the intermediate value property and that for every rational $ the set $\\{x:f(x)=r\\}$ is closed. Prove that $ is continuous.",
+          "difficulty": "HARD",
+          "tags": [
+            "continuity",
+            "intermediate value property"
+          ],
+          "hints": [
+            {
+              "order": 1,
+              "content": "Suppose $ is discontinuous at $; then there exist $\\varepsilon>0$ and \\to x_0$ with $|f(x_n)-f(x_0)|>\\varepsilon$. Use the IVP and the hypothesis on preimages of rationals."
+            }
+          ],
+          "sourcePageRef": "p. 101"
+        },
+        {
+          "number": "20",
+          "statement": "For a nonempty \\subset X$, define $\\rho_E(x)=\\inf_{z\\in E}d(x,z)$. (a) Prove $\\rho_E(x)=0$ iff \\in\\overline{E}$. (b) Prove $\\rho_E$ is uniformly continuous on $ by showing $|\\rho_E(x)-\\rho_E(y)|\\leq d(x,y)$.",
+          "difficulty": "MEDIUM",
+          "tags": [
+            "metric spaces",
+            "uniform continuity",
+            "distance function"
+          ],
+          "hints": [],
+          "sourcePageRef": "p. 101"
+        },
+        {
+          "number": "21",
+          "statement": "Suppose $ and $ are disjoint sets in a metric space, $ is compact, $ is closed. Prove there exists $\\delta>0$ such that (p,q)>\\delta$ for all \\in K$, \\in F$. Show the conclusion may fail if only both sets are closed.",
+          "difficulty": "MEDIUM",
+          "tags": [
+            "compactness",
+            "metric spaces",
+            "separation"
+          ],
+          "hints": [
+            {
+              "order": 1,
+              "content": "Use $\\rho_F$ from Exercise 20; it is continuous and positive on $; on compact $ it attains its minimum."
+            }
+          ],
+          "sourcePageRef": "p. 101"
+        },
+        {
+          "number": "22",
+          "statement": "Let $ and $ be disjoint nonempty closed sets in a metric space $. Define (x)=\\rho_A(x)/(\\rho_A(x)+\\rho_B(x))$. Show $ is continuous, /bin/zsh\\leq f\\leq 1$, ^{-1}(0)=A$, ^{-1}(1)=B$.",
+          "difficulty": "MEDIUM",
+          "tags": [
+            "continuity",
+            "metric spaces",
+            "Urysohn"
+          ],
+          "hints": [],
+          "sourcePageRef": "p. 101"
+        },
+        {
+          "number": "23",
+          "statement": "A real function $ on $ is convex if (\\lambda x+(1-\\lambda)y)\\leq\\lambda f(x)+(1-\\lambda)f(y)$ for ,y\\in(a,b)$, /bin/zsh<\\lambda<1$. (a) Prove every convex function is continuous. (b) Prove every increasing convex function of a convex function is convex. (c) If $ is convex and <s<t<u<b$, show $\\frac{f(t)-f(s)}{t-s}\\leq\\frac{f(u)-f(s)}{u-s}\\leq\\frac{f(u)-f(t)}{u-t}$.",
+          "difficulty": "HARD",
+          "tags": [
+            "convex functions",
+            "continuity"
+          ],
+          "hints": [
+            {
+              "order": 1,
+              "content": "For (a), use (c) to bound the slope, showing $ is locally Lipschitz."
+            }
+          ],
+          "sourcePageRef": "p. 101"
+        },
+        {
+          "number": "24",
+          "statement": "Assume $ is a continuous real function on $ such that \\!\\left(\\frac{x+y}{2}\\right)\\leq\\frac{f(x)+f(y)}{2}$ for all ,y\\in(a,b)$. Prove $ is convex.",
+          "difficulty": "MEDIUM",
+          "tags": [
+            "convex functions",
+            "continuity",
+            "midpoint convexity"
+          ],
+          "hints": [
+            {
+              "order": 1,
+              "content": "Show first by induction that $ is midpoint-convex for all dyadic rationals, then use continuity."
+            }
+          ],
+          "sourcePageRef": "p. 101"
+        }
+      ]
+    },
+    {
+      "number": 5,
+      "title": "Differentiation",
+      "problems": [
+        {
+          "number": "1",
+          "statement": "Let $f$ be defined for all real $x$, and suppose $|f(x)-f(y)|\\leq(x-y)^2$ for all $x,y\\in\\mathbb{R}$. Prove that $f$ is constant.",
+          "difficulty": "EASY",
+          "tags": [
+            "differentiation",
+            "Lipschitz"
+          ],
+          "hints": [
+            {
+              "order": 1,
+              "content": "Show $f'(x)=0$ for all $x$ by dividing by $|x-y|$ and letting $y\\to x$."
+            }
+          ],
+          "sourcePageRef": "p. 114"
+        },
+        {
+          "number": "2",
+          "statement": "Suppose $f'(x)>0$ on $(a,b)$. Prove $f$ is strictly increasing on $(a,b)$. Let $g$ be its inverse. Prove $g$ is differentiable and $g'(f(x))=1/f'(x)$.",
+          "difficulty": "EASY",
+          "tags": [
+            "differentiation",
+            "inverse functions"
+          ],
+          "hints": [],
+          "sourcePageRef": "p. 114"
+        },
+        {
+          "number": "3",
+          "statement": "Suppose $g:\\mathbb{R}\\to\\mathbb{R}$ has bounded derivative, say $|g'|\\leq M$. Fix $\\varepsilon>0$ and define $f(x)=x+\\varepsilon g(x)$. Prove that $f$ is one-to-one if $\\varepsilon$ is small enough. (How small?)",
+          "difficulty": "MEDIUM",
+          "tags": [
+            "differentiation",
+            "inverse functions"
+          ],
+          "hints": [
+            {
+              "order": 1,
+              "content": "Show $f'(x)=1+\\varepsilon g'(x)>0$ for $\\varepsilon<1/M$."
+            }
+          ],
+          "sourcePageRef": "p. 114"
+        },
+        {
+          "number": "4",
+          "statement": "If $C_0+\\frac{C_1}{2}+\\cdots+\\frac{C_{n-1}}{n}+\\frac{C_n}{n+1}=0$ where $C_0,\\ldots,C_n$ are real constants, prove that $C_0+C_1 x+\\cdots+C_n x^n=0$ has at least one real root between $0$ and $1$.",
+          "difficulty": "EASY",
+          "tags": [
+            "differentiation",
+            "mean value theorem",
+            "polynomials"
+          ],
+          "hints": [
+            {
+              "order": 1,
+              "content": "Let $f(x)=C_0 x+\\frac{C_1}{2}x^2+\\cdots+\\frac{C_n}{n+1}x^{n+1}$; note $f(0)=f(1)=0$ and apply Rolle's theorem."
+            }
+          ],
+          "sourcePageRef": "p. 114"
+        },
+        {
+          "number": "5",
+          "statement": "Suppose $f$ is defined and differentiable for every $x>0$, and $f'(x)\\to 0$ as $x\\to+\\infty$. Put $g(x)=f(x+1)-f(x)$. Prove that $g(x)\\to 0$ as $x\\to+\\infty$.",
+          "difficulty": "EASY",
+          "tags": [
+            "differentiation",
+            "mean value theorem",
+            "limits at infinity"
+          ],
+          "hints": [
+            {
+              "order": 1,
+              "content": "Apply MVT on $[x,x+1]$ to get $g(x)=f'(c)$ for some $c\\in(x,x+1)$; then $c\\to\\infty$ as $x\\to\\infty$."
+            }
+          ],
+          "sourcePageRef": "p. 114"
+        },
+        {
+          "number": "6",
+          "statement": "Suppose (a) $f$ is continuous for $x\\geq 0$, (b) $f'(x)$ exists for $x>0$, (c) $f(0)=0$, (d) $f'$ is monotonically increasing. Let $g(x)=f(x)/x$ for $x>0$. Prove $g$ is monotonically increasing.",
+          "difficulty": "MEDIUM",
+          "tags": [
+            "differentiation",
+            "monotone functions"
+          ],
+          "hints": [
+            {
+              "order": 1,
+              "content": "Compute $g'(x)=[xf'(x)-f(x)]/x^2$; by MVT $f(x)=xf'(c)$ for some $c\\in(0,x)$; since $f'$ is increasing, $f'(x)>f'(c)$."
+            }
+          ],
+          "sourcePageRef": "p. 114"
+        },
+        {
+          "number": "7",
+          "statement": "Suppose $f'$ is continuous on $[a,b]$ and $\\varepsilon>0$. Prove there exists $\\delta>0$ such that $\\left|\\frac{f(t)-f(x)}{t-x}-f'(x)\\right|<\\varepsilon$ whenever $0<|t-x|<\\delta$ and $a\\leq x,t\\leq b$.",
+          "difficulty": "MEDIUM",
+          "tags": [
+            "differentiation",
+            "uniform continuity"
+          ],
+          "hints": [
+            {
+              "order": 1,
+              "content": "Write $\\frac{f(t)-f(x)}{t-x}=f'(c)$ for some $c$ between $x$ and $t$; use uniform continuity of $f'$."
+            }
+          ],
+          "sourcePageRef": "p. 115"
+        },
+        {
+          "number": "8",
+          "statement": "Suppose $f'(x)=0$ in $(a,b)$. Prove $f$ is constant. Which step in the proof uses the mean value theorem?",
+          "difficulty": "EASY",
+          "tags": [
+            "differentiation",
+            "mean value theorem"
+          ],
+          "hints": [],
+          "sourcePageRef": "p. 115"
+        },
+        {
+          "number": "9",
+          "statement": "Let $f$ be a continuous real function on $[a,b]$, differentiable in $(a,b)$, with $f(a)=0$ and there exists $A$ such that $|f'(x)|\\leq A|f(x)|$ on $(a,b)$. Prove $f(x)=0$ for all $x\\in[a,b]$.",
+          "difficulty": "HARD",
+          "tags": [
+            "differentiation",
+            "mean value theorem"
+          ],
+          "hints": [
+            {
+              "order": 1,
+              "content": "Let $M=\\sup|f|$ on $[a,x_0]$ for some $x_0$. Estimate $M\\leq A(x_0-a)M$ and choose $x_0-a<1/A$."
+            }
+          ],
+          "sourcePageRef": "p. 115"
+        },
+        {
+          "number": "10",
+          "statement": "Suppose $f$ and $g$ are complex differentiable functions on $(0,1)$, $f(x)\\to 0$ and $g(x)\\to 0$ as $x\\to 0$, and $g'(x)\\neq 0$ on $(0,1)$. If $f'(x)/g'(x)\\to A$ as $x\\to 0$, prove that $f(x)/g(x)\\to A$ as $x\\to 0$.",
+          "difficulty": "HARD",
+          "tags": [
+            "differentiation",
+            "L'Hopital",
+            "limits"
+          ],
+          "hints": [
+            {
+              "order": 1,
+              "content": "Apply the Cauchy mean value theorem to $f$ and $g$ on $[x,y]$ for small $x<y$ and let $y\\to 0$."
+            }
+          ],
+          "sourcePageRef": "p. 115"
+        },
+        {
+          "number": "11",
+          "statement": "Suppose $f$ is defined in a neighborhood of $x$, and suppose $f''(x)$ exists. Show that $$\\lim_{h\\to 0}\\frac{f(x+h)+f(x-h)-2f(x)}{h^2}=f''(x).$$ Show by example that this limit can exist even if $f''(x)$ does not.",
+          "difficulty": "MEDIUM",
+          "tags": [
+            "differentiation",
+            "second derivative",
+            "limits"
+          ],
+          "hints": [
+            {
+              "order": 1,
+              "content": "Apply L'Hôpital's rule twice, or use Taylor's theorem."
+            }
+          ],
+          "sourcePageRef": "p. 115"
+        },
+        {
+          "number": "12",
+          "statement": "If $f(x)=|x|^3$, compute $f'(x)$ and $f''(x)$ for all $x$, and show $f'''(0)$ does not exist.",
+          "difficulty": "EASY",
+          "tags": [
+            "differentiation"
+          ],
+          "hints": [],
+          "sourcePageRef": "p. 115"
+        },
+        {
+          "number": "13",
+          "statement": "Suppose $a$ and $c$ are real numbers, $c>0$, and $f$ is defined on $[-1,1]$ by $f(x)=x^a\\sin(x^{-c})$ (for $x\\neq 0$), $f(0)=0$. Prove: (a) $f$ is continuous iff $a>0$; (b) $f'(0)$ exists iff $a>1$; (c) $f'$ is bounded iff $a\\geq 1+c$; (d) $f'$ is continuous iff $a>1+c$; (e) $f''(0)$ exists iff $a>2+c$.",
+          "difficulty": "HARD",
+          "tags": [
+            "differentiation",
+            "oscillation"
+          ],
+          "hints": [
+            {
+              "order": 1,
+              "content": "For each part, check the definition directly or estimate the quotient $(f(x)-f(0))/x$."
+            }
+          ],
+          "sourcePageRef": "p. 115"
+        },
+        {
+          "number": "14",
+          "statement": "Let $f$ be a differentiable real function defined in $(a,b)$. Prove that $f$ is convex iff $f'$ is monotonically increasing. Assume $f''(x)$ exists; prove $f$ is convex iff $f''(x)\\geq 0$ for all $x\\in(a,b)$.",
+          "difficulty": "MEDIUM",
+          "tags": [
+            "differentiation",
+            "convex functions"
+          ],
+          "hints": [],
+          "sourcePageRef": "p. 116"
+        },
+        {
+          "number": "15",
+          "statement": "Suppose $a\\in\\mathbb{R}$, $f$ is a twice-differentiable real function, and $M_0$, $M_1$, $M_2$ are the least upper bounds of $|f(x)|$, $|f'(x)|$, $|f''(x)|$ on $[a,\\infty)$. Prove $M_1^2\\leq 4M_0 M_2$.",
+          "difficulty": "HARD",
+          "tags": [
+            "differentiation",
+            "Taylor theorem",
+            "inequalities"
+          ],
+          "hints": [
+            {
+              "order": 1,
+              "content": "Apply Taylor's theorem: $f'(x)=[f(x+h)-f(x)]/h - hf''(\\xi)/2$ and optimize over $h$."
+            }
+          ],
+          "sourcePageRef": "p. 116"
+        },
+        {
+          "number": "16",
+          "statement": "Suppose $f$ is twice differentiable on $(a,b)$, $f(x_0)=0$ for some $x_0\\in(a,b)$, and $f'(x_0)=0$. Prove: If $f''(x_0)>0$ then $x_0$ is a strict local minimum. If $f''(x_0)<0$ then $x_0$ is a strict local maximum.",
+          "difficulty": "EASY",
+          "tags": [
+            "differentiation",
+            "local extrema"
+          ],
+          "hints": [],
+          "sourcePageRef": "p. 116"
+        },
+        {
+          "number": "17",
+          "statement": "Suppose $f$ is a real, three-times differentiable function on $[-1,1]$ with $f(-1)=0$, $f(0)=0$, $f(1)=1$, $f'(0)=0$. Prove that $f'''(x)\\geq 3$ for some $x\\in(-1,1)$.",
+          "difficulty": "HARD",
+          "tags": [
+            "differentiation",
+            "Taylor theorem"
+          ],
+          "hints": [
+            {
+              "order": 1,
+              "content": "Apply Taylor's theorem centered at $0$ for $x=1$ and $x=-1$; add the two expansions."
+            }
+          ],
+          "sourcePageRef": "p. 116"
+        },
+        {
+          "number": "18",
+          "statement": "Suppose $f$ is a real function on $\\mathbb{R}$, $n$ is a positive integer, and $f^{(n-1)}$ is absolutely continuous on every compact interval. Let $\\alpha^+$ and $\\alpha^-$ be the positive and negative parts of $f^{(n)}$. Define $M(x)=f^{(n)}(x)^+$ and $m(x)=f^{(n)}(x)^-$. Express $f$ in terms of these.",
+          "difficulty": "HARD",
+          "tags": [
+            "differentiation",
+            "integration"
+          ],
+          "hints": [],
+          "sourcePageRef": "p. 116"
+        },
+        {
+          "number": "19",
+          "statement": "Suppose $f$ is defined and differentiable on every point of $\\mathbb{R}$, and $|f'(x)|\\leq 1$ for all $x\\in\\mathbb{R}$. Suppose $f(0)=0$. Prove $|f(x)|\\leq |x|$ for all $x$.",
+          "difficulty": "EASY",
+          "tags": [
+            "differentiation",
+            "mean value theorem"
+          ],
+          "hints": [],
+          "sourcePageRef": "p. 116"
+        },
+        {
+          "number": "20",
+          "statement": "Formulate and prove an analogous result to the mean value theorem for functions from $\\mathbb{R}$ into $\\mathbb{R}^k$. In particular, show that if $\\mathbf{f}:[a,b]\\to\\mathbb{R}^k$ is continuous and differentiable on $(a,b)$, then $|\\mathbf{f}(b)-\\mathbf{f}(a)|\\leq(b-a)\\sup_{a<t<b}|\\mathbf{f}'(t)|$.",
+          "difficulty": "MEDIUM",
+          "tags": [
+            "differentiation",
+            "vector-valued functions"
+          ],
+          "hints": [
+            {
+              "order": 1,
+              "content": "Apply the scalar MVT to $t\\mapsto \\mathbf{z}\\cdot\\mathbf{f}(t)$ for a suitable unit vector $\\mathbf{z}$."
+            }
+          ],
+          "sourcePageRef": "p. 116"
+        },
+        {
+          "number": "21",
+          "statement": "Prove Taylor's theorem: If $f$ is a real function on $[a,b]$, $n$ is a positive integer, $f^{(n-1)}$ is continuous on $[a,b]$, and $f^{(n)}(t)$ exists for every $t\\in(a,b)$, then there exists $x\\in(a,b)$ such that $$f(\\beta)=\\sum_{k=0}^{n-1}\\frac{f^{(k)}(\\alpha)}{k!}(\\beta-\\alpha)^k+\\frac{f^{(n)}(x)}{n!}(\\beta-\\alpha)^n.$$",
+          "difficulty": "MEDIUM",
+          "tags": [
+            "differentiation",
+            "Taylor theorem"
+          ],
+          "hints": [],
+          "sourcePageRef": "p. 110"
+        },
+        {
+          "number": "22",
+          "statement": "Suppose $f'$ is continuous on $[a,b]$ and $\\varepsilon>0$. Prove there exists a polynomial $P$ such that $|P(x)-f(x)|<\\varepsilon$ and $|P'(x)-f'(x)|<\\varepsilon$ for all $x\\in[a,b]$.",
+          "difficulty": "HARD",
+          "tags": [
+            "differentiation",
+            "approximation",
+            "Weierstrass"
+          ],
+          "hints": [],
+          "sourcePageRef": "p. 117"
+        },
+        {
+          "number": "23",
+          "statement": "Suppose $\\Gamma$ is a curve in the complex plane defined on $[a,b]$. Define the length of $\\Gamma$ as $\\Lambda(\\Gamma)=\\sup\\sum_{i=1}^n|\\gamma(t_i)-\\gamma(t_{i-1})|$ over all partitions. (a) If $\\gamma$ is continuously differentiable, prove $\\Lambda(\\Gamma)=\\int_a^b|\\gamma'(t)|\\,dt$. (b) Show there are curves for which $\\Lambda(\\Gamma)=+\\infty$.",
+          "difficulty": "HARD",
+          "tags": [
+            "differentiation",
+            "arc length",
+            "Riemann-Stieltjes"
+          ],
+          "hints": [],
+          "sourcePageRef": "p. 117"
+        },
+        {
+          "number": "24",
+          "statement": "Let $\\gamma_1:[a,b]\\to\\mathbb{R}^k$ and $\\gamma_2:[c,d]\\to\\mathbb{R}^k$ be curves. Show how to define reparametrization and prove that arc length is preserved under reparametrization.",
+          "difficulty": "MEDIUM",
+          "tags": [
+            "differentiation",
+            "arc length"
+          ],
+          "hints": [],
+          "sourcePageRef": "p. 117"
+        },
+        {
+          "number": "25",
+          "statement": "Suppose $f$ is twice differentiable on $(a,b)$, $f(x)=0$, and $f$ has a local maximum at $x$. Prove $f''(x)\\leq 0$. Does $f''(x)<0$ hold? Give example where $f''(x)=0$ but $x$ is a local max.",
+          "difficulty": "EASY",
+          "tags": [
+            "differentiation",
+            "local extrema"
+          ],
+          "hints": [],
+          "sourcePageRef": "p. 117"
+        },
+        {
+          "number": "26",
+          "statement": "Let $f:[a,b]\\to\\mathbb{R}$ be differentiable. Prove that $f'$ cannot have a simple discontinuity. (Darboux's theorem: $f'$ has the intermediate value property.)",
+          "difficulty": "HARD",
+          "tags": [
+            "differentiation",
+            "Darboux theorem",
+            "discontinuities"
+          ],
+          "hints": [
+            {
+              "order": 1,
+              "content": "Suppose $f'(a^+)<c<f'(b^-)$. Define $g(x)=f(x)-cx$; show $g$ has a minimum on $(a,b)$ and at that minimum $f'=c$."
+            }
+          ],
+          "sourcePageRef": "p. 117"
+        }
+      ]
+    },
+    {
+      "number": 6,
+      "title": "The Riemann-Stieltjes Integral",
+      "problems": [
+        {
+          "number": "1",
+          "statement": "Suppose $\\alpha$ increases on $[a,b]$, $a\\leq x_0\\leq b$, $\\alpha$ is continuous at $x_0$, $f(x_0)=1$, and $f(x)=0$ if $x\\neq x_0$. Prove that $f\\in\\mathscr{R}(\\alpha)$ and $\\int f\\,d\\alpha=0$.",
+          "difficulty": "EASY",
+          "tags": [
+            "Riemann-Stieltjes integral"
+          ],
+          "hints": [],
+          "sourcePageRef": "p. 136"
+        },
+        {
+          "number": "2",
+          "statement": "Suppose $f\\geq 0$, $f$ is continuous on $[a,b]$, and $\\int_a^b f(x)\\,dx=0$. Prove $f(x)=0$ for all $x\\in[a,b]$.",
+          "difficulty": "EASY",
+          "tags": [
+            "Riemann integral",
+            "continuous functions"
+          ],
+          "hints": [
+            {
+              "order": 1,
+              "content": "If $f(x_0)>0$ for some $x_0$, continuity gives a neighborhood where $f>f(x_0)/2>0$."
+            }
+          ],
+          "sourcePageRef": "p. 136"
+        },
+        {
+          "number": "3",
+          "statement": "Define three functions $\\beta_1,\\beta_2,\\beta_3$ on $[-1,1]$ as follows: $\\beta_j(x)=0$ if $x<0$, $\\beta_j(0)=j/2$ (for $j=1,2,3$), $\\beta_j(x)=1$ if $x>0$. Let $f$ be bounded on $[-1,1]$. Prove that $f\\in\\mathscr{R}(\\beta_j)$ iff $f$ is continuous at $0$ (with appropriate one-sided conditions). State the integral in each case.",
+          "difficulty": "MEDIUM",
+          "tags": [
+            "Riemann-Stieltjes integral",
+            "discontinuities"
+          ],
+          "hints": [],
+          "sourcePageRef": "p. 136"
+        },
+        {
+          "number": "4",
+          "statement": "If $f(x)=0$ for all irrational $x$, $f(x)=1$ for all rational $x$, prove that $f\\notin\\mathscr{R}$ on $[a,b]$ for any $a<b$.",
+          "difficulty": "EASY",
+          "tags": [
+            "Riemann integral",
+            "Dirichlet function"
+          ],
+          "hints": [],
+          "sourcePageRef": "p. 136"
+        },
+        {
+          "number": "5",
+          "statement": "Suppose $f$ is bounded on $[a,b]$, $f$ has only finitely many points of discontinuity on $[a,b]$, and $\\alpha$ is continuous at every point where $f$ is discontinuous. Prove $f\\in\\mathscr{R}(\\alpha)$.",
+          "difficulty": "MEDIUM",
+          "tags": [
+            "Riemann-Stieltjes integral",
+            "discontinuities"
+          ],
+          "hints": [],
+          "sourcePageRef": "p. 137"
+        },
+        {
+          "number": "6",
+          "statement": "Suppose $f$ is a bounded, monotonic function on $[a,b]$ and $\\alpha$ is continuous and monotonically increasing on $[a,b]$. Prove $f\\in\\mathscr{R}(\\alpha)$.",
+          "difficulty": "MEDIUM",
+          "tags": [
+            "Riemann-Stieltjes integral",
+            "monotone functions"
+          ],
+          "hints": [
+            {
+              "order": 1,
+              "content": "The discontinuities of $f$ form an at most countable set; use the uniform continuity of $\\alpha$ to control the oscillation."
+            }
+          ],
+          "sourcePageRef": "p. 137"
+        },
+        {
+          "number": "7",
+          "statement": "Suppose $f$ is a real function on $(0,1]$ and $f\\in\\mathscr{R}$ on $[c,1]$ for every $c>0$. Define $\\int_0^1 f(x)\\,dx=\\lim_{c\\to 0}\\int_c^1 f(x)\\,dx$ if this limit exists and is finite. (a) Construct a function $f$ such that this improper integral exists but $f\\notin\\mathscr{R}$ on $[0,1]$. (b) Suppose $f\\geq 0$ and $f$ decreases monotonically on $(0,1]$. Prove that $\\int_0^1 f\\,dx$ exists iff $\\sum_{n=1}^\\infty f(1/n)/n$ converges.",
+          "difficulty": "HARD",
+          "tags": [
+            "improper integrals",
+            "Riemann integral"
+          ],
+          "hints": [],
+          "sourcePageRef": "p. 137"
+        },
+        {
+          "number": "8",
+          "statement": "Suppose $f\\in\\mathscr{R}$ on $[a,b]$ for every $b>a$ and define $\\int_a^\\infty f(x)\\,dx=\\lim_{b\\to\\infty}\\int_a^b f(x)\\,dx$ when the limit exists. (a) Prove $\\int_0^\\infty \\frac{\\sin x}{x}\\,dx=\\frac{\\pi}{2}$.",
+          "difficulty": "HARD",
+          "tags": [
+            "improper integrals",
+            "Riemann integral"
+          ],
+          "hints": [],
+          "sourcePageRef": "p. 138"
+        },
+        {
+          "number": "9",
+          "statement": "Show that $\\int_0^\\infty \\left(\\frac{\\sin x}{x}\\right)^2\\,dx=\\frac{\\pi}{2}$.",
+          "difficulty": "HARD",
+          "tags": [
+            "improper integrals"
+          ],
+          "hints": [
+            {
+              "order": 1,
+              "content": "Integrate by parts: $\\int_0^N (\\sin x/x)^2\\,dx = [-\\sin^2x/x]_0^N + \\int_0^N \\sin(2x)/x\\,dx$."
+            }
+          ],
+          "sourcePageRef": "p. 138"
+        },
+        {
+          "number": "10",
+          "statement": "Let $p$ and $q$ be positive real numbers such that $1/p+1/q=1$. Prove (a) If $u\\geq 0$ and $v\\geq 0$, then $uv\\leq u^p/p+v^q/q$. (b) (H\\\"{o}lder's inequality) If $f,g\\in\\mathscr{R}(\\alpha)$, $f,g\\geq 0$, $\\int f^p\\,d\\alpha=1$, $\\int g^q\\,d\\alpha=1$, then $\\int fg\\,d\\alpha\\leq 1$. (c) (Schwarz's inequality) $\\left|\\int fg\\,d\\alpha\\right|^2\\leq\\int f^2\\,d\\alpha\\cdot\\int g^2\\,d\\alpha$.",
+          "difficulty": "HARD",
+          "tags": [
+            "Riemann-Stieltjes integral",
+            "Holder inequality",
+            "Schwarz inequality"
+          ],
+          "hints": [],
+          "sourcePageRef": "p. 138"
+        },
+        {
+          "number": "11",
+          "statement": "Let $\\alpha$ be a fixed increasing function on $[a,b]$. For $u\\in\\mathscr{R}(\\alpha)$, define $\\|u\\|_2=\\left(\\int_a^b|u|^2\\,d\\alpha\\right)^{1/2}$. Prove that $\\|u+v\\|_2\\leq\\|u\\|_2+\\|v\\|_2$.",
+          "difficulty": "MEDIUM",
+          "tags": [
+            "Riemann-Stieltjes integral",
+            "Minkowski inequality"
+          ],
+          "hints": [],
+          "sourcePageRef": "p. 138"
+        },
+        {
+          "number": "12",
+          "statement": "With the notation of Exercise 11, suppose $f_n\\in\\mathscr{R}(\\alpha)$ for $n=1,2,3,\\ldots$ and $\\|f_n-f\\|_2\\to 0$. Prove that $\\int_a^b f_n\\,d\\alpha\\to\\int_a^b f\\,d\\alpha$.",
+          "difficulty": "EASY",
+          "tags": [
+            "Riemann-Stieltjes integral",
+            "$L^2$ convergence"
+          ],
+          "hints": [],
+          "sourcePageRef": "p. 139"
+        },
+        {
+          "number": "13",
+          "statement": "Define $\\|f\\|=\\sup|f(x)|$ (i.e., the supremum norm). Suppose $f_n\\in\\mathscr{R}(\\alpha)$ and $\\|f_n-f\\|\\to 0$. Prove $f\\in\\mathscr{R}(\\alpha)$ and $\\int f_n\\,d\\alpha\\to\\int f\\,d\\alpha$.",
+          "difficulty": "MEDIUM",
+          "tags": [
+            "Riemann-Stieltjes integral",
+            "uniform convergence"
+          ],
+          "hints": [],
+          "sourcePageRef": "p. 139"
+        },
+        {
+          "number": "14",
+          "statement": "Show that every continuous $f$ on $[a,b]$ can be approximated in the $L^2$ sense by step functions: for every $\\varepsilon>0$, there is a step function $g$ with $\\|f-g\\|_2<\\varepsilon$.",
+          "difficulty": "MEDIUM",
+          "tags": [
+            "Riemann integral",
+            "approximation"
+          ],
+          "hints": [],
+          "sourcePageRef": "p. 139"
+        },
+        {
+          "number": "15",
+          "statement": "Suppose $f$ is a real, continuously differentiable function on $[a,b]$, $f(a)=f(b)=0$, and $\\int_a^b f^2(x)\\,dx=1$. Prove that $\\int_a^b xf(x)f'(x)\\,dx=-\\frac12$ and $\\int_a^b [f'(x)]^2\\,dx\\cdot\\int_a^b x^2 f^2(x)\\,dx\\geq\\frac14$.",
+          "difficulty": "HARD",
+          "tags": [
+            "Riemann integral",
+            "Schwarz inequality",
+            "integration by parts"
+          ],
+          "hints": [],
+          "sourcePageRef": "p. 139"
+        },
+        {
+          "number": "16",
+          "statement": "For $1<s<\\infty$, define $\\zeta(s)=\\sum_{n=1}^\\infty n^{-s}$. Prove that $\\zeta(s)=s\\int_1^\\infty \\frac{[x]}{x^{s+1}}\\,dx$ and that $\\zeta(s)=\\frac{s}{s-1}-s\\int_1^\\infty \\frac{x-[x]}{x^{s+1}}\\,dx$, where $[x]$ is the integer part.",
+          "difficulty": "HARD",
+          "tags": [
+            "Riemann integral",
+            "Riemann zeta function",
+            "Abel summation"
+          ],
+          "hints": [],
+          "sourcePageRef": "p. 140"
+        },
+        {
+          "number": "17",
+          "statement": "Suppose $\\alpha$ increases monotonically on $[a,b]$, $g$ is continuous, and $g(x)=G'(x)$ for $a\\leq x\\leq b$. Prove that $\\int_a^b \\alpha(x)g(x)\\,dx=G(b)\\alpha(b)-G(a)\\alpha(a)-\\int_a^b G\\,d\\alpha$.",
+          "difficulty": "MEDIUM",
+          "tags": [
+            "Riemann-Stieltjes integral",
+            "integration by parts"
+          ],
+          "hints": [],
+          "sourcePageRef": "p. 141"
+        }
+      ]
+    },
+    {
+      "number": 7,
+      "title": "Sequences and Series of Functions",
+      "problems": [
+        {
+          "number": "1",
+          "statement": "Prove that every uniformly convergent sequence of bounded functions is uniformly bounded.",
+          "difficulty": "EASY",
+          "tags": [
+            "uniform convergence",
+            "bounded functions"
+          ],
+          "hints": [],
+          "sourcePageRef": "p. 165"
+        },
+        {
+          "number": "2",
+          "statement": "If $\\{f_n\\}$ and $\\{g_n\\}$ converge uniformly on a set $E$, prove that $\\{f_n+g_n\\}$ converges uniformly on $E$. If $\\{f_n\\}$ and $\\{g_n\\}$ are sequences of bounded functions converging uniformly on $E$, prove $\\{f_ng_n\\}$ converges uniformly on $E$.",
+          "difficulty": "EASY",
+          "tags": [
+            "uniform convergence"
+          ],
+          "hints": [],
+          "sourcePageRef": "p. 165"
+        },
+        {
+          "number": "3",
+          "statement": "Construct sequences $\\{f_n\\}$, $\\{g_n\\}$ which converge uniformly on some set $E$, but for which $\\{f_ng_n\\}$ does not converge uniformly on $E$. (Compare with the preceding exercise.)",
+          "difficulty": "MEDIUM",
+          "tags": [
+            "uniform convergence",
+            "counterexamples"
+          ],
+          "hints": [
+            {
+              "order": 1,
+              "content": "Try $f_n=g_n=x+1/n$ on $\\mathbb{R}$."
+            }
+          ],
+          "sourcePageRef": "p. 165"
+        },
+        {
+          "number": "4",
+          "statement": "Consider $$f(x)=\\sum_{n=1}^\\infty\\frac{1}{1+n^2 x}.$$ For what values of $x$ does the series converge absolutely? On what intervals does it converge uniformly? Is $f$ continuous wherever the series converges? Is $f$ bounded?",
+          "difficulty": "MEDIUM",
+          "tags": [
+            "series of functions",
+            "uniform convergence"
+          ],
+          "hints": [],
+          "sourcePageRef": "p. 165"
+        },
+        {
+          "number": "5",
+          "statement": "Let $f_n(x)=\\frac{x^2}{(1+x^2)^n}$. Show that $\\{f_n\\}$ converges for every $x$ but $\\{f_n\\}$ does not converge uniformly on $\\mathbb{R}$.",
+          "difficulty": "EASY",
+          "tags": [
+            "uniform convergence",
+            "pointwise convergence"
+          ],
+          "hints": [],
+          "sourcePageRef": "p. 165"
+        },
+        {
+          "number": "6",
+          "statement": "Prove that the series $\\sum_{n=0}^\\infty(-1)^n x^n/(1+x)^{n+1}$ converges pointwise for $x\\neq -1$ but converges uniformly on no interval containing $0$.",
+          "difficulty": "MEDIUM",
+          "tags": [
+            "series of functions",
+            "uniform convergence"
+          ],
+          "hints": [],
+          "sourcePageRef": "p. 165"
+        },
+        {
+          "number": "7",
+          "statement": "For $n=1,2,3,\\ldots$ and real $x$, define $f_n(x)=\\frac{x}{1+nx^2}$. Show that $f_n\\to 0$ uniformly on $\\mathbb{R}$. Compute $\\lim_{n\\to\\infty}f_n'(x)$. Is the convergence of $\\{f_n'\\}$ uniform?",
+          "difficulty": "MEDIUM",
+          "tags": [
+            "uniform convergence",
+            "derivatives"
+          ],
+          "hints": [],
+          "sourcePageRef": "p. 166"
+        },
+        {
+          "number": "8",
+          "statement": "If $f$ is continuous on $[0,1]$ and $\\int_0^1 f(x)x^n\\,dx=0$ for $n=0,1,2,\\ldots$, prove $f(x)=0$ on $[0,1]$. (Use Weierstrass approximation.)",
+          "difficulty": "MEDIUM",
+          "tags": [
+            "Weierstrass approximation",
+            "uniform convergence"
+          ],
+          "hints": [
+            {
+              "order": 1,
+              "content": "Approximate $f$ uniformly by polynomials; then $\\int f^2=\\lim\\int f\\cdot P_n=0$."
+            }
+          ],
+          "sourcePageRef": "p. 166"
+        },
+        {
+          "number": "9",
+          "statement": "Let $\\{f_n\\}$ be a sequence of continuous functions on $[0,1]$ which converges uniformly to $f$. Prove $\\lim_{n\\to\\infty}\\int_0^1 f_n(x_n)\\,dx_n=\\int_0^1 f(x)\\,dx$ if $x_n\\to x$.",
+          "difficulty": "EASY",
+          "tags": [
+            "uniform convergence",
+            "Riemann integral"
+          ],
+          "hints": [],
+          "sourcePageRef": "p. 166"
+        },
+        {
+          "number": "10",
+          "statement": "Let $K$ be a compact metric space, let $\\mathscr{C}(K)$ denote the set of complex continuous functions on $K$, and define $\\|f\\|=\\sup_{x\\in K}|f(x)|$. Let $\\{f_n\\}\\subset\\mathscr{C}(K)$ be equicontinuous and pointwise bounded. Prove $\\{f_n\\}$ contains a uniformly convergent subsequence. (Arzelà-Ascoli)",
+          "difficulty": "HARD",
+          "tags": [
+            "Arzelà-Ascoli theorem",
+            "equicontinuity",
+            "compactness"
+          ],
+          "hints": [
+            {
+              "order": 1,
+              "content": "Pick a countable dense set $\\{x_i\\}$ in $K$; use a diagonal argument to extract a subsequence convergent at each $x_i$; then use equicontinuity to get uniform convergence."
+            }
+          ],
+          "sourcePageRef": "p. 168"
+        },
+        {
+          "number": "11",
+          "statement": "For $n=1,2,3,\\ldots$, define $f_n(x)=x^n$ on $[0,1]$. Is $\\{f_n\\}$ equicontinuous on $[0,1]$? On $[0,1)$?",
+          "difficulty": "EASY",
+          "tags": [
+            "equicontinuity",
+            "uniform convergence"
+          ],
+          "hints": [],
+          "sourcePageRef": "p. 166"
+        },
+        {
+          "number": "12",
+          "statement": "If $\\|f_n-f\\|\\to 0$ and $\\|g_n-g\\|\\to 0$, and all functions are in $\\mathscr{C}(K)$, prove $\\|f_ng_n-fg\\|\\to 0$ provided $\\|f_n\\|$ is bounded.",
+          "difficulty": "EASY",
+          "tags": [
+            "uniform convergence"
+          ],
+          "hints": [],
+          "sourcePageRef": "p. 166"
+        },
+        {
+          "number": "13",
+          "statement": "The hypotheses of Theorem 7.25 can be relaxed slightly: Assume $\\{f_n\\}$ is pointwise bounded on $E$, and equicontinuous on every compact $K\\subset E$. Prove $\\{f_n\\}$ contains a subsequence which converges uniformly on every compact $K$.",
+          "difficulty": "HARD",
+          "tags": [
+            "Arzelà-Ascoli theorem",
+            "equicontinuity"
+          ],
+          "hints": [],
+          "sourcePageRef": "p. 168"
+        },
+        {
+          "number": "14",
+          "statement": "Define $$f(x)=\\int_0^\\infty\\frac{1}{1+t^2}\\cdot\\frac{dt}{1+(t-x)^2}.$$ Is $f$ continuous? Bounded? What is $\\lim_{x\\to\\pm\\infty}f(x)$?",
+          "difficulty": "HARD",
+          "tags": [
+            "improper integrals",
+            "continuous functions"
+          ],
+          "hints": [],
+          "sourcePageRef": "p. 167"
+        },
+        {
+          "number": "15",
+          "statement": "Suppose $f$ is a real continuous function on $\\mathbb{R}$, $f_n(t)=f(nt)$ for $n=1,2,3,\\ldots$, and $\\{f_n\\}$ is equicontinuous on $[0,1]$. What conclusion can you draw about $f$?",
+          "difficulty": "MEDIUM",
+          "tags": [
+            "equicontinuity",
+            "continuous functions"
+          ],
+          "hints": [
+            {
+              "order": 1,
+              "content": "Show $f$ must be constant."
+            }
+          ],
+          "sourcePageRef": "p. 167"
+        },
+        {
+          "number": "16",
+          "statement": "Suppose $\\{f_n\\}$ is equicontinuous on $[a,b]$ and $f_n(x)\\to f(x)$ for every rational $x\\in[a,b]$. Prove $\\{f_n\\}$ converges uniformly on $[a,b]$.",
+          "difficulty": "MEDIUM",
+          "tags": [
+            "equicontinuity",
+            "uniform convergence"
+          ],
+          "hints": [],
+          "sourcePageRef": "p. 167"
+        },
+        {
+          "number": "17",
+          "statement": "Suppose $f_n:[a,b]\\to\\mathbb{R}$ is differentiable for $n=1,2,\\ldots$, $|f_n'(x)|\\leq M$ for all $n$ and $x$, and $f_n(x_0)$ converges for some $x_0\\in[a,b]$. Prove $\\{f_n\\}$ has a uniformly convergent subsequence.",
+          "difficulty": "MEDIUM",
+          "tags": [
+            "equicontinuity",
+            "Arzelà-Ascoli theorem"
+          ],
+          "hints": [],
+          "sourcePageRef": "p. 167"
+        },
+        {
+          "number": "18",
+          "statement": "Let $\\{f_n\\}$ be a uniformly bounded sequence of differentiable functions on $[a,b]$ such that $\\{f_n'\\}$ is uniformly bounded. Prove $\\{f_n\\}$ contains a uniformly convergent subsequence.",
+          "difficulty": "MEDIUM",
+          "tags": [
+            "equicontinuity",
+            "Arzelà-Ascoli theorem"
+          ],
+          "hints": [],
+          "sourcePageRef": "p. 167"
+        },
+        {
+          "number": "19",
+          "statement": "Let $K$ be a compact metric space, $\\mathscr{A}\\subset\\mathscr{C}(K)$ be an algebra which separates points and vanishes at no point. Prove $\\mathscr{A}$ is dense in $\\mathscr{C}(K)$ (Stone-Weierstrass).",
+          "difficulty": "HARD",
+          "tags": [
+            "Stone-Weierstrass theorem",
+            "approximation"
+          ],
+          "hints": [],
+          "sourcePageRef": "p. 162"
+        },
+        {
+          "number": "20",
+          "statement": "State and prove the complex version of the Stone-Weierstrass theorem.",
+          "difficulty": "HARD",
+          "tags": [
+            "Stone-Weierstrass theorem",
+            "complex functions"
+          ],
+          "hints": [],
+          "sourcePageRef": "p. 163"
+        },
+        {
+          "number": "21",
+          "statement": "If $f$ is a continuous complex function on $[0,2\\pi]$ with $f(0)=f(2\\pi)$, prove that $f$ can be uniformly approximated by trigonometric polynomials $\\sum c_n e^{inx}$.",
+          "difficulty": "MEDIUM",
+          "tags": [
+            "Weierstrass approximation",
+            "trigonometric polynomials"
+          ],
+          "hints": [],
+          "sourcePageRef": "p. 163"
+        },
+        {
+          "number": "22",
+          "statement": "Assume $f$ is a continuous complex function on $[0,2\\pi]$ with $f(0)=f(2\\pi)$ and $\\int_0^{2\\pi}f(t)e^{-int}\\,dt=0$ for every integer $n$. Prove $f\\equiv 0$.",
+          "difficulty": "MEDIUM",
+          "tags": [
+            "Fourier series",
+            "uniqueness"
+          ],
+          "hints": [],
+          "sourcePageRef": "p. 163"
+        },
+        {
+          "number": "23",
+          "statement": "Prove that the set of functions of the form $\\sum a_n\\cos(nt)$ is dense in the set of even continuous functions on $[0,\\pi]$.",
+          "difficulty": "MEDIUM",
+          "tags": [
+            "Stone-Weierstrass theorem",
+            "trigonometric polynomials"
+          ],
+          "hints": [],
+          "sourcePageRef": "p. 163"
+        },
+        {
+          "number": "24",
+          "statement": "Let $X$ be a metric space, $K\\subset X$ compact, $G\\subset X$ open, $K\\subset G$. Prove there exists $f\\in\\mathscr{C}(X)$ with $f(K)=\\{1\\}$, $f(G^c)=\\{0\\}$, $0\\leq f\\leq 1$.",
+          "difficulty": "MEDIUM",
+          "tags": [
+            "continuous functions",
+            "compactness",
+            "Urysohn"
+          ],
+          "hints": [],
+          "sourcePageRef": "p. 168"
+        },
+        {
+          "number": "25",
+          "statement": "Suppose $f$ and $g$ are continuous real functions on a metric space $X$. Prove $\\max(f,g)$ and $\\min(f,g)$ are continuous.",
+          "difficulty": "EASY",
+          "tags": [
+            "continuous functions"
+          ],
+          "hints": [],
+          "sourcePageRef": "p. 168"
+        },
+        {
+          "number": "26",
+          "statement": "Prove that $\\mathscr{C}(K)$ is separable (i.e., has a countable dense subset) whenever $K$ is a compact metric space.",
+          "difficulty": "MEDIUM",
+          "tags": [
+            "Stone-Weierstrass theorem",
+            "separability"
+          ],
+          "hints": [],
+          "sourcePageRef": "p. 168"
+        }
+      ]
+    },
+    {
+      "number": 8,
+      "title": "Some Special Functions",
+      "problems": [
+        {
+          "number": "1",
+          "statement": "Define $E(z)=\\sum_{n=0}^\\infty z^n/n!$. Prove the series converges for all $z\\in\\mathbb{C}$. Prove $E(z+w)=E(z)E(w)$. Prove $E$ is differentiable and $E'=E$.",
+          "difficulty": "MEDIUM",
+          "tags": [
+            "exponential function",
+            "power series"
+          ],
+          "hints": [],
+          "sourcePageRef": "p. 196"
+        },
+        {
+          "number": "2",
+          "statement": "It is required to prove that $\\pi>3.141$ and $\\pi<3.1416$. These inequalities can be verified by computing the relevant sums numerically. Describe a method that establishes $\\pi>3$ from first principles using the cosine function.",
+          "difficulty": "MEDIUM",
+          "tags": [
+            "trigonometric functions",
+            "pi"
+          ],
+          "hints": [],
+          "sourcePageRef": "p. 196"
+        },
+        {
+          "number": "3",
+          "statement": "(a) Prove that $\\pi/2<2$, i.e., that $\\cos x>0$ for $0\\leq x<2$. (b) Prove more precisely: The smallest positive zero of $\\cos$ satisfies $\\pi/2>1.57$.",
+          "difficulty": "MEDIUM",
+          "tags": [
+            "trigonometric functions",
+            "pi"
+          ],
+          "hints": [],
+          "sourcePageRef": "p. 196"
+        },
+        {
+          "number": "4",
+          "statement": "Prove that $C(x)=\\cos x$ and $S(x)=\\sin x$ satisfy $C'=-S$, $S'=C$, $C(0)=1$, $S(0)=0$, and $C^2+S^2=1$. Prove $S$ and $C$ are periodic with period $2\\pi$.",
+          "difficulty": "MEDIUM",
+          "tags": [
+            "trigonometric functions",
+            "power series"
+          ],
+          "hints": [],
+          "sourcePageRef": "p. 183"
+        },
+        {
+          "number": "5",
+          "statement": "Prove: (a) $E(it)=\\cos t+i\\sin t$ for real $t$; (b) $|e^{it}|=1$ for real $t$; (c) $e^{2\\pi i}=1$.",
+          "difficulty": "EASY",
+          "tags": [
+            "exponential function",
+            "trigonometric functions",
+            "Euler formula"
+          ],
+          "hints": [],
+          "sourcePageRef": "p. 184"
+        },
+        {
+          "number": "6",
+          "statement": "If $z_1=x_1+iy_1$, $z_2=x_2+iy_2$, and $y_1,y_2\\in(-\\pi,\\pi]$, $e^{z_1}=e^{z_2}$, prove $z_1=z_2$. In other words, $e^z$ is one-to-one on the horizontal strip $-\\pi<\\text{Im}(z)\\leq\\pi$.",
+          "difficulty": "MEDIUM",
+          "tags": [
+            "exponential function",
+            "logarithm"
+          ],
+          "hints": [],
+          "sourcePageRef": "p. 196"
+        },
+        {
+          "number": "7",
+          "statement": "Prove $\\Gamma(\\frac12)=\\sqrt{\\pi}$ by computing $\\Gamma(\\frac12)^2=\\int_0^\\infty\\int_0^\\infty e^{-(x^2+y^2)}\\,dx\\,dy$ in polar coordinates.",
+          "difficulty": "MEDIUM",
+          "tags": [
+            "Gamma function",
+            "improper integrals"
+          ],
+          "hints": [],
+          "sourcePageRef": "p. 197"
+        },
+        {
+          "number": "8",
+          "statement": "Prove that for positive integer $n$: $\\Gamma(n+1)=n!$. Prove more generally that $\\Gamma(x+1)=x\\Gamma(x)$ for all $x>0$.",
+          "difficulty": "EASY",
+          "tags": [
+            "Gamma function",
+            "integration by parts"
+          ],
+          "hints": [],
+          "sourcePageRef": "p. 192"
+        },
+        {
+          "number": "9",
+          "statement": "Put $\\gamma=\\lim_{n\\to\\infty}\\left(1+\\frac12+\\cdots+\\frac1n-\\ln n\\right)$. Prove this limit exists. Show that $\\gamma=\\int_1^\\infty\\left(\\frac{1}{[x]}-\\frac{1}{x}\\right)dx$ (Euler-Mascheroni constant).",
+          "difficulty": "HARD",
+          "tags": [
+            "logarithm",
+            "series",
+            "Euler-Mascheroni constant"
+          ],
+          "hints": [],
+          "sourcePageRef": "p. 197"
+        },
+        {
+          "number": "10",
+          "statement": "Prove that $\\ln 2 = 1 - \\frac{1}{2} + \\frac{1}{3} - \\frac{1}{4} + \\cdots$. (Use the alternating series or the power series for $\\ln(1+x)$.)",
+          "difficulty": "EASY",
+          "tags": [
+            "logarithm",
+            "series"
+          ],
+          "hints": [],
+          "sourcePageRef": "p. 197"
+        },
+        {
+          "number": "11",
+          "statement": "Suppose $f$ is defined in a neighborhood of $0$, and suppose $f^{(n)}(0)$ exists. Prove that the Taylor polynomial $P(x)=\\sum_{k=0}^n f^{(k)}(0)x^k/k!$ satisfies $\\lim_{x\\to 0}(f(x)-P(x))/x^n=0$.",
+          "difficulty": "EASY",
+          "tags": [
+            "Taylor theorem",
+            "derivatives"
+          ],
+          "hints": [],
+          "sourcePageRef": "p. 197"
+        },
+        {
+          "number": "12",
+          "statement": "Suppose $f(x)=e^{-1/x^2}$ for $x\\neq 0$, $f(0)=0$. Prove $f^{(n)}(0)=0$ for all $n\\in\\mathbb{N}$. Conclude that the Taylor series for $f$ at $0$ converges for all $x$ but equals $f$ only at $x=0$.",
+          "difficulty": "MEDIUM",
+          "tags": [
+            "Taylor series",
+            "smooth functions",
+            "non-analytic"
+          ],
+          "hints": [],
+          "sourcePageRef": "p. 197"
+        },
+        {
+          "number": "13",
+          "statement": "Prove that $e$ is irrational.",
+          "difficulty": "MEDIUM",
+          "tags": [
+            "exponential function",
+            "irrational numbers"
+          ],
+          "hints": [
+            {
+              "order": 1,
+              "content": "Suppose $e=p/q$; then $q!\\cdot e$ and $q!\\cdot\\sum_{n=0}^q 1/n!$ are both integers, so $q!\\cdot\\sum_{n=q+1}^\\infty 1/n!$ is also an integer; bound this sum between $0$ and $1$."
+            }
+          ],
+          "sourcePageRef": "p. 197"
+        },
+        {
+          "number": "14",
+          "statement": "Prove that the Fourier series of a function $f\\in\\mathscr{R}$ on $[-\\pi,\\pi]$ satisfies $\\hat{f}(n)\\to 0$ as $|n|\\to\\infty$ (Riemann-Lebesgue lemma).",
+          "difficulty": "HARD",
+          "tags": [
+            "Fourier series",
+            "Riemann-Lebesgue lemma"
+          ],
+          "hints": [
+            {
+              "order": 1,
+              "content": "For step functions the result follows by direct computation; use density of step functions in $\\mathscr{R}$."
+            }
+          ],
+          "sourcePageRef": "p. 190"
+        },
+        {
+          "number": "15",
+          "statement": "Assume $\\sum_{n=-\\infty}^\\infty |c_n|<\\infty$. Prove that $f(x)=\\sum_{n=-\\infty}^\\infty c_n e^{inx}$ is continuous and periodic, and that the Fourier coefficients of $f$ are $c_n$.",
+          "difficulty": "EASY",
+          "tags": [
+            "Fourier series",
+            "uniform convergence"
+          ],
+          "hints": [],
+          "sourcePageRef": "p. 197"
+        },
+        {
+          "number": "16",
+          "statement": "Prove Parseval's theorem: If $f\\in\\mathscr{R}$ on $[-\\pi,\\pi]$ then $\\frac{1}{2\\pi}\\int_{-\\pi}^\\pi |f(x)|^2\\,dx=\\sum_{n=-\\infty}^\\infty|c_n|^2$.",
+          "difficulty": "HARD",
+          "tags": [
+            "Fourier series",
+            "Parseval theorem"
+          ],
+          "hints": [],
+          "sourcePageRef": "p. 195"
+        },
+        {
+          "number": "17",
+          "statement": "If $f$ is a continuous complex function on $[-\\pi,\\pi]$ whose Fourier series converges uniformly to $f$, show that $f(x)=\\sum_{n=-\\infty}^\\infty c_n e^{inx}$ where $c_n=\\frac{1}{2\\pi}\\int_{-\\pi}^\\pi f(t)e^{-int}\\,dt$.",
+          "difficulty": "EASY",
+          "tags": [
+            "Fourier series",
+            "convergence"
+          ],
+          "hints": [],
+          "sourcePageRef": "p. 198"
+        },
+        {
+          "number": "18",
+          "statement": "Let $f(x)=x$ for $x\\in(-\\pi,\\pi]$, extended periodically. Compute the Fourier series. Use Parseval's theorem to evaluate $\\sum_{n=1}^\\infty 1/n^2$.",
+          "difficulty": "MEDIUM",
+          "tags": [
+            "Fourier series",
+            "Parseval theorem",
+            "Basel problem"
+          ],
+          "hints": [],
+          "sourcePageRef": "p. 198"
+        },
+        {
+          "number": "19",
+          "statement": "Prove that the Fourier series of a function $f$ of bounded variation on $[-\\pi,\\pi]$ converges to $(f(x^+)+f(x^-))/2$ at every point.",
+          "difficulty": "HARD",
+          "tags": [
+            "Fourier series",
+            "bounded variation",
+            "pointwise convergence"
+          ],
+          "hints": [],
+          "sourcePageRef": "p. 198"
+        },
+        {
+          "number": "20",
+          "statement": "If $\\sum_{n=1}^\\infty |a_n|+|b_n|<\\infty$, prove that the trigonometric series $\\frac{a_0}{2}+\\sum_{n=1}^\\infty(a_n\\cos nx+b_n\\sin nx)$ converges uniformly to a continuous function.",
+          "difficulty": "EASY",
+          "tags": [
+            "Fourier series",
+            "uniform convergence"
+          ],
+          "hints": [],
+          "sourcePageRef": "p. 198"
+        },
+        {
+          "number": "21",
+          "statement": "Let $f$ be continuous and periodic with period $2\\pi$. Prove $$\\lim_{N\\to\\infty}\\frac{1}{N}\\sum_{n=1}^N f(n\\alpha)=\\frac{1}{2\\pi}\\int_0^{2\\pi}f(t)\\,dt$$ when $\\alpha/\\pi$ is irrational (Weyl equidistribution).",
+          "difficulty": "HARD",
+          "tags": [
+            "Fourier series",
+            "equidistribution",
+            "Weyl"
+          ],
+          "hints": [],
+          "sourcePageRef": "p. 198"
+        },
+        {
+          "number": "22",
+          "statement": "Suppose $f$ is a continuous real function on $\\mathbb{R}^1$ and $f_n(x)=\\frac{1}{2n}\\int_{x-n}^{x+n}f(t)\\,dt$. Show that $f_n$ is differentiable for all $x$ and all $n$, and that $f_n(x)\\to f(x)$ as $n\\to\\infty$.",
+          "difficulty": "MEDIUM",
+          "tags": [
+            "differentiation",
+            "integration",
+            "approximation"
+          ],
+          "hints": [],
+          "sourcePageRef": "p. 198"
+        },
+        {
+          "number": "23",
+          "statement": "Derive the Euler product formula $\\sin(\\pi z)=\\pi z\\prod_{n=1}^\\infty(1-z^2/n^2)$ as a consequence of the partial fractions expansion of $\\pi\\cot(\\pi z)$ and prove $\\sum_{n=1}^\\infty 1/n^2=\\pi^2/6$.",
+          "difficulty": "HARD",
+          "tags": [
+            "product formula",
+            "trigonometric functions",
+            "pi"
+          ],
+          "hints": [],
+          "sourcePageRef": "p. 198"
+        },
+        {
+          "number": "24",
+          "statement": "Prove: $e^x\\geq 1+x$ for all real $x$, with equality iff $x=0$. Use this to prove the AM-GM inequality: $\\frac{a_1+\\cdots+a_n}{n}\\geq(a_1\\cdots a_n)^{1/n}$ for $a_i>0$.",
+          "difficulty": "EASY",
+          "tags": [
+            "exponential function",
+            "inequalities"
+          ],
+          "hints": [],
+          "sourcePageRef": "p. 196"
+        },
+        {
+          "number": "25",
+          "statement": "If $0<x<\\pi/2$, prove that $\\frac{2x}{\\pi}<\\sin x<x$.",
+          "difficulty": "EASY",
+          "tags": [
+            "trigonometric functions",
+            "inequalities"
+          ],
+          "hints": [],
+          "sourcePageRef": "p. 196"
+        },
+        {
+          "number": "26",
+          "statement": "Prove that for all $x$: $|\\sin x|\\leq 1$, $|\\cos x|\\leq 1$. Also prove $|\\sin x-\\sin y|\\leq|x-y|$ and $|\\cos x-\\cos y|\\leq|x-y|$ for all real $x,y$.",
+          "difficulty": "EASY",
+          "tags": [
+            "trigonometric functions",
+            "Lipschitz"
+          ],
+          "hints": [],
+          "sourcePageRef": "p. 196"
+        },
+        {
+          "number": "27",
+          "statement": "Prove: If $f$ is integrable on $[0,1]$ and $\\int_0^1 f(x)p(x)\\,dx=0$ for every polynomial $p$, then $f(x)=0$ a.e. on $[0,1]$ if $f$ is also continuous.",
+          "difficulty": "MEDIUM",
+          "tags": [
+            "Weierstrass approximation",
+            "Riemann integral"
+          ],
+          "hints": [],
+          "sourcePageRef": "p. 198"
+        }
+      ]
+    },
+    {
+      "number": 9,
+      "title": "Functions of Several Variables",
+      "problems": [
+        {
+          "number": "1",
+          "statement": "If $S$ is a nonempty subset of a vector space $X$, prove that the span of $S$ (the set of all finite linear combinations of elements of $S$) is a subspace of $X$.",
+          "difficulty": "EASY",
+          "tags": [
+            "linear algebra",
+            "vector spaces"
+          ],
+          "hints": [],
+          "sourcePageRef": "p. 227"
+        },
+        {
+          "number": "2",
+          "statement": "Prove that every linear operator $A:\\mathbb{R}^n\\to\\mathbb{R}^m$ is bounded (i.e., $|Ax|\\leq M|x|$ for some constant $M$).",
+          "difficulty": "EASY",
+          "tags": [
+            "linear maps",
+            "bounded operators"
+          ],
+          "hints": [
+            {
+              "order": 1,
+              "content": "Write $x=\\sum x_i e_i$ and use $|Ax|\\leq\\sum|x_i||Ae_i|\\leq|x|\\sum|Ae_i|$."
+            }
+          ],
+          "sourcePageRef": "p. 227"
+        },
+        {
+          "number": "3",
+          "statement": "Assume $A\\in L(\\mathbb{R}^n,\\mathbb{R}^m)$ and $A\\neq 0$. Put $\\|A\\|=\\sup_{|x|\\leq 1}|Ax|$. Prove (a) $|Ax|\\leq\\|A\\|\\cdot|x|$; (b) $\\|A+B\\|\\leq\\|A\\|+\\|B\\|$; (c) $\\|BA\\|\\leq\\|B\\|\\cdot\\|A\\|$ when the composition makes sense.",
+          "difficulty": "EASY",
+          "tags": [
+            "linear maps",
+            "operator norm"
+          ],
+          "hints": [],
+          "sourcePageRef": "p. 228"
+        },
+        {
+          "number": "4",
+          "statement": "Let $\\Omega$ be the set of all invertible operators in $L(\\mathbb{R}^n)$. (a) If $A\\in\\Omega$ and $B\\in L(\\mathbb{R}^n)$ with $\\|B-A\\|<1/\\|A^{-1}\\|$, prove $B\\in\\Omega$. (b) Show that $\\Omega$ is an open subset of $L(\\mathbb{R}^n)$ and that $A\\mapsto A^{-1}$ is continuous.",
+          "difficulty": "MEDIUM",
+          "tags": [
+            "linear maps",
+            "invertible maps",
+            "metric spaces"
+          ],
+          "hints": [],
+          "sourcePageRef": "p. 228"
+        },
+        {
+          "number": "5",
+          "statement": "Let $U\\subset\\mathbb{R}^n$ be open, $f:U\\to\\mathbb{R}^m$. Define $f'(x)$ as the linear map $A$ such that $\\lim_{h\\to 0}|f(x+h)-f(x)-Ah|/|h|=0$. (a) Prove $f'(x)$ is unique if it exists. (b) If $f$ is a constant, prove $f'(x)=0$.",
+          "difficulty": "EASY",
+          "tags": [
+            "differentiation",
+            "functions of several variables"
+          ],
+          "hints": [],
+          "sourcePageRef": "p. 212"
+        },
+        {
+          "number": "6",
+          "statement": "If $f:\\mathbb{R}^n\\to\\mathbb{R}^m$ is a linear mapping, prove $f'(x)=f$ for every $x\\in\\mathbb{R}^n$.",
+          "difficulty": "EASY",
+          "tags": [
+            "differentiation",
+            "linear maps"
+          ],
+          "hints": [],
+          "sourcePageRef": "p. 212"
+        },
+        {
+          "number": "7",
+          "statement": "Prove the chain rule: If $f:U\\to V$ ($U\\subset\\mathbb{R}^n$, $V\\subset\\mathbb{R}^m$ open) is differentiable at $x$ and $g:V\\to\\mathbb{R}^k$ is differentiable at $f(x)$, then $g\\circ f$ is differentiable at $x$ and $(g\\circ f)'(x)=g'(f(x))f'(x)$.",
+          "difficulty": "MEDIUM",
+          "tags": [
+            "differentiation",
+            "chain rule"
+          ],
+          "hints": [],
+          "sourcePageRef": "p. 214"
+        },
+        {
+          "number": "8",
+          "statement": "Suppose $f:\\mathbb{R}^n\\to\\mathbb{R}^m$. Define the partial derivatives $D_j f_i(x)=\\lim_{t\\to 0}(f_i(x+te_j)-f_i(x))/t$. If all partial derivatives exist and are continuous in $U$, prove $f$ is differentiable in $U$ and the matrix of $f'(x)$ is $(D_j f_i(x))$.",
+          "difficulty": "MEDIUM",
+          "tags": [
+            "differentiation",
+            "partial derivatives"
+          ],
+          "hints": [],
+          "sourcePageRef": "p. 215"
+        },
+        {
+          "number": "9",
+          "statement": "If $f=(f_1,\\ldots,f_m):U\\to\\mathbb{R}^m$ is differentiable at $x$, prove each $f_i$ is differentiable at $x$. Prove the converse.",
+          "difficulty": "EASY",
+          "tags": [
+            "differentiation",
+            "functions of several variables"
+          ],
+          "hints": [],
+          "sourcePageRef": "p. 212"
+        },
+        {
+          "number": "10",
+          "statement": "If $f:U\\to\\mathbb{R}$, $x\\in U$, and the partial derivatives $D_1 f,\\ldots,D_n f$ all exist and at least $n-1$ of them are continuous at $x$, must $f$ be differentiable at $x$?",
+          "difficulty": "HARD",
+          "tags": [
+            "differentiation",
+            "partial derivatives"
+          ],
+          "hints": [],
+          "sourcePageRef": "p. 228"
+        },
+        {
+          "number": "11",
+          "statement": "Let $f:\\mathbb{R}^2\\to\\mathbb{R}$, $f(x,y)=xy(x^2-y^2)/(x^2+y^2)$ for $(x,y)\\neq(0,0)$, $f(0,0)=0$. Prove $D_1D_2 f(0,0)\\neq D_2D_1 f(0,0)$.",
+          "difficulty": "MEDIUM",
+          "tags": [
+            "partial derivatives",
+            "mixed partials"
+          ],
+          "hints": [],
+          "sourcePageRef": "p. 228"
+        },
+        {
+          "number": "12",
+          "statement": "Prove: If the mixed partials $D_{ij}f$ and $D_{ji}f$ both exist and one of them is continuous at $x_0$, then they are equal at $x_0$ (Clairaut's theorem).",
+          "difficulty": "HARD",
+          "tags": [
+            "partial derivatives",
+            "mixed partials"
+          ],
+          "hints": [],
+          "sourcePageRef": "p. 235"
+        },
+        {
+          "number": "13",
+          "statement": "Suppose $f=(f_1,f_2):\\mathbb{R}^2\\to\\mathbb{R}^2$ is defined by $f_1=e^x\\cos y$, $f_2=e^x\\sin y$. (a) Find the Jacobian $J_f$. (b) Describe the image of $f$. (c) Show $f$ is one-to-one on any open set not containing two points differing by $2\\pi i$ in imaginary part.",
+          "difficulty": "MEDIUM",
+          "tags": [
+            "differentiation",
+            "inverse function theorem"
+          ],
+          "hints": [],
+          "sourcePageRef": "p. 228"
+        },
+        {
+          "number": "14",
+          "statement": "(Inverse Function Theorem) Suppose $f:U\\to\\mathbb{R}^n$ is a $\\mathscr{C}'$ map, $a\\in U$, and $f'(a)$ is invertible. Prove there exist open sets $V\\subset U$ (with $a\\in V$) and $W=f(V)$ such that $f:V\\to W$ is a bijection with $\\mathscr{C}'$ inverse $g:W\\to V$.",
+          "difficulty": "HARD",
+          "tags": [
+            "inverse function theorem",
+            "differentiation"
+          ],
+          "hints": [],
+          "sourcePageRef": "p. 221"
+        },
+        {
+          "number": "15",
+          "statement": "(Implicit Function Theorem) Let $f:\\mathbb{R}^{n+m}\\to\\mathbb{R}^m$ be a $\\mathscr{C}'$ map. Write points of $\\mathbb{R}^{n+m}$ as $(x,y)$ with $x\\in\\mathbb{R}^n$, $y\\in\\mathbb{R}^m$. Suppose $f(a,b)=0$ and the matrix $D_y f(a,b)$ is invertible. Prove there exist open sets $U\\ni a$ and $V\\ni b$ and a unique $\\mathscr{C}'$ map $g:U\\to V$ such that $g(a)=b$ and $f(x,g(x))=0$ for all $x\\in U$.",
+          "difficulty": "HARD",
+          "tags": [
+            "implicit function theorem",
+            "differentiation"
+          ],
+          "hints": [],
+          "sourcePageRef": "p. 224"
+        },
+        {
+          "number": "16",
+          "statement": "If $f:U\\to\\mathbb{R}^n$ is a $\\mathscr{C}'$ map with $f'(x)$ invertible for all $x\\in U$, must $f$ be one-to-one on $U$? Prove or give counterexample.",
+          "difficulty": "MEDIUM",
+          "tags": [
+            "inverse function theorem",
+            "differentiation"
+          ],
+          "hints": [],
+          "sourcePageRef": "p. 229"
+        },
+        {
+          "number": "17",
+          "statement": "Let $f:(0,\\infty)\\times(0,2\\pi)\\to\\mathbb{R}^2$ by $f(r,\\theta)=(r\\cos\\theta,r\\sin\\theta)$. Show $f'$ is invertible everywhere. What is the image of $f$? Is $f$ globally one-to-one?",
+          "difficulty": "EASY",
+          "tags": [
+            "differentiation",
+            "polar coordinates"
+          ],
+          "hints": [],
+          "sourcePageRef": "p. 229"
+        },
+        {
+          "number": "18",
+          "statement": "Prove the following: If $f:U\\to\\mathbb{R}^n$ is $\\mathscr{C}'$ and $f'(x)$ is invertible at every point, then $f$ is an open mapping (i.e., $f(V)$ is open for every open $V\\subset U$).",
+          "difficulty": "MEDIUM",
+          "tags": [
+            "inverse function theorem",
+            "open mappings"
+          ],
+          "hints": [],
+          "sourcePageRef": "p. 229"
+        },
+        {
+          "number": "19",
+          "statement": "Put $f(x,y)=(e^x\\cos y-1, e^x\\sin y)$. Prove $f'(0,0)$ is invertible. Compute $f'(0,0)$. Find a neighborhood $V$ of $(0,0)$ on which $f$ is one-to-one.",
+          "difficulty": "EASY",
+          "tags": [
+            "inverse function theorem",
+            "differentiation"
+          ],
+          "hints": [],
+          "sourcePageRef": "p. 229"
+        },
+        {
+          "number": "20",
+          "statement": "If $f:\\mathbb{R}^n\\to\\mathbb{R}^n$ is $\\mathscr{C}'$, $f(0)=0$, and $f'(0)=I$ (identity), prove there exist open sets $U\\ni 0$ and $V\\ni 0$ such that $f:U\\to V$ is a bijection with $\\mathscr{C}'$ inverse.",
+          "difficulty": "EASY",
+          "tags": [
+            "inverse function theorem"
+          ],
+          "hints": [],
+          "sourcePageRef": "p. 229"
+        },
+        {
+          "number": "21",
+          "statement": "Define $F:\\mathbb{R}^3\\to\\mathbb{R}^2$ by $F(x,y,z)=(x+y+z, x^2+y^2+z^2-1)$. Show that the system $F(x,y,z)=(0,0)$ can be solved for $(x,y)$ as a $\\mathscr{C}'$ function of $z$ near $(0,0,0)$... (check $D_{(x,y)}F$ at a suitable point).",
+          "difficulty": "MEDIUM",
+          "tags": [
+            "implicit function theorem"
+          ],
+          "hints": [],
+          "sourcePageRef": "p. 229"
+        },
+        {
+          "number": "22",
+          "statement": "Prove that if $f:U\\to\\mathbb{R}^n$ is $\\mathscr{C}^2$ and $f'(a)$ is invertible, then the inverse $g=f^{-1}$ (defined locally) is also $\\mathscr{C}^2$.",
+          "difficulty": "HARD",
+          "tags": [
+            "inverse function theorem",
+            "higher derivatives"
+          ],
+          "hints": [],
+          "sourcePageRef": "p. 230"
+        },
+        {
+          "number": "23",
+          "statement": "Suppose $f=(f_1,f_2):\\mathbb{R}^2\\to\\mathbb{R}^2$ satisfies the Cauchy-Riemann equations $D_1f_1=D_2f_2$, $D_1f_2=-D_2f_1$. Let $A=f'(x,y)$. Compute $\\det A$ in terms of $D_1f_1$ and $D_1f_2$. Conclude: if $f$ is holomorphic and $f'(z)\\neq 0$ then $f'(z)$ is a conformal map.",
+          "difficulty": "HARD",
+          "tags": [
+            "differentiation",
+            "complex analysis",
+            "Cauchy-Riemann"
+          ],
+          "hints": [],
+          "sourcePageRef": "p. 230"
+        },
+        {
+          "number": "24",
+          "statement": "Define the rank of a linear map. If $A:\\mathbb{R}^n\\to\\mathbb{R}^m$ has rank $r$, show there exist invertible linear maps $B:\\mathbb{R}^m\\to\\mathbb{R}^m$ and $C:\\mathbb{R}^n\\to\\mathbb{R}^n$ such that $BAC$ sends $(x_1,\\ldots,x_r,x_{r+1},\\ldots,x_n)\\mapsto(x_1,\\ldots,x_r,0,\\ldots,0)$.",
+          "difficulty": "MEDIUM",
+          "tags": [
+            "linear algebra",
+            "rank"
+          ],
+          "hints": [],
+          "sourcePageRef": "p. 230"
+        },
+        {
+          "number": "25",
+          "statement": "(Rank Theorem) Suppose $f:U\\to\\mathbb{R}^m$ is a $\\mathscr{C}^\\infty$ map, $0\\in U\\subset\\mathbb{R}^n$, $f(0)=0$, and $f'(x)$ has constant rank $r$ for all $x\\in U$. Prove $f$ is locally equivalent to the standard map $(x_1,\\ldots,x_n)\\mapsto(x_1,\\ldots,x_r,0,\\ldots,0)$.",
+          "difficulty": "HARD",
+          "tags": [
+            "rank theorem",
+            "differentiation"
+          ],
+          "hints": [],
+          "sourcePageRef": "p. 229"
+        },
+        {
+          "number": "26",
+          "statement": "Show that the unit sphere $S^{n-1}=\\{x\\in\\mathbb{R}^n:|x|=1\\}$ is a smooth manifold of dimension $n-1$ by writing it locally as the graph of a $\\mathscr{C}^\\infty$ function.",
+          "difficulty": "MEDIUM",
+          "tags": [
+            "manifolds",
+            "implicit function theorem"
+          ],
+          "hints": [],
+          "sourcePageRef": "p. 230"
+        },
+        {
+          "number": "27",
+          "statement": "Let $f:\\mathbb{R}^2\\to\\mathbb{R}$. Define the gradient $\\nabla f(x)=(D_1f(x),D_2f(x))$. Prove: if $f$ is differentiable at $a$, then the directional derivative $D_u f(a)=\\nabla f(a)\\cdot u$ for any unit vector $u$, and $|\\nabla f(a)|$ gives the maximum rate of increase.",
+          "difficulty": "EASY",
+          "tags": [
+            "differentiation",
+            "gradient"
+          ],
+          "hints": [],
+          "sourcePageRef": "p. 231"
+        },
+        {
+          "number": "28",
+          "statement": "Prove the mean value inequality: If $f:U\\to\\mathbb{R}^m$ is differentiable and $[x,y]\\subset U$, then $|f(y)-f(x)|\\leq|y-x|\\sup_{t\\in[x,y]}\\|f'(t)\\|$.",
+          "difficulty": "MEDIUM",
+          "tags": [
+            "differentiation",
+            "mean value theorem"
+          ],
+          "hints": [],
+          "sourcePageRef": "p. 231"
+        },
+        {
+          "number": "29",
+          "statement": "Let $f=(u,v):\\mathbb{R}^2\\to\\mathbb{R}^2$ be continuously differentiable and one-to-one on an open $U$. Show the signed area satisfies $\\int\\int_U |J_f(x,y)|\\,dx\\,dy=$ area of $f(U)$, where $J_f$ is the Jacobian determinant.",
+          "difficulty": "HARD",
+          "tags": [
+            "change of variables",
+            "Jacobian"
+          ],
+          "hints": [],
+          "sourcePageRef": "p. 231"
+        },
+        {
+          "number": "30",
+          "statement": "Prove that if $f:U\\to\\mathbb{R}^n$ is $\\mathscr{C}^1$ and $|f(x)-f(y)|\\geq c|x-y|$ for some $c>0$ and all $x,y\\in U$, then $\\|[f'(x)]^{-1}\\|\\leq 1/c$ for all $x$.",
+          "difficulty": "MEDIUM",
+          "tags": [
+            "differentiation",
+            "inverse function theorem"
+          ],
+          "hints": [],
+          "sourcePageRef": "p. 231"
+        },
+        {
+          "number": "31",
+          "statement": "Suppose $f:\\mathbb{R}^n\\to\\mathbb{R}^n$ is $\\mathscr{C}^1$, $J_f(x)\\neq 0$ everywhere, and $f(x)\\to\\infty$ as $|x|\\to\\infty$. Prove $f$ is surjective.",
+          "difficulty": "HARD",
+          "tags": [
+            "differentiation",
+            "topology"
+          ],
+          "hints": [],
+          "sourcePageRef": "p. 232"
+        },
+        {
+          "number": "32",
+          "statement": "Let $G:\\mathbb{R}^{n+m}\\to\\mathbb{R}^m$ be $\\mathscr{C}^1$, $G(a,b)=0$, $D_yG(a,b)$ invertible. Let $g$ be the local solution from the implicit function theorem. Prove $g'(x)=-(D_yG)^{-1}D_xG$ at $(x,g(x))$.",
+          "difficulty": "MEDIUM",
+          "tags": [
+            "implicit function theorem",
+            "differentiation"
+          ],
+          "hints": [],
+          "sourcePageRef": "p. 232"
+        },
+        {
+          "number": "33",
+          "statement": "Put $F(x,y)=(y^2-x,y^3-x)$, $(a,b)=(0,0)$. Show that $F(0,0)=0$ and $D_yF(0,0)$ is not invertible. Can we still solve for $y$ as a function of $x$? Is the system solvable?",
+          "difficulty": "MEDIUM",
+          "tags": [
+            "implicit function theorem"
+          ],
+          "hints": [],
+          "sourcePageRef": "p. 232"
+        },
+        {
+          "number": "34",
+          "statement": "Suppose $f:\\mathbb{R}^n\\to\\mathbb{R}$ and all second partial derivatives exist and are continuous. Prove $D_{ij}f=D_{ji}f$ for all $i,j$.",
+          "difficulty": "MEDIUM",
+          "tags": [
+            "partial derivatives",
+            "mixed partials"
+          ],
+          "hints": [],
+          "sourcePageRef": "p. 235"
+        }
+      ]
+    },
+    {
+      "number": 10,
+      "title": "Integration of Differential Forms",
+      "problems": [
+        {
+          "number": "1",
+          "statement": "Let $H$ be a compact convex subset of $\\mathbb{R}^k$ with nonempty interior. Let $f:H\\to H$ be a continuous map. Prove $f$ has a fixed point. (Brouwer's theorem in dimension $k$; take it on faith for $k\\geq 3$; prove it for $k=1$ and $k=2$ using the results of Ch. 4 and ch. 10.)",
+          "difficulty": "HARD",
+          "tags": [
+            "fixed point theorem",
+            "compactness"
+          ],
+          "hints": [],
+          "sourcePageRef": "p. 252"
+        },
+        {
+          "number": "2",
+          "statement": "For $k=1,2$, prove Brouwer's fixed point theorem directly: (a) $k=1$: use the IVT. (b) $k=2$: assume $f$ has no fixed point and define a retraction from the closed disk to its boundary, contradicting the fact that the boundary is not contractible.",
+          "difficulty": "HARD",
+          "tags": [
+            "fixed point theorem",
+            "topology"
+          ],
+          "hints": [],
+          "sourcePageRef": "p. 253"
+        },
+        {
+          "number": "3",
+          "statement": "Prove that the $k$-cell $[a_1,b_1]\\times\\cdots\\times[a_k,b_k]$ has volume (i.e., $k$-dimensional Riemann integral of 1) equal to $\\prod_{i=1}^k(b_i-a_i)$.",
+          "difficulty": "EASY",
+          "tags": [
+            "Riemann integral",
+            "volume"
+          ],
+          "hints": [],
+          "sourcePageRef": "p. 253"
+        },
+        {
+          "number": "4",
+          "statement": "Suppose $E\\subset\\mathbb{R}^k$ is a compact set with the property that its characteristic function $1_E$ is Riemann integrable. Suppose $f:E\\to\\mathbb{R}^m$ is a continuous map. Prove $f$ is uniformly continuous on $E$.",
+          "difficulty": "EASY",
+          "tags": [
+            "uniform continuity",
+            "compactness"
+          ],
+          "hints": [],
+          "sourcePageRef": "p. 253"
+        },
+        {
+          "number": "5",
+          "statement": "Let $\\alpha$ be a $k$-form on an open set $E\\subset\\mathbb{R}^n$. Define what it means for $\\alpha$ to be exact (i.e., $\\alpha=d\\beta$ for some $(k-1)$-form $\\beta$) and for $\\alpha$ to be closed (i.e., $d\\alpha=0$). Prove every exact form is closed.",
+          "difficulty": "EASY",
+          "tags": [
+            "differential forms",
+            "exact forms",
+            "closed forms"
+          ],
+          "hints": [],
+          "sourcePageRef": "p. 253"
+        },
+        {
+          "number": "6",
+          "statement": "Show that a closed $1$-form $\\omega=P\\,dx+Q\\,dy$ on $\\mathbb{R}^2$ is exact. (That is, $\\partial Q/\\partial x=\\partial P/\\partial y$ implies $\\omega=df$ for some $f$.) How does the proof fail on $\\mathbb{R}^2\\setminus\\{0\\}$?",
+          "difficulty": "MEDIUM",
+          "tags": [
+            "differential forms",
+            "exact forms",
+            "simply connected"
+          ],
+          "hints": [],
+          "sourcePageRef": "p. 254"
+        },
+        {
+          "number": "7",
+          "statement": "Suppose $\\omega$ is a closed $1$-form on an open convex set $U\\subset\\mathbb{R}^n$. Prove $\\omega$ is exact. Exhibit a closed but not exact $1$-form on $\\mathbb{R}^2\\setminus\\{0\\}$.",
+          "difficulty": "MEDIUM",
+          "tags": [
+            "differential forms",
+            "Poincaré lemma"
+          ],
+          "hints": [
+            {
+              "order": 1,
+              "content": "The standard example is $\\omega=(-y\\,dx+x\\,dy)/(x^2+y^2)$, which is the angular form $d\\theta$."
+            }
+          ],
+          "sourcePageRef": "p. 254"
+        },
+        {
+          "number": "8",
+          "statement": "Compute $\\int_\\Gamma \\omega$ where $\\omega=(2xy+z^2)\\,dx+(x^2)\\,dy+(2xz)\\,dz$ and $\\Gamma$ is the curve from $(0,0,0)$ to $(1,1,1)$. (Show $\\omega$ is exact first.)",
+          "difficulty": "MEDIUM",
+          "tags": [
+            "differential forms",
+            "line integrals",
+            "exact forms"
+          ],
+          "hints": [],
+          "sourcePageRef": "p. 254"
+        },
+        {
+          "number": "9",
+          "statement": "Let $\\omega=x\\,dy-y\\,dx$. Compute $\\int_\\Gamma\\omega$ where $\\Gamma$ is the unit circle traversed once counterclockwise. How does this relate to area?",
+          "difficulty": "EASY",
+          "tags": [
+            "differential forms",
+            "line integrals",
+            "Green's theorem"
+          ],
+          "hints": [],
+          "sourcePageRef": "p. 255"
+        },
+        {
+          "number": "10",
+          "statement": "Prove Green's theorem: For a smooth $1$-form $\\omega=P\\,dx+Q\\,dy$ and a compact $2$-manifold $M$ in $\\mathbb{R}^2$ with smooth boundary, $\\int_M d\\omega=\\int_{\\partial M}\\omega$.",
+          "difficulty": "HARD",
+          "tags": [
+            "Green's theorem",
+            "Stokes' theorem",
+            "differential forms"
+          ],
+          "hints": [],
+          "sourcePageRef": "p. 255"
+        },
+        {
+          "number": "11",
+          "statement": "Let $M$ be the upper hemisphere $x^2+y^2+z^2=1$, $z\\geq 0$. Compute $\\int_M z\\,d(x\\wedge y)$ (i.e., $\\int_M z\\,dx\\wedge dy$) by parametrizing $M$ with spherical coordinates.",
+          "difficulty": "MEDIUM",
+          "tags": [
+            "differential forms",
+            "surface integrals"
+          ],
+          "hints": [],
+          "sourcePageRef": "p. 255"
+        },
+        {
+          "number": "12",
+          "statement": "For a $2$-form $\\omega=\\sum a_{ij}(x)\\,dx_i\\wedge dx_j$ on $\\mathbb{R}^3$, compute $d\\omega$. Apply this with $\\omega=P\\,dy\\wedge dz+Q\\,dz\\wedge dx+R\\,dx\\wedge dy$ to verify the formula $d\\omega=(\\nabla\\cdot F)\\,dx\\wedge dy\\wedge dz$ where $F=(P,Q,R)$.",
+          "difficulty": "MEDIUM",
+          "tags": [
+            "differential forms",
+            "divergence",
+            "exterior derivative"
+          ],
+          "hints": [],
+          "sourcePageRef": "p. 255"
+        },
+        {
+          "number": "13",
+          "statement": "State and prove the change of variables formula for multiple integrals: If $\\Phi:U\\to V$ is a $\\mathscr{C}^1$ diffeomorphism between open subsets of $\\mathbb{R}^k$, and $f$ is integrable on $V$, then $\\int_V f(y)\\,dy=\\int_U f(\\Phi(x))|J_\\Phi(x)|\\,dx$.",
+          "difficulty": "HARD",
+          "tags": [
+            "change of variables",
+            "Jacobian",
+            "integration"
+          ],
+          "hints": [],
+          "sourcePageRef": "p. 252"
+        },
+        {
+          "number": "14",
+          "statement": "Compute $\\int_E e^{x^2+y^2}\\,dx\\,dy$ where $E$ is the unit disk, using polar coordinates and the change of variables theorem.",
+          "difficulty": "EASY",
+          "tags": [
+            "change of variables",
+            "polar coordinates"
+          ],
+          "hints": [],
+          "sourcePageRef": "p. 256"
+        },
+        {
+          "number": "15",
+          "statement": "Let $E$ be the ellipsoid $x^2/a^2+y^2/b^2+z^2/c^2\\leq 1$. Compute its volume by the change of variables $(x,y,z)=(a r\\sin\\phi\\cos\\theta, br\\sin\\phi\\sin\\theta, cr\\cos\\phi)$.",
+          "difficulty": "MEDIUM",
+          "tags": [
+            "change of variables",
+            "volume"
+          ],
+          "hints": [],
+          "sourcePageRef": "p. 256"
+        },
+        {
+          "number": "16",
+          "statement": "Let $\\omega$ be a $k$-form on $\\mathbb{R}^n$. Define the pullback $\\Phi^*\\omega$ for a $\\mathscr{C}^1$ map $\\Phi:\\mathbb{R}^m\\to\\mathbb{R}^n$. Prove $d(\\Phi^*\\omega)=\\Phi^*(d\\omega)$.",
+          "difficulty": "HARD",
+          "tags": [
+            "differential forms",
+            "pullback"
+          ],
+          "hints": [],
+          "sourcePageRef": "p. 256"
+        },
+        {
+          "number": "17",
+          "statement": "Prove Stokes' theorem for a smooth oriented $k$-manifold $M$ with boundary: $\\int_M d\\omega=\\int_{\\partial M}\\omega$ for every smooth $(k-1)$-form $\\omega$.",
+          "difficulty": "HARD",
+          "tags": [
+            "Stokes' theorem",
+            "differential forms",
+            "manifolds"
+          ],
+          "hints": [],
+          "sourcePageRef": "p. 253"
+        },
+        {
+          "number": "18",
+          "statement": "Use Stokes' theorem to prove: if $\\omega$ is a closed form on $M$ and $M$ has no boundary, then $\\int_M d\\omega=0$. What does this say for $\\omega=dV$ (the volume form)?",
+          "difficulty": "MEDIUM",
+          "tags": [
+            "Stokes' theorem",
+            "differential forms"
+          ],
+          "hints": [],
+          "sourcePageRef": "p. 257"
+        },
+        {
+          "number": "19",
+          "statement": "Let $F=(P,Q,R)$ be a $\\mathscr{C}^1$ vector field on $\\mathbb{R}^3$. Define $\\text{div}F=D_1P+D_2Q+D_3R$ and $\\text{curl}F=(D_2R-D_3Q, D_3P-D_1R, D_1Q-D_2P)$. Prove $\\text{div}(\\text{curl}F)=0$ and $\\text{curl}(\\nabla f)=0$.",
+          "difficulty": "EASY",
+          "tags": [
+            "vector calculus",
+            "curl",
+            "divergence"
+          ],
+          "hints": [],
+          "sourcePageRef": "p. 257"
+        },
+        {
+          "number": "20",
+          "statement": "(Divergence Theorem) Let $M$ be a compact $3$-manifold with smooth boundary. For a smooth vector field $F$ on $M$, prove $\\int_M \\text{div}F\\,dV=\\int_{\\partial M}F\\cdot\\mathbf{n}\\,dA$.",
+          "difficulty": "HARD",
+          "tags": [
+            "divergence theorem",
+            "Stokes' theorem"
+          ],
+          "hints": [],
+          "sourcePageRef": "p. 257"
+        },
+        {
+          "number": "21",
+          "statement": "Use the divergence theorem to compute the flux $\\int_S F\\cdot\\mathbf{n}\\,dA$ where $F=(x,y,z)$ and $S$ is the unit sphere. Then verify directly by computing the surface integral.",
+          "difficulty": "EASY",
+          "tags": [
+            "divergence theorem",
+            "surface integrals"
+          ],
+          "hints": [],
+          "sourcePageRef": "p. 257"
+        },
+        {
+          "number": "22",
+          "statement": "Let $\\omega=x_1\\,dx_2\\wedge\\cdots\\wedge dx_n+x_2\\,dx_1\\wedge dx_3\\wedge\\cdots\\wedge dx_n+\\cdots$. Prove $d\\omega=n\\,dx_1\\wedge\\cdots\\wedge dx_n$. Use this to express the volume of a region as a surface integral.",
+          "difficulty": "MEDIUM",
+          "tags": [
+            "differential forms",
+            "volume"
+          ],
+          "hints": [],
+          "sourcePageRef": "p. 258"
+        },
+        {
+          "number": "23",
+          "statement": "If $\\omega$ is a closed $k$-form on a convex open set $U\\subset\\mathbb{R}^n$ (so $d\\omega=0$), prove $\\omega$ is exact. (This is the Poincaré Lemma. Construct a homotopy operator.)",
+          "difficulty": "HARD",
+          "tags": [
+            "Poincaré lemma",
+            "differential forms",
+            "exact forms"
+          ],
+          "hints": [
+            {
+              "order": 1,
+              "content": "Define $(K\\omega)_I(x)=\\int_0^1 t^{k-1}\\sum_i x_i\\omega_{iI}(tx)\\,dt$ and verify $dK+Kd=\\text{id}$."
+            }
+          ],
+          "sourcePageRef": "p. 254"
+        },
+        {
+          "number": "24",
+          "statement": "Let $M$ be a compact oriented smooth manifold without boundary of dimension $n$, and let $\\omega$ be an $n$-form with $\\int_M\\omega\\neq 0$. Prove $\\omega$ is not exact.",
+          "difficulty": "MEDIUM",
+          "tags": [
+            "differential forms",
+            "manifolds",
+            "Stokes' theorem"
+          ],
+          "hints": [],
+          "sourcePageRef": "p. 258"
+        },
+        {
+          "number": "25",
+          "statement": "Define a $k$-chain as a formal sum of $\\mathscr{C}^1$ maps from the standard $k$-simplex into $\\mathbb{R}^n$. Define $\\int_\\sigma\\omega$ for a $k$-chain $\\sigma$ and $k$-form $\\omega$. Prove Stokes' theorem in this context.",
+          "difficulty": "HARD",
+          "tags": [
+            "differential forms",
+            "chains",
+            "Stokes' theorem"
+          ],
+          "hints": [],
+          "sourcePageRef": "p. 252"
+        },
+        {
+          "number": "26",
+          "statement": "Compute the winding number of the curve $\\gamma(t)=(\\cos 2t,\\sin 2t)$, $t\\in[0,2\\pi]$, about the origin. Relate this to $\\frac{1}{2\\pi}\\int_\\gamma\\frac{x\\,dy-y\\,dx}{x^2+y^2}$.",
+          "difficulty": "MEDIUM",
+          "tags": [
+            "winding number",
+            "differential forms"
+          ],
+          "hints": [],
+          "sourcePageRef": "p. 254"
+        },
+        {
+          "number": "27",
+          "statement": "Show that $H_1(\\mathbb{R}^2\\setminus\\{0\\})\\cong\\mathbb{Z}$ by proving: every closed $1$-form on $\\mathbb{R}^2\\setminus\\{0\\}$ is of the form $c\\,d\\theta+df$ for some constant $c$ and smooth $f$.",
+          "difficulty": "HARD",
+          "tags": [
+            "cohomology",
+            "differential forms"
+          ],
+          "hints": [],
+          "sourcePageRef": "p. 254"
+        },
+        {
+          "number": "28",
+          "statement": "Let $f:U\\to\\mathbb{R}$ be $\\mathscr{C}^2$ on an open $U\\subset\\mathbb{R}^n$. Define the Laplacian $\\Delta f=\\sum_{i=1}^n D_{ii}f$. Prove $\\Delta f=0$ (harmonic) implies $f$ has no strict local extremum in $U$.",
+          "difficulty": "MEDIUM",
+          "tags": [
+            "harmonic functions",
+            "Laplacian"
+          ],
+          "hints": [],
+          "sourcePageRef": "p. 258"
+        },
+        {
+          "number": "29",
+          "statement": "Prove Green's identities: (a) $\\int_M f\\Delta g\\,dV=\\int_{\\partial M}f(Dg\\cdot n)\\,dA-\\int_M\\nabla f\\cdot\\nabla g\\,dV$. (b) $\\int_M(f\\Delta g-g\\Delta f)\\,dV=\\int_{\\partial M}(fDg-gDf)\\cdot n\\,dA$.",
+          "difficulty": "HARD",
+          "tags": [
+            "Green's identities",
+            "harmonic functions"
+          ],
+          "hints": [],
+          "sourcePageRef": "p. 258"
+        },
+        {
+          "number": "30",
+          "statement": "Using Green's first identity, prove that a harmonic function $f$ on a compact manifold with boundary $M$ satisfying $f=0$ on $\\partial M$ must be identically zero.",
+          "difficulty": "MEDIUM",
+          "tags": [
+            "harmonic functions",
+            "Green's identities"
+          ],
+          "hints": [],
+          "sourcePageRef": "p. 258"
+        },
+        {
+          "number": "31",
+          "statement": "Suppose $\\omega$ is a $p$-form and $\\eta$ is a $q$-form on $\\mathbb{R}^n$. Prove $\\omega\\wedge\\eta=(-1)^{pq}\\eta\\wedge\\omega$.",
+          "difficulty": "EASY",
+          "tags": [
+            "differential forms",
+            "exterior algebra"
+          ],
+          "hints": [],
+          "sourcePageRef": "p. 252"
+        },
+        {
+          "number": "32",
+          "statement": "Let $T:\\mathbb{R}^n\\to\\mathbb{R}^n$ be a linear map with matrix $(a_{ij})$. Prove $T^*(dx_1\\wedge\\cdots\\wedge dx_n)=(\\det T)\\,dx_1\\wedge\\cdots\\wedge dx_n$.",
+          "difficulty": "MEDIUM",
+          "tags": [
+            "differential forms",
+            "pullback",
+            "determinant"
+          ],
+          "hints": [],
+          "sourcePageRef": "p. 252"
+        },
+        {
+          "number": "33",
+          "statement": "Let $M$ be a smooth oriented compact $2$-manifold embedded in $\\mathbb{R}^3$ with boundary $\\partial M$ (a closed curve). State and verify Stokes' theorem for $F=(-y,x,0)$, relating $\\int_M(\\nabla\\times F)\\cdot\\mathbf{n}\\,dA$ to $\\oint_{\\partial M}F\\cdot d\\mathbf{r}$.",
+          "difficulty": "MEDIUM",
+          "tags": [
+            "Stokes' theorem",
+            "vector calculus"
+          ],
+          "hints": [],
+          "sourcePageRef": "p. 253"
+        },
+        {
+          "number": "34",
+          "statement": "Prove that for any compact oriented smooth $n$-manifold $M$ with boundary, $\\partial(\\partial M)=\\emptyset$ (the boundary of the boundary is empty).",
+          "difficulty": "MEDIUM",
+          "tags": [
+            "manifolds",
+            "boundary"
+          ],
+          "hints": [
+            {
+              "order": 1,
+              "content": "This is equivalent to $d^2=0$ for differential forms."
+            }
+          ],
+          "sourcePageRef": "p. 257"
+        },
+        {
+          "number": "35",
+          "statement": "Let $f:\\mathbb{R}^n\\to\\mathbb{R}$ be smooth with $f(0)=0$. Prove there exist smooth $g_i:\\mathbb{R}^n\\to\\mathbb{R}$, $i=1,\\ldots,n$, such that $f(x)=\\sum_{i=1}^n x_i g_i(x)$.",
+          "difficulty": "MEDIUM",
+          "tags": [
+            "smooth functions",
+            "Taylor theorem"
+          ],
+          "hints": [
+            {
+              "order": 1,
+              "content": "Set $g_i(x)=\\int_0^1 D_i f(tx)\\,dt$ and use the fundamental theorem of calculus."
+            }
+          ],
+          "sourcePageRef": "p. 258"
+        }
+      ]
+    },
+    {
+      "number": 11,
+      "title": "The Lebesgue Theory",
+      "problems": [
+        {
+          "number": "1",
+          "statement": "If $f\\geq 0$ and $\\int f\\,d\\mu=0$, prove that $f=0$ a.e.",
+          "difficulty": "EASY",
+          "tags": [
+            "Lebesgue integral",
+            "measure zero"
+          ],
+          "hints": [],
+          "sourcePageRef": "p. 310"
+        },
+        {
+          "number": "2",
+          "statement": "If $\\int_A f\\,d\\mu=0$ for every measurable set $A$, and $f$ is real and measurable, prove $f=0$ a.e.",
+          "difficulty": "EASY",
+          "tags": [
+            "Lebesgue integral",
+            "measurable functions"
+          ],
+          "hints": [],
+          "sourcePageRef": "p. 310"
+        },
+        {
+          "number": "3",
+          "statement": "If $\\{f_n\\}$ is a sequence of measurable functions and $f_n\\to f$ a.e., and $|f_n|\\leq g$ where $g$ is integrable, prove $\\int|f_n-f|\\,d\\mu\\to 0$ (dominated convergence in $L^1$).",
+          "difficulty": "MEDIUM",
+          "tags": [
+            "dominated convergence theorem",
+            "Lebesgue integral"
+          ],
+          "hints": [],
+          "sourcePageRef": "p. 310"
+        },
+        {
+          "number": "4",
+          "statement": "Prove the monotone convergence theorem: If $0\\leq f_1\\leq f_2\\leq\\cdots$ and $f_n\\to f$ pointwise, then $\\int f_n\\,d\\mu\\to\\int f\\,d\\mu$ (allowing $+\\infty$).",
+          "difficulty": "MEDIUM",
+          "tags": [
+            "monotone convergence theorem",
+            "Lebesgue integral"
+          ],
+          "hints": [],
+          "sourcePageRef": "p. 302"
+        },
+        {
+          "number": "5",
+          "statement": "(Fatou's Lemma) If $f_n\\geq 0$ is a sequence of measurable functions, prove $$\\int\\liminf_{n\\to\\infty}f_n\\,d\\mu\\leq\\liminf_{n\\to\\infty}\\int f_n\\,d\\mu.$$",
+          "difficulty": "MEDIUM",
+          "tags": [
+            "Fatou lemma",
+            "Lebesgue integral"
+          ],
+          "hints": [
+            {
+              "order": 1,
+              "content": "Apply the monotone convergence theorem to $g_n=\\inf_{k\\geq n}f_k$."
+            }
+          ],
+          "sourcePageRef": "p. 303"
+        },
+        {
+          "number": "6",
+          "statement": "Suppose $f_n\\in L^1(\\mu)$, $f_n\\geq 0$, $\\sum\\int f_n\\,d\\mu<\\infty$. Prove $\\sum f_n(x)<\\infty$ a.e. and $\\int\\sum f_n\\,d\\mu=\\sum\\int f_n\\,d\\mu$.",
+          "difficulty": "MEDIUM",
+          "tags": [
+            "Lebesgue integral",
+            "series"
+          ],
+          "hints": [],
+          "sourcePageRef": "p. 310"
+        },
+        {
+          "number": "7",
+          "statement": "Prove H\\\"{o}lder's inequality: If $f\\in L^p(\\mu)$ and $g\\in L^q(\\mu)$ with $1/p+1/q=1$, then $fg\\in L^1(\\mu)$ and $\\|fg\\|_1\\leq\\|f\\|_p\\|g\\|_q$.",
+          "difficulty": "HARD",
+          "tags": [
+            "Lebesgue integral",
+            "Holder inequality",
+            "$L^p$ spaces"
+          ],
+          "hints": [],
+          "sourcePageRef": "p. 310"
+        },
+        {
+          "number": "8",
+          "statement": "Prove Minkowski's inequality: For $1\\leq p<\\infty$ and $f,g\\in L^p(\\mu)$, $\\|f+g\\|_p\\leq\\|f\\|_p+\\|g\\|_p$.",
+          "difficulty": "HARD",
+          "tags": [
+            "$L^p$ spaces",
+            "Minkowski inequality"
+          ],
+          "hints": [],
+          "sourcePageRef": "p. 311"
+        },
+        {
+          "number": "9",
+          "statement": "Show that $L^p(\\mu)$ is complete: every Cauchy sequence in $L^p$ (for $1\\leq p<\\infty$) has a limit in $L^p$ (Riesz-Fischer theorem).",
+          "difficulty": "HARD",
+          "tags": [
+            "$L^p$ spaces",
+            "completeness",
+            "Riesz-Fischer"
+          ],
+          "hints": [
+            {
+              "order": 1,
+              "content": "Extract a subsequence converging a.e.; use Fatou's lemma to show the limit is in $L^p$."
+            }
+          ],
+          "sourcePageRef": "p. 311"
+        },
+        {
+          "number": "10",
+          "statement": "Prove that $L^2(\\mu)$ is a Hilbert space with inner product $\\langle f,g\\rangle=\\int fg\\,d\\mu$. Verify the Cauchy-Schwarz inequality directly.",
+          "difficulty": "MEDIUM",
+          "tags": [
+            "$L^2$ spaces",
+            "Hilbert space"
+          ],
+          "hints": [],
+          "sourcePageRef": "p. 311"
+        },
+        {
+          "number": "11",
+          "statement": "If $f$ is a measurable function and $\\mu(X)<\\infty$, prove $f\\in L^1(\\mu)$ whenever $f\\in L^p(\\mu)$ for some $p>1$. Show the conclusion fails if $\\mu(X)=\\infty$.",
+          "difficulty": "MEDIUM",
+          "tags": [
+            "$L^p$ spaces",
+            "Holder inequality"
+          ],
+          "hints": [],
+          "sourcePageRef": "p. 311"
+        },
+        {
+          "number": "12",
+          "statement": "Suppose $E_1\\supset E_2\\supset\\cdots$ are measurable sets with $\\mu(E_1)<\\infty$ and $\\mu(E_n)\\to 0$. Let $f_n=1_{E_n}$. Does $f_n\\to 0$ in $L^1$? In measure? Almost everywhere?",
+          "difficulty": "MEDIUM",
+          "tags": [
+            "Lebesgue integral",
+            "convergence in measure"
+          ],
+          "hints": [],
+          "sourcePageRef": "p. 311"
+        },
+        {
+          "number": "13",
+          "statement": "Prove Egorov's theorem: If $\\mu(X)<\\infty$ and $f_n\\to f$ a.e., then for every $\\varepsilon>0$ there exists a measurable set $E$ with $\\mu(E)<\\varepsilon$ and $f_n\\to f$ uniformly on $X\\setminus E$.",
+          "difficulty": "HARD",
+          "tags": [
+            "Egorov theorem",
+            "uniform convergence",
+            "measure theory"
+          ],
+          "hints": [],
+          "sourcePageRef": "p. 311"
+        },
+        {
+          "number": "14",
+          "statement": "Prove that convergence in measure implies the existence of an a.e. convergent subsequence.",
+          "difficulty": "MEDIUM",
+          "tags": [
+            "convergence in measure",
+            "measure theory"
+          ],
+          "hints": [
+            {
+              "order": 1,
+              "content": "By passing to a subsequence, choose $n_k$ so that $\\mu(|f_{n_k}-f|>1/k)<1/2^k$; use Borel-Cantelli."
+            }
+          ],
+          "sourcePageRef": "p. 312"
+        },
+        {
+          "number": "15",
+          "statement": "(Lusin's Theorem) Let $f$ be a measurable real function on $[a,b]$. For every $\\varepsilon>0$, there exists a compact $E\\subset[a,b]$ with $m([a,b]\\setminus E)<\\varepsilon$ and $f|_E$ continuous.",
+          "difficulty": "HARD",
+          "tags": [
+            "Lusin theorem",
+            "measurable functions"
+          ],
+          "hints": [],
+          "sourcePageRef": "p. 312"
+        },
+        {
+          "number": "16",
+          "statement": "Let $f$ be a Lebesgue integrable function on $\\mathbb{R}$. Prove $\\int_{-\\infty}^\\infty|f(x+t)-f(x)|\\,dx\\to 0$ as $t\\to 0$.",
+          "difficulty": "HARD",
+          "tags": [
+            "$L^1$ spaces",
+            "translation continuity"
+          ],
+          "hints": [
+            {
+              "order": 1,
+              "content": "First verify for step functions; then approximate general $f\\in L^1$ by step functions."
+            }
+          ],
+          "sourcePageRef": "p. 312"
+        },
+        {
+          "number": "17",
+          "statement": "If $f\\in L^1(\\mathbb{R})$, prove $\\int f(x)e^{-inx}\\,dx\\to 0$ as $|n|\\to\\infty$ (Riemann-Lebesgue lemma for $L^1$).",
+          "difficulty": "HARD",
+          "tags": [
+            "Fourier transform",
+            "$L^1$ spaces",
+            "Riemann-Lebesgue"
+          ],
+          "hints": [],
+          "sourcePageRef": "p. 312"
+        },
+        {
+          "number": "18",
+          "statement": "Let $(X,\\mathscr{M},\\mu)$ be a measure space. Prove that $\\mathscr{M}$ is a $\\sigma$-algebra: (a) $\\emptyset\\in\\mathscr{M}$; (b) $E\\in\\mathscr{M}\\Rightarrow E^c\\in\\mathscr{M}$; (c) countable unions of measurable sets are measurable.",
+          "difficulty": "EASY",
+          "tags": [
+            "measure theory",
+            "sigma-algebra"
+          ],
+          "hints": [],
+          "sourcePageRef": "p. 297"
+        },
+        {
+          "number": "19",
+          "statement": "Prove that Lebesgue measure $m$ on $\\mathbb{R}^k$ satisfies: (a) $m$ is translation invariant; (b) $m(\\lambda E)=|\\lambda|^k m(E)$ for every Lebesgue measurable set $E$; (c) $m$ is the unique such regular Borel measure with $m([0,1]^k)=1$.",
+          "difficulty": "HARD",
+          "tags": [
+            "Lebesgue measure",
+            "measure theory"
+          ],
+          "hints": [],
+          "sourcePageRef": "p. 313"
+        },
+        {
+          "number": "20",
+          "statement": "Prove the Vitali covering lemma: If $E\\subset\\mathbb{R}$ is covered by a family of open intervals $\\{I_\\alpha\\}$ with $m(E)<\\infty$, then for every $\\varepsilon>0$ there exist finitely many $I_{\\alpha_1},\\ldots,I_{\\alpha_n}$ with $m(E\\setminus\\bigcup I_{\\alpha_j})<\\varepsilon$.",
+          "difficulty": "HARD",
+          "tags": [
+            "Vitali covering",
+            "Lebesgue measure"
+          ],
+          "hints": [],
+          "sourcePageRef": "p. 313"
+        },
+        {
+          "number": "21",
+          "statement": "Prove the Lebesgue differentiation theorem: If $f\\in L^1_{\\mathrm{loc}}(\\mathbb{R})$, then $$\\lim_{r\\to 0}\\frac{1}{2r}\\int_{x-r}^{x+r}f(t)\\,dt=f(x)$$ for a.e. $x\\in\\mathbb{R}$.",
+          "difficulty": "HARD",
+          "tags": [
+            "Lebesgue differentiation theorem",
+            "$L^1$ spaces"
+          ],
+          "hints": [],
+          "sourcePageRef": "p. 313"
+        },
+        {
+          "number": "22",
+          "statement": "A function $f:[a,b]\\to\\mathbb{R}$ is absolutely continuous if for every $\\varepsilon>0$ there exists $\\delta>0$ such that $\\sum|f(b_i)-f(a_i)|<\\varepsilon$ whenever $\\sum(b_i-a_i)<\\delta$ (disjoint intervals). Prove: $f$ is absolutely continuous iff $f(x)=f(a)+\\int_a^x g(t)\\,dt$ for some $g\\in L^1$.",
+          "difficulty": "HARD",
+          "tags": [
+            "absolute continuity",
+            "Lebesgue integral"
+          ],
+          "hints": [],
+          "sourcePageRef": "p. 314"
+        },
+        {
+          "number": "23",
+          "statement": "Prove: If $f$ is absolutely continuous on $[a,b]$, then $f$ is of bounded variation; $f$ is differentiable a.e.; and $\\int_a^b f'(x)\\,dx=f(b)-f(a)$ (fundamental theorem of calculus for Lebesgue integrals).",
+          "difficulty": "HARD",
+          "tags": [
+            "absolute continuity",
+            "bounded variation",
+            "fundamental theorem"
+          ],
+          "hints": [],
+          "sourcePageRef": "p. 315"
+        },
+        {
+          "number": "24",
+          "statement": "Let $f$ be a monotone increasing function on $[a,b]$. Prove $f$ is differentiable a.e. and $\\int_a^b f'(x)\\,dx\\leq f(b)-f(a)$.",
+          "difficulty": "HARD",
+          "tags": [
+            "monotone functions",
+            "differentiation a.e."
+          ],
+          "hints": [],
+          "sourcePageRef": "p. 315"
+        },
+        {
+          "number": "25",
+          "statement": "Prove the Radon-Nikodym theorem: If $\\nu$ and $\\mu$ are $\\sigma$-finite measures and $\\nu\\ll\\mu$ (i.e., $\\mu(E)=0\\Rightarrow\\nu(E)=0$), then there exists a measurable $f\\geq 0$ such that $\\nu(E)=\\int_E f\\,d\\mu$ for all measurable $E$.",
+          "difficulty": "HARD",
+          "tags": [
+            "Radon-Nikodym theorem",
+            "measure theory"
+          ],
+          "hints": [],
+          "sourcePageRef": "p. 316"
+        },
+        {
+          "number": "26",
+          "statement": "Prove the Lebesgue decomposition theorem: If $\\mu$ and $\\nu$ are $\\sigma$-finite measures, then $\\nu=\\nu_a+\\nu_s$ where $\\nu_a\\ll\\mu$ and $\\nu_s\\perp\\mu$ (mutually singular).",
+          "difficulty": "HARD",
+          "tags": [
+            "Lebesgue decomposition",
+            "measure theory"
+          ],
+          "hints": [],
+          "sourcePageRef": "p. 316"
+        },
+        {
+          "number": "27",
+          "statement": "Let $\\mu$ be a positive measure on a $\\sigma$-algebra $\\mathscr{M}$. Prove: (a) $\\mu(\\emptyset)=0$; (b) $\\mu$ is monotone: $E\\subset F\\Rightarrow\\mu(E)\\leq\\mu(F)$; (c) $\\mu$ is countably subadditive; (d) continuity from below and above.",
+          "difficulty": "EASY",
+          "tags": [
+            "measure theory",
+            "positive measures"
+          ],
+          "hints": [],
+          "sourcePageRef": "p. 297"
+        },
+        {
+          "number": "28",
+          "statement": "Construct a measurable set $E\\subset[0,1]$ such that for every interval $(a,b)\\subset[0,1]$, both $m(E\\cap(a,b))>0$ and $m(E^c\\cap(a,b))>0$. (A \"fat Cantor-like\" set.)",
+          "difficulty": "HARD",
+          "tags": [
+            "Lebesgue measure",
+            "Cantor set",
+            "measure theory"
+          ],
+          "hints": [],
+          "sourcePageRef": "p. 316"
+        },
+        {
+          "number": "29",
+          "statement": "Show that there exist Lebesgue non-measurable sets. (Vitali's construction: partition $[0,1]$ into cosets of $\\mathbb{Q}$, choose one representative from each, and show this set $V$ cannot be measurable.)",
+          "difficulty": "HARD",
+          "tags": [
+            "non-measurable sets",
+            "Lebesgue measure",
+            "axiom of choice"
+          ],
+          "hints": [],
+          "sourcePageRef": "p. 316"
+        },
+        {
+          "number": "30",
+          "statement": "Let $1\\leq p<q\\leq\\infty$. Give examples showing that $L^p(\\mathbb{R})\\not\\subset L^q(\\mathbb{R})$ and $L^q(\\mathbb{R})\\not\\subset L^p(\\mathbb{R})$. Show that on a finite measure space $L^q\\subset L^p$ when $q>p$.",
+          "difficulty": "MEDIUM",
+          "tags": [
+            "$L^p$ spaces",
+            "inclusions"
+          ],
+          "hints": [],
+          "sourcePageRef": "p. 317"
+        },
+        {
+          "number": "31",
+          "statement": "Prove that $L^p([0,1])$ is separable for $1\\leq p<\\infty$. Show $L^\\infty([0,1])$ is not separable.",
+          "difficulty": "HARD",
+          "tags": [
+            "$L^p$ spaces",
+            "separability"
+          ],
+          "hints": [],
+          "sourcePageRef": "p. 317"
+        },
+        {
+          "number": "32",
+          "statement": "Let $f\\in L^1(\\mathbb{R})$ and define $\\hat{f}(t)=\\int_{-\\infty}^\\infty f(x)e^{-2\\pi ixt}\\,dx$. Prove (a) $\\hat{f}$ is continuous; (b) $\\hat{f}(t)\\to 0$ as $|t|\\to\\infty$; (c) if $f,\\hat{f}\\in L^1$ then $f(x)=\\int\\hat{f}(t)e^{2\\pi ixt}\\,dt$ a.e.",
+          "difficulty": "HARD",
+          "tags": [
+            "Fourier transform",
+            "$L^1$ spaces"
+          ],
+          "hints": [],
+          "sourcePageRef": "p. 318"
+        },
+        {
+          "number": "33",
+          "statement": "Prove that the Fourier transform extends to a unitary operator on $L^2(\\mathbb{R})$: $\\|\\hat{f}\\|_2=\\|f\\|_2$ (Plancherel's theorem).",
+          "difficulty": "HARD",
+          "tags": [
+            "Fourier transform",
+            "$L^2$ spaces",
+            "Plancherel"
+          ],
+          "hints": [],
+          "sourcePageRef": "p. 318"
+        },
+        {
+          "number": "34",
+          "statement": "Prove the Riesz representation theorem: Every bounded linear functional $L$ on $L^p(\\mu)$ (for $1<p<\\infty$, $\\mu$ $\\sigma$-finite) is of the form $L(f)=\\int fg\\,d\\mu$ for a unique $g\\in L^q(\\mu)$ where $1/p+1/q=1$.",
+          "difficulty": "HARD",
+          "tags": [
+            "Riesz representation",
+            "$L^p$ spaces",
+            "functional analysis"
+          ],
+          "hints": [],
+          "sourcePageRef": "p. 318"
+        },
+        {
+          "number": "35",
+          "statement": "(Jensen's inequality) Let $\\varphi$ be a convex function on $\\mathbb{R}$, $\\mu(X)=1$, and $f\\in L^1(\\mu)$. Prove $\\varphi\\left(\\int f\\,d\\mu\\right)\\leq\\int\\varphi(f)\\,d\\mu$.",
+          "difficulty": "MEDIUM",
+          "tags": [
+            "Jensen inequality",
+            "convex functions",
+            "Lebesgue integral"
+          ],
+          "hints": [
+            {
+              "order": 1,
+              "content": "Use the supporting line property of convex functions: $\\varphi(y)\\geq\\varphi(c)+\\lambda(y-c)$ where $c=\\int f\\,d\\mu$ and $\\lambda$ is a subgradient at $c$."
+            }
+          ],
+          "sourcePageRef": "p. 318"
+        }
+      ]
+    }
+  ]
+}

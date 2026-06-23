@@ -1,0 +1,3 @@
+- [Auth & stack facts](auth-stack-facts.md) — NextAuth v4 JWT (no adapter), Firebase Admin SDK; session.user.id trust model
+- [Firestore query patterns](firestore-query-patterns.md) — composite-index requirements, in-memory filtering choices, recurring gotchas
+- [Confirmed clean](confirmed-clean.md) — files/areas audited and found correct, to avoid re-auditing

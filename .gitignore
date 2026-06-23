@@ -35,3 +35,6 @@ prisma/migrations/
 
 # books — extracted and tagged JSON files are committed; raw intermediates are not
 books/*.extracted.json
+
+# Firebase service account keys — never commit
+*firebase-adminsdk*.json
