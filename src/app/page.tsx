@@ -41,8 +41,8 @@ export default async function HomePage() {
               Get started
             </Link>
           )}
-          <Link href="/problems" className="chalk-btn px-5 py-2.5 text-sm">
-            Browse problems
+          <Link href="/books" className="chalk-btn px-5 py-2.5 text-sm">
+            Browse books
           </Link>
         </div>
         <p className="text-xs" style={{ color: "var(--chalk-faint)" }}>

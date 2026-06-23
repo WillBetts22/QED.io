@@ -31,6 +31,13 @@ export interface FSBook {
   year?: number;
 }
 
+export interface FSChapter {
+  bookSlug: string;
+  chapterNumber: number;
+  chapterTitle: string;
+  overview?: string;
+}
+
 export interface FSUser {
   id: string;
   email: string;
