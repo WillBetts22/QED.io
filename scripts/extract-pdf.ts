@@ -45,11 +45,48 @@ interface TaggerProblem {
   hints: TaggerHint[];
 }
 
+// Load .env.local manually (tsx doesn't auto-load it)
+function loadEnv() {
+  const envPath = path.resolve(".env.local");
+  if (!fs.existsSync(envPath)) return;
+  const lines = fs.readFileSync(envPath, "utf-8").split("\n");
+  for (const line of lines) {
+    const trimmed = line.trim();
+    if (!trimmed || trimmed.startsWith("#")) continue;
+    const eqIdx = trimmed.indexOf("=");
+    if (eqIdx === -1) continue;
+    const key = trimmed.slice(0, eqIdx).trim();
+    const val = trimmed.slice(eqIdx + 1).trim().replace(/^["']|["']$/g, "");
+    if (!process.env[key]) process.env[key] = val;
+  }
+}
+loadEnv();
+
 const anthropic = new Anthropic({ apiKey: process.env.ANTHROPIC_API_KEY });
 const MODEL = "claude-sonnet-4-6";
 
 function loadPrompt(name: string): string {
   return fs.readFileSync(path.join(process.cwd(), "prompts", `${name}.txt`), "utf-8");
+}
+
+function parseJsonRobust(text: string, label: string): unknown {
+  const start = text.indexOf("{");
+  const end = text.lastIndexOf("}");
+  if (start === -1 || end === -1) throw new Error(`${label}: no JSON object in response`);
+  const raw = text.slice(start, end + 1);
+  try {
+    return JSON.parse(raw);
+  } catch {
+    // Fix invalid escape sequences: LaTeX uses \alpha, \frac etc.
+    // In JSON, backslash must be doubled unless it's a valid escape (", \, /, n, r, t)
+    const fixed = raw.replace(/\\(?!["\\\/nrt])/g, "\\\\");
+    try {
+      return JSON.parse(fixed);
+    } catch (e2) {
+      console.error(`  Raw response (first 300 chars):\n${text.slice(0, 300)}`);
+      throw new Error(`${label}: ${String(e2)}`);
+    }
+  }
 }
 
 function parseArgs() {
@@ -91,6 +128,21 @@ async function extractPagesAsPdf(
   return Buffer.from(bytes).toString("base64");
 }
 
+async function withRetry<T>(fn: () => Promise<T>, retries = 3, label = ""): Promise<T> {
+  for (let attempt = 1; attempt <= retries; attempt++) {
+    try {
+      return await fn();
+    } catch (err) {
+      const isTransient = String(err).includes("ECONNRESET") || String(err).includes("Connection error") || String(err).includes("ETIMEDOUT");
+      if (!isTransient || attempt === retries) throw err;
+      const wait = attempt * 5000;
+      console.warn(`  ${label} transient error, retrying in ${wait / 1000}s… (attempt ${attempt}/${retries})`);
+      await new Promise((r) => setTimeout(r, wait));
+    }
+  }
+  throw new Error("unreachable");
+}
+
 async function extractChapterProblems(
   pdfBase64: string,
   chapterNumber: number,
@@ -99,9 +151,9 @@ async function extractChapterProblems(
   const prompt = loadPrompt("extractor");
 
   console.log(`  Extracting problems from PDF pages…`);
-  const response = await anthropic.messages.create({
+  const response = await withRetry(() => anthropic.messages.create({
     model: MODEL,
-    max_tokens: 4096,
+    max_tokens: 16000,
     messages: [
       {
         role: "user",
@@ -117,10 +169,10 @@ async function extractChapterProblems(
         ],
       },
     ],
-  });
+  }), 3, `Ch${chapterNumber} extract`);
 
   const text = response.content[0].type === "text" ? response.content[0].text : "";
-  const parsed = JSON.parse(text) as { chapter: { problems: ExtractedProblem[] } };
+  const parsed = parseJsonRobust(text, `Chapter ${chapterNumber} extractor`) as { chapter: { problems: ExtractedProblem[] } };
   return parsed.chapter.problems;
 }
 
@@ -136,9 +188,9 @@ async function tagChapterProblems(
     .join("\n\n---\n\n");
 
   console.log(`  Tagging ${problems.length} problems…`);
-  const response = await anthropic.messages.create({
+  const response = await withRetry(() => anthropic.messages.create({
     model: MODEL,
-    max_tokens: 4096,
+    max_tokens: 16000,
     system: systemPrompt,
     messages: [
       {
@@ -146,10 +198,10 @@ async function tagChapterProblems(
         content: `Chapter ${chapterNumber}: ${chapterTitle}\n\n${problemsList}`,
       },
     ],
-  });
+  }), 3, `Ch${chapterNumber} tag`);
 
   const text = response.content[0].type === "text" ? response.content[0].text : "";
-  const parsed = JSON.parse(text) as { problems: TaggerProblem[] };
+  const parsed = parseJsonRobust(text, `Chapter ${chapterNumber} tagger`) as { problems: TaggerProblem[] };
   return parsed.problems;
 }
 
@@ -180,23 +232,59 @@ async function main() {
   console.log(`\nExtracting from: ${manifest.title}\n`);
 
   const pdfBytes = fs.readFileSync(pdfPath);
-  const outputChapters = [];
+
+  // Load existing output file so we can merge instead of overwrite
+  const outputPath = path.join("books", `${manifest.slug}.json`);
+  const existingOutput = fs.existsSync(outputPath)
+    ? (JSON.parse(fs.readFileSync(outputPath, "utf-8")) as { slug: string; title: string; author: string; edition?: number; year?: number; chapters: { number: number; title: string; problems: unknown[] }[] })
+    : null;
+
+  const chapterMap = new Map(
+    (existingOutput?.chapters ?? []).map((c) => [c.number, c])
+  );
 
   for (const chapter of chapters) {
     console.log(`Chapter ${chapter.number}: ${chapter.title}`);
     console.log(`  Pages ${chapter.exerciseStartPage}–${chapter.exerciseEndPage}`);
 
-    const pdfBase64 = await extractPagesAsPdf(
-      pdfBytes,
-      chapter.exerciseStartPage,
-      chapter.exerciseEndPage
-    );
+    const pageCount = chapter.exerciseEndPage - chapter.exerciseStartPage + 1;
+    let extracted: ExtractedProblem[];
+    if (pageCount > 4) {
+      // Split long chapters to avoid output token limit
+      const mid = Math.floor((chapter.exerciseStartPage + chapter.exerciseEndPage) / 2);
+      console.log(`  Splitting into two passes (pages ${chapter.exerciseStartPage}–${mid} and ${mid + 1}–${chapter.exerciseEndPage})`);
+      const [base64a, base64b] = await Promise.all([
+        extractPagesAsPdf(pdfBytes, chapter.exerciseStartPage, mid),
+        extractPagesAsPdf(pdfBytes, mid + 1, chapter.exerciseEndPage),
+      ]);
+      const [part1, part2] = await Promise.all([
+        extractChapterProblems(base64a, chapter.number, chapter.title),
+        extractChapterProblems(base64b, chapter.number, chapter.title),
+      ]);
+      // Deduplicate by problem number in case a problem spans the split boundary
+      const seen = new Set<string>();
+      extracted = [...part1, ...part2].filter((p) => {
+        if (seen.has(p.number)) return false;
+        seen.add(p.number);
+        return true;
+      });
+    } else {
+      const pdfBase64 = await extractPagesAsPdf(
+        pdfBytes,
+        chapter.exerciseStartPage,
+        chapter.exerciseEndPage
+      );
+      extracted = await extractChapterProblems(
+        pdfBase64,
+        chapter.number,
+        chapter.title
+      );
+    }
 
-    const extracted = await extractChapterProblems(
-      pdfBase64,
-      chapter.number,
-      chapter.title
-    );
+    if (extracted.length === 0) {
+      console.warn(`  WARNING: No problems extracted — skipping chapter ${chapter.number}.\n`);
+      continue;
+    }
 
     const tagged = await tagChapterProblems(chapter.number, chapter.title, extracted);
 
@@ -213,26 +301,25 @@ async function main() {
       };
     });
 
-    outputChapters.push({
+    chapterMap.set(chapter.number, {
       number: chapter.number,
       title: chapter.title,
       problems: mergedProblems,
     });
 
-    console.log(`  Done — ${extracted.length} problems extracted.\n`);
+    // Save incrementally after each chapter so progress isn't lost on failure
+    const merged = {
+      slug: manifest.slug,
+      title: manifest.title,
+      author: manifest.author,
+      edition: manifest.edition,
+      year: manifest.year,
+      chapters: Array.from(chapterMap.values()).sort((a, b) => a.number - b.number),
+    };
+    fs.writeFileSync(outputPath, JSON.stringify(merged, null, 2));
+    console.log(`  Done — ${extracted.length} problems extracted. (saved)\n`);
   }
 
-  const outputPath = path.join("books", `${manifest.slug}.json`);
-  const output = {
-    slug: manifest.slug,
-    title: manifest.title,
-    author: manifest.author,
-    edition: manifest.edition,
-    year: manifest.year,
-    chapters: outputChapters,
-  };
-
-  fs.writeFileSync(outputPath, JSON.stringify(output, null, 2));
   console.log(`\nOutput written to: ${outputPath}`);
   console.log("Review and edit this file, then run: npm run ingest -- --book", outputPath);
 }

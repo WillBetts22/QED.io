@@ -39,3 +39,4 @@ books/*.extracted.json
 # Firebase service account keys — never commit
 *firebase-adminsdk*.json
 .gstack/
+.env*

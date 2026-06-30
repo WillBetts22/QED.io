@@ -6,13 +6,26 @@ The attached PDF pages contain exercises for one chapter. Your task:
 3. Preserve all mathematical notation, quantifiers, and sub-parts exactly as written
 4. If an exercise has labeled parts (a), (b), (c), include them in the statement
 
-Rules:
-- Transcribe the problem statement verbatim; do not paraphrase or simplify
-- Use standard LaTeX math delimiters: $...$ for inline math, $$...$$ for display math
-- Greek letters, set notation, and special symbols must be in LaTeX (e.g., $\epsilon$, $\mathbb{R}$, $\sup$, $\limsup$)
-- If a problem references a previous result (e.g., "Using Exercise 3…"), keep that reference
-- If the scan is unclear for a portion, transcribe what is legible and mark unclear sections with [unclear]
-- Do not include solution hints, chapter text, theorems, or definitions — exercises only
+CRITICAL RULES — violating these produces corrupted output:
+
+ONLY extract exercises:
+- Only transcribe items that are explicitly labeled with an exercise number (1, 2, 3, …) in the exercise section at the end of the chapter.
+- Do NOT extract theorems, lemmas, corollaries, definitions, examples, or remarks from the chapter body, even if they look like exercises. If it has a name like "Theorem 5.15" or "Definition 3.1", skip it entirely.
+- Do not invent or paraphrase exercises. If you are uncertain whether something on the page is an exercise, omit it.
+
+Preserve every mathematical symbol exactly:
+- Every single-letter variable MUST be wrapped in math delimiters: write $f$, not f; write $X$, not X; write $E$, not E. This applies to ALL single-letter names: $f$, $g$, $h$, $X$, $Y$, $Z$, $E$, $K$, $F$, $A$, $B$, $p$, $x$, $y$, $z$, $n$, $m$, $r$, $s$, $t$, etc.
+- Preserve primes in derivative notation: write $f'$, $f''$, $f^{(n)}$ — never drop the prime.
+- Preserve ALL subscripts and superscripts: $x_n$, $f_n$, $a_{ij}$, $f^{-1}$, etc.
+- For inequalities involving 0: write $0 \leq f \leq 1$ — the zero is part of the LaTeX expression and must stay as the digit 0, not be omitted.
+- Distinguish sequences from series: $\{f_n\}$ is a sequence; $\sum f_n$ is a series. Do not conflate them.
+
+LaTeX formatting:
+- Use $...$ for inline math and $$...$$ (or \[...\]) for display math.
+- Greek letters, set notation, and special symbols must be in LaTeX (e.g., $\varepsilon$, $\mathbb{R}$, $\sup$, $\limsup$, $\overline{E}$).
+- All braces in \frac{}{}, \sqrt{}, \sum_{}{} must be closed.
+- If the scan is unclear for a portion, transcribe what is legible and mark unclear sections with [unclear].
+- Do not include solution hints, chapter text, theorems, or definitions — exercises only.
 
 Return ONLY valid JSON — no markdown fences, no extra keys:
 {

@@ -9,68 +9,68 @@
     {
       "number": 1,
       "title": "The Real and Complex Number Systems",
-      "exerciseStartPage": 21,
-      "exerciseEndPage": 24
+      "exerciseStartPage": 30,
+      "exerciseEndPage": 33
     },
     {
       "number": 2,
       "title": "Basic Topology",
-      "exerciseStartPage": 43,
-      "exerciseEndPage": 46
+      "exerciseStartPage": 52,
+      "exerciseEndPage": 55
     },
     {
       "number": 3,
       "title": "Numerical Sequences and Series",
-      "exerciseStartPage": 78,
-      "exerciseEndPage": 82
+      "exerciseStartPage": 87,
+      "exerciseEndPage": 91
     },
     {
       "number": 4,
       "title": "Continuity",
-      "exerciseStartPage": 98,
-      "exerciseEndPage": 101
+      "exerciseStartPage": 107,
+      "exerciseEndPage": 110
     },
     {
       "number": 5,
       "title": "Differentiation",
-      "exerciseStartPage": 114,
-      "exerciseEndPage": 117
+      "exerciseStartPage": 123,
+      "exerciseEndPage": 126
     },
     {
       "number": 6,
       "title": "The Riemann-Stieltjes Integral",
-      "exerciseStartPage": 136,
-      "exerciseEndPage": 141
+      "exerciseStartPage": 145,
+      "exerciseEndPage": 150
     },
     {
       "number": 7,
       "title": "Sequences and Series of Functions",
-      "exerciseStartPage": 165,
-      "exerciseEndPage": 168
+      "exerciseStartPage": 174,
+      "exerciseEndPage": 177
     },
     {
       "number": 8,
       "title": "Some Special Functions",
-      "exerciseStartPage": 196,
-      "exerciseEndPage": 198
+      "exerciseStartPage": 205,
+      "exerciseEndPage": 207
     },
     {
       "number": 9,
       "title": "Functions of Several Variables",
-      "exerciseStartPage": 227,
-      "exerciseEndPage": 232
+      "exerciseStartPage": 248,
+      "exerciseEndPage": 253
     },
     {
       "number": 10,
       "title": "Integration of Differential Forms",
-      "exerciseStartPage": 252,
-      "exerciseEndPage": 258
+      "exerciseStartPage": 297,
+      "exerciseEndPage": 308
     },
     {
       "number": 11,
       "title": "The Lebesgue Theory",
-      "exerciseStartPage": 310,
-      "exerciseEndPage": 318
+      "exerciseStartPage": 334,
+      "exerciseEndPage": 343
     }
   ]
 }
