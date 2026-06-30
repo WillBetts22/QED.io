@@ -414,7 +414,7 @@
           "hints": [
             {
               "order": 1,
-              "content": "If the irrationals were countable, then $\\mathbb{R} = \\mathbb{Q} \\cup (\\text{irrationals})$ would be a union of two countable sets, hence countable — contradiction."
+              "content": "If the irrationals were countable, then $\\mathbb{R} = \\mathbb{Q} \\cup (\\text{irrationals})$ would be a union of two countable sets, hence countable \u2014 contradiction."
             }
           ],
           "sourcePageRef": "p. 43"
@@ -466,7 +466,7 @@
           "hints": [
             {
               "order": 1,
-              "content": "Closure of a finite union equals the union of closures; for infinite unions only one inclusion holds — try $A_i$ enumerating the rationals to make it proper."
+              "content": "Closure of a finite union equals the union of closures; for infinite unions only one inclusion holds \u2014 try $A_i$ enumerating the rationals to make it proper."
             }
           ],
           "sourcePageRef": "p. 44"
@@ -639,7 +639,7 @@
           "hints": [
             {
               "order": 1,
-              "content": "$E$ is in bijection with infinite binary sequences (uncountable), nowhere dense, closed and bounded (compact), and has no isolated points (perfect) — like a Cantor-type set."
+              "content": "$E$ is in bijection with infinite binary sequences (uncountable), nowhere dense, closed and bounded (compact), and has no isolated points (perfect) \u2014 like a Cantor-type set."
             }
           ],
           "sourcePageRef": "p. 44"
@@ -692,7 +692,7 @@
           "hints": [
             {
               "order": 1,
-              "content": "Closure of a connected set is connected; interior need not be — take two tangent closed disks, whose interior splits into two pieces."
+              "content": "Closure of a connected set is connected; interior need not be \u2014 take two tangent closed disks, whose interior splits into two pieces."
             }
           ],
           "sourcePageRef": "p. 45"
@@ -835,7 +835,7 @@
           "hints": [
             {
               "order": 1,
-              "content": "Apply Exercise 27 to the closed set; its condensation points form the perfect part, and the rest is countable. This is the Cantor–Bendixson theorem."
+              "content": "Apply Exercise 27 to the closed set; its condensation points form the perfect part, and the rest is countable. This is the Cantor\u2013Bendixson theorem."
             }
           ],
           "sourcePageRef": "p. 45"
@@ -996,7 +996,7 @@
           "hints": [
             {
               "order": 1,
-              "content": "Apply the Cauchy–Schwarz inequality to $\\sum \\frac{\\sqrt{a_n}}{n}$, bounding it by $\\sqrt{\\sum a_n} \\cdot \\sqrt{\\sum 1/n^2}$."
+              "content": "Apply the Cauchy\u2013Schwarz inequality to $\\sum \\frac{\\sqrt{a_n}}{n}$, bounding it by $\\sqrt{\\sum a_n} \\cdot \\sqrt{\\sum 1/n^2}$."
             }
           ],
           "sourcePageRef": "p. 78"
@@ -1116,7 +1116,7 @@
           "hints": [
             {
               "order": 1,
-              "content": "(a) is the Cesàro mean theorem; for (d),(e) use the identity for $s_n - \\sigma_n$ and the Tauberian conditions on $n a_n$ to control the difference."
+              "content": "(a) is the Ces\u00e0ro mean theorem; for (d),(e) use the identity for $s_n - \\sigma_n$ and the Tauberian conditions on $n a_n$ to control the difference."
             }
           ],
           "sourcePageRef": "p. 80"
@@ -1339,7 +1339,7 @@
             },
             {
               "order": 2,
-              "content": "Try to construct an explicit counterexample — a function that satisfies the symmetric-difference condition at every point but fails to be continuous somewhere. Consider functions with a jump discontinuity where the left and right limits exist and are symmetric around the value."
+              "content": "Try to construct an explicit counterexample \u2014 a function that satisfies the symmetric-difference condition at every point but fails to be continuous somewhere. Consider functions with a jump discontinuity where the left and right limits exist and are symmetric around the value."
             },
             {
               "order": 3,
@@ -1411,7 +1411,7 @@
             },
             {
               "order": 2,
-              "content": "For the first part: any $f(x)$ with $x\\in X$ can be approximated because $E$ is dense — pick a sequence $\\{e_n\\}\\subset E$ with $e_n\\to x$ and apply continuity. For the second part: if $g(p)\\neq f(p)$, separate them by open sets and use that $g=f$ on $E$ which is dense near $p$."
+              "content": "For the first part: any $f(x)$ with $x\\in X$ can be approximated because $E$ is dense \u2014 pick a sequence $\\{e_n\\}\\subset E$ with $e_n\\to x$ and apply continuity. For the second part: if $g(p)\\neq f(p)$, separate them by open sets and use that $g=f$ on $E$ which is dense near $p$."
             },
             {
               "order": 3,
@@ -1631,7 +1631,7 @@
             },
             {
               "order": 3,
-              "content": "Define $g(p)$ to be the unique point in $\\bigcap_n \\overline{f(V_n(p))}$. This is well-defined by the nested closed set property in $\\mathbb{R}$. Verify: (i) $g|_E=f$ since $p\\in E$ means $f(p)\\in f(V_n(p))$ for all $n$; (ii) $g$ is uniformly continuous — given $\\varepsilon$, use the $\\delta$ from $f$ and show $d(p,p')<\\delta/2$ forces $g(p)$ and $g(p')$ within $\\varepsilon$ of each other. The range can be replaced by any complete metric space; it cannot in general be replaced by an incomplete one."
+              "content": "Define $g(p)$ to be the unique point in $\\bigcap_n \\overline{f(V_n(p))}$. This is well-defined by the nested closed set property in $\\mathbb{R}$. Verify: (i) $g|_E=f$ since $p\\in E$ means $f(p)\\in f(V_n(p))$ for all $n$; (ii) $g$ is uniformly continuous \u2014 given $\\varepsilon$, use the $\\delta$ from $f$ and show $d(p,p')<\\delta/2$ forces $g(p)$ and $g(p')$ within $\\varepsilon$ of each other. The range can be replaced by any complete metric space; it cannot in general be replaced by an incomplete one."
             }
           ]
         },
@@ -1680,7 +1680,7 @@
             },
             {
               "order": 3,
-              "content": "Assume $f$ is not monotonic. One can find $a<b<c$ with $f(a)<f(b)$ and $f(b)>f(c)$ (or similar). The interval $(a,c)$ is open and maps to an open set $f((a,c))$. By the IVT, $f((a,c))$ is an interval, and since it is open it must be open. But then $f(b)=\\max$ of $f$ on $[a,c]$ cannot be in the interior in a way consistent with both monotonicity failures — make this precise to get a contradiction with the open mapping condition applied to intervals around $b$."
+              "content": "Assume $f$ is not monotonic. One can find $a<b<c$ with $f(a)<f(b)$ and $f(b)>f(c)$ (or similar). The interval $(a,c)$ is open and maps to an open set $f((a,c))$. By the IVT, $f((a,c))$ is an interval, and since it is open it must be open. But then $f(b)=\\max$ of $f$ on $[a,c]$ cannot be in the interior in a way consistent with both monotonicity failures \u2014 make this precise to get a contradiction with the open mapping condition applied to intervals around $b$."
             }
           ]
         },
@@ -1721,7 +1721,7 @@
           "hints": [
             {
               "order": 1,
-              "content": "The set of simple discontinuities splits into cases based on the relationship between $f(x-)$, $f(x)$, and $f(x+)$. The hint focuses on the case $f(x-)<f(x+)$. For each such $x$, associate a rational triple $(p,q,r)$ with specific properties — what injectivity property does this association have?"
+              "content": "The set of simple discontinuities splits into cases based on the relationship between $f(x-)$, $f(x)$, and $f(x+)$. The hint focuses on the case $f(x-)<f(x+)$. For each such $x$, associate a rational triple $(p,q,r)$ with specific properties \u2014 what injectivity property does this association have?"
             },
             {
               "order": 2,
@@ -2144,7 +2144,7 @@
             },
             {
               "order": 2,
-              "content": "By Theorem 5.13 (L'Hôpital-type), applied to real and imaginary parts: $\\frac{f(x)}{x} \\to A$ and $\\frac{g(x)}{x} \\to B \\neq 0$ as $x \\to 0$. The hint then gives $\\frac{f(x)}{g(x)} = \\left(\\frac{f(x)}{x}-A\\right)\\frac{x}{g(x)} + A\\cdot\\frac{x}{g(x)}$."
+              "content": "By Theorem 5.13 (L'H\u00f4pital-type), applied to real and imaginary parts: $\\frac{f(x)}{x} \\to A$ and $\\frac{g(x)}{x} \\to B \\neq 0$ as $x \\to 0$. The hint then gives $\\frac{f(x)}{g(x)} = \\left(\\frac{f(x)}{x}-A\\right)\\frac{x}{g(x)} + A\\cdot\\frac{x}{g(x)}$."
             },
             {
               "order": 3,
@@ -2164,7 +2164,7 @@
           "hints": [
             {
               "order": 1,
-              "content": "Define $\\phi(h) = f(x+h) - f(x)$ and try applying a version of L'Hôpital's rule (Theorem 5.13) twice, or relate the expression to second differences. What does L'Hôpital give after one application?"
+              "content": "Define $\\phi(h) = f(x+h) - f(x)$ and try applying a version of L'H\u00f4pital's rule (Theorem 5.13) twice, or relate the expression to second differences. What does L'H\u00f4pital give after one application?"
             },
             {
               "order": 2,
@@ -2645,7 +2645,7 @@
           "hints": [
             {
               "order": 1,
-              "content": "This problem is definitional — it asks you to understand the notion of convergence and absolute convergence of improper integrals over $[a, \\infty)$. Think of analogies with series: a series can converge conditionally or absolutely."
+              "content": "This problem is definitional \u2014 it asks you to understand the notion of convergence and absolute convergence of improper integrals over $[a, \\infty)$. Think of analogies with series: a series can converge conditionally or absolutely."
             },
             {
               "order": 2,
@@ -2719,7 +2719,7 @@
             },
             {
               "order": 2,
-              "content": "Write $f - h = (f-g) + (g-h)$ and expand $\\|f-h\\|_2^2 = \\int |f-h|^2\\,d\\alpha$. Apply the Schwarz inequality (the $p=q=2$ case of Hölder's inequality from Exercise 10(c)) to bound the cross term $\\int (f-g)\\overline{(g-h)}\\,d\\alpha$."
+              "content": "Write $f - h = (f-g) + (g-h)$ and expand $\\|f-h\\|_2^2 = \\int |f-h|^2\\,d\\alpha$. Apply the Schwarz inequality (the $p=q=2$ case of H\u00f6lder's inequality from Exercise 10(c)) to bound the cross term $\\int (f-g)\\overline{(g-h)}\\,d\\alpha$."
             },
             {
               "order": 3,
@@ -3338,15 +3338,15 @@
           "hints": [
             {
               "order": 1,
-              "content": "The functions $F_n$ are defined by integration. What can you say about the equicontinuity and uniform boundedness of $\\{F_n\\}$? Think about Arzelà–Ascoli."
+              "content": "The functions $F_n$ are defined by integration. What can you say about the equicontinuity and uniform boundedness of $\\{F_n\\}$? Think about Arzel\u00e0\u2013Ascoli."
             },
             {
               "order": 2,
-              "content": "Since $\\{f_n\\}$ is uniformly bounded, say $|f_n| \\leq M$, we have $|F_n(x) - F_n(y)| \\leq M|x-y|$ for all $n$ (Lipschitz condition). Also $|F_n(x)| \\leq M(b-a)$. So $\\{F_n\\}$ is uniformly bounded and equicontinuous on $[a,b]$. Apply the Arzelà–Ascoli theorem."
+              "content": "Since $\\{f_n\\}$ is uniformly bounded, say $|f_n| \\leq M$, we have $|F_n(x) - F_n(y)| \\leq M|x-y|$ for all $n$ (Lipschitz condition). Also $|F_n(x)| \\leq M(b-a)$. So $\\{F_n\\}$ is uniformly bounded and equicontinuous on $[a,b]$. Apply the Arzel\u00e0\u2013Ascoli theorem."
             },
             {
               "order": 3,
-              "content": "By Arzelà–Ascoli: since $\\{F_n\\}$ is uniformly bounded and equicontinuous on the compact set $[a,b]$, every subsequence has a further subsequence converging uniformly on $[a,b]$. In particular, $\\{F_n\\}$ itself has a uniformly convergent subsequence $\\{F_{n_k}\\}$."
+              "content": "By Arzel\u00e0\u2013Ascoli: since $\\{F_n\\}$ is uniformly bounded and equicontinuous on the compact set $[a,b]$, every subsequence has a further subsequence converging uniformly on $[a,b]$. In particular, $\\{F_n\\}$ itself has a uniformly convergent subsequence $\\{F_{n_k}\\}$."
             }
           ]
         },
@@ -3368,11 +3368,11 @@
             },
             {
               "order": 2,
-              "content": "For the ($\\Rightarrow$) direction: a compact set in any metric space is closed (hence uniformly closed), bounded (hence pointwise bounded), and by Arzelà–Ascoli, equicontinuous (since every sequence has a convergent subsequence). For ($\\Leftarrow$): given the three conditions, use Arzelà–Ascoli (Theorem 7.25) to show $S$ is sequentially compact: every sequence in $S$ has a uniformly convergent subsequence with limit in $S$ (since $S$ is uniformly closed)."
+              "content": "For the ($\\Rightarrow$) direction: a compact set in any metric space is closed (hence uniformly closed), bounded (hence pointwise bounded), and by Arzel\u00e0\u2013Ascoli, equicontinuous (since every sequence has a convergent subsequence). For ($\\Leftarrow$): given the three conditions, use Arzel\u00e0\u2013Ascoli (Theorem 7.25) to show $S$ is sequentially compact: every sequence in $S$ has a uniformly convergent subsequence with limit in $S$ (since $S$ is uniformly closed)."
             },
             {
               "order": 3,
-              "content": "($\\Leftarrow$): Let $\\{f_n\\} \\subset S$. By Arzelà–Ascoli (applied to the equicontinuous, pointwise bounded family $\\{f_n\\}$ on compact $K$), there is a subsequence $f_{n_k}$ converging uniformly on $K$. Its uniform limit $f \\in \\mathscr{C}(K)$ satisfies $f \\in S$ since $S$ is uniformly closed. Thus $S$ is sequentially compact, hence compact. ($\\Rightarrow$): If $S$ is not equicontinuous, by the hint there is a sequence in $S$ with no equicontinuous subsequence, hence no uniformly convergent subsequence, contradicting compactness of $S$."
+              "content": "($\\Leftarrow$): Let $\\{f_n\\} \\subset S$. By Arzel\u00e0\u2013Ascoli (applied to the equicontinuous, pointwise bounded family $\\{f_n\\}$ on compact $K$), there is a subsequence $f_{n_k}$ converging uniformly on $K$. Its uniform limit $f \\in \\mathscr{C}(K)$ satisfies $f \\in S$ since $S$ is uniformly closed. Thus $S$ is sequentially compact, hence compact. ($\\Rightarrow$): If $S$ is not equicontinuous, by the hint there is a sequence in $S$ with no equicontinuous subsequence, hence no uniformly convergent subsequence, contradicting compactness of $S$."
             }
           ]
         }
@@ -3408,7 +3408,7 @@
         },
         {
           "number": "2",
-          "statement": "Let $a_{ij}$ be the number in the $i$th row and $j$th column of the array\n$$\\begin{array}{rrrrl}\n-1 & 0 & 0 & 0 & \\cdots \\\\\n\\frac{1}{2} & -1 & 0 & 0 & \\cdots \\\\\n\\frac{1}{4} & \\frac{1}{2} & -1 & 0 & \\cdots \\\\\n\\frac{1}{8} & \\frac{1}{4} & \\frac{1}{2} & -1 & \\cdots \\\\\n\\multicolumn{5}{c}{\\cdots\\cdots\\cdots\\cdots\\cdots\\cdots\\cdots\\cdots\\cdots}\n\\end{array}$$\nso that\n$$a_{ij} = \\begin{cases} 0 & (i < j), \\\\ -1 & (i = j), \\\\ 2^{j-i} & (i > j). \\end{cases}$$\nProve that\n$$\\sum_i \\sum_j a_{ij} = -2, \\qquad \\sum_j \\sum_i a_{ij} = 0.$$",
+          "statement": "Let $a_{ij}$ be the number in the $i$th row and $j$th column of the array\n$$\\begin{array}{ccccc}\n-1 & 0 & 0 & 0 & \\cdots \\\\\n\\frac{1}{2} & -1 & 0 & 0 & \\cdots \\\\\n\\frac{1}{4} & \\frac{1}{2} & -1 & 0 & \\cdots \\\\\n\\frac{1}{8} & \\frac{1}{4} & \\frac{1}{2} & -1 & \\cdots \\\\\n\\vdots & \\vdots & \\vdots & \\vdots & \\ddots\n\\end{array}$$\nso that\n$$a_{ij} = \\begin{cases} 0 & (i < j), \\\\ -1 & (i = j), \\\\ 2^{j-i} & (i > j). \\end{cases}$$\nProve that\n$$\\sum_i \\sum_j a_{ij} = -2, \\qquad \\sum_j \\sum_i a_{ij} = 0.$$",
           "sourcePageRef": "p. 196",
           "tags": [
             "series"
@@ -3440,11 +3440,11 @@
           "hints": [
             {
               "order": 1,
-              "content": "Since all terms are nonneg­ative, consider the partial sums $A_{MN} = \\sum_{i=1}^M \\sum_{j=1}^N a_{ij}$ and use monotonicity to relate the iterated sums."
+              "content": "Since all terms are nonneg\u00adative, consider the partial sums $A_{MN} = \\sum_{i=1}^M \\sum_{j=1}^N a_{ij}$ and use monotonicity to relate the iterated sums."
             },
             {
               "order": 2,
-              "content": "Use the fact that for nonneg­ative terms, $\\sum_{i=1}^M\\sum_{j=1}^N a_{ij} \\leq \\sum_i\\sum_j a_{ij}$ and $\\sum_{j=1}^N\\sum_{i=1}^M a_{ij} \\leq \\sum_j\\sum_i a_{ij}$, and that $\\sum_{i=1}^M\\sum_{j=1}^N a_{ij} = \\sum_{j=1}^N\\sum_{i=1}^M a_{ij}$ by finite interchange."
+              "content": "Use the fact that for nonneg\u00adative terms, $\\sum_{i=1}^M\\sum_{j=1}^N a_{ij} \\leq \\sum_i\\sum_j a_{ij}$ and $\\sum_{j=1}^N\\sum_{i=1}^M a_{ij} \\leq \\sum_j\\sum_i a_{ij}$, and that $\\sum_{i=1}^M\\sum_{j=1}^N a_{ij} = \\sum_{j=1}^N\\sum_{i=1}^M a_{ij}$ by finite interchange."
             },
             {
               "order": 3,
@@ -3488,7 +3488,7 @@
           "hints": [
             {
               "order": 1,
-              "content": "Each limit is an indeterminate form. Consider using L'Hôpital's rule or Taylor series expansions of the relevant functions around the limiting point."
+              "content": "Each limit is an indeterminate form. Consider using L'H\u00f4pital's rule or Taylor series expansions of the relevant functions around the limiting point."
             },
             {
               "order": 2,
@@ -3660,7 +3660,7 @@
           "hints": [
             {
               "order": 1,
-              "content": "For (a), recall the Fourier coefficients $c_n = \\frac{1}{2\\pi}\\int_{-\\pi}^{\\pi} f(x)e^{-inx}\\,dx$. Exploit the fact that $f$ is even to simplify. For (b), use the Dirichlet/Fejér kernel or simply invoke pointwise convergence of the Fourier series at a continuity point."
+              "content": "For (a), recall the Fourier coefficients $c_n = \\frac{1}{2\\pi}\\int_{-\\pi}^{\\pi} f(x)e^{-inx}\\,dx$. Exploit the fact that $f$ is even to simplify. For (b), use the Dirichlet/Fej\u00e9r kernel or simply invoke pointwise convergence of the Fourier series at a continuity point."
             },
             {
               "order": 2,
@@ -4058,7 +4058,7 @@
             },
             {
               "order": 3,
-              "content": "For (c): $f(x,x^2) = x^4+x^4-2x^4-\\frac{4x^6 x^4}{(x^4+x^4)^2} = -\\frac{4x^{10}}{4x^8} = -x^2$. Wait — recompute carefully: $f(x,x^2) = x^2+x^4-2x^2\\cdot x^2 - \\frac{4x^6 x^4}{(x^4+x^4)^2} = x^2+x^4-2x^4-\\frac{4x^{10}}{4x^8} = x^2-x^4-x^2 = -x^4 < 0$ for $x\\neq 0$. So $(0,0)$ is not a local minimum."
+              "content": "For (c): $f(x,x^2) = x^4+x^4-2x^4-\\frac{4x^6 x^4}{(x^4+x^4)^2} = -\\frac{4x^{10}}{4x^8} = -x^2$. Wait \u2014 recompute carefully: $f(x,x^2) = x^2+x^4-2x^2\\cdot x^2 - \\frac{4x^6 x^4}{(x^4+x^4)^2} = x^2+x^4-2x^4-\\frac{4x^{10}}{4x^8} = x^2-x^4-x^2 = -x^4 < 0$ for $x\\neq 0$. So $(0,0)$ is not a local minimum."
             }
           ]
         },
@@ -4725,7 +4725,7 @@
         {
           "number": "12",
           "statement": "Let $I^k$ be the set of all $\\mathbf{u} = (u_1, \\ldots, u_k) \\in R^k$ with $0 \\leq u_i \\leq 1$ for all $i$; let $Q^k$ be the set of all $\\mathbf{x} = (x_1, \\ldots, x_k) \\in R^k$ with $x_i \\geq 0$, $\\sum x_i \\leq 1$. ($I^k$ is the unit cube; $Q^k$ is the standard simplex in $R^k$.) Define $\\mathbf{x} = T(\\mathbf{u})$ by\n$$x_1 = u_1$$\n$$x_2 = (1 - u_1)u_2$$\n$$\\cdots\\cdots\\cdots\\cdots\\cdots\\cdots\\cdots\\cdots$$\n$$x_k = (1 - u_1) \\cdots (1 - u_{k-1})u_k.$$\nShow that\n$$\\sum_{i=1}^{k} x_i = 1 - \\prod_{i=1}^{k}(1 - u_i).$$\nShow that $T$ maps $I^k$ onto $Q^k$, that $T$ is 1-1 in the interior of $I^k$, and that its inverse $S$ is defined in the interior of $Q^k$ by $u_1 = x_1$ and\n$$u_i = \\frac{x_i}{1 - x_1 - \\cdots - x_{i-1}}$$\nfor $i = 2, \\ldots, k$. Show that\n$$J_T(\\mathbf{u}) = (1 - u_1)^{k-1}(1 - u_2)^{k-2} \\cdots (1 - u_{k-1}),$$\nand\n$$J_S(\\mathbf{x}) = [(1 - x_1)(1 - x_1 - x_2) \\cdots (1 - x_1 - \\cdots - x_{k-1})]^{-1}.$$",
-          "sourcePageRef": "p. 290–291",
+          "sourcePageRef": "p. 290\u2013291",
           "tags": [
             "multivariable",
             "riemann-integral"
@@ -4869,7 +4869,7 @@
         {
           "number": "18",
           "statement": "Consider the oriented affine 3-simplex\n$$\\sigma_1 = [\\mathbf{0}, \\mathbf{e}_1, \\mathbf{e}_1 + \\mathbf{e}_2, \\mathbf{e}_1 + \\mathbf{e}_2 + \\mathbf{e}_3]$$\nin $R^3$. Show that $\\sigma_1$ (regarded as a linear transformation) has determinant 1. Thus $\\sigma_1$ is positively oriented.\n\nLet $\\sigma_2, \\ldots, \\sigma_6$ be five other oriented 3-simplexes, obtained as follows: There are five permutations $(i_1, i_2, i_3)$ of $(1, 2, 3)$, distinct from $(1, 2, 3)$. Associate with each $(i_1, i_2, i_3)$ the simplex\n$$s(i_1, i_2, i_3)[\\mathbf{0}, \\mathbf{e}_{i_1}, \\mathbf{e}_{i_1} + \\mathbf{e}_{i_2}, \\mathbf{e}_{i_1} + \\mathbf{e}_{i_2} + \\mathbf{e}_{i_3}]$$\nwhere $s$ is the sign that occurs in the definition of the determinant. (This is how $\\tau_2$ was obtained from $\\tau_1$ in Exercise 17.)\n\nShow that $\\sigma_2, \\ldots, \\sigma_6$ are positively oriented.\n\nPut $J^3 = \\sigma_1 + \\cdots + \\sigma_6$. Then $J^3$ may be called the positively oriented unit cube in $R^3$.\n\nShow that $\\partial J^3$ is the sum of 12 oriented affine 2-simplexes. (These 12 triangles cover the surface of the unit cube $I^3$.)\n\nShow that $\\mathbf{x} = (x_1, x_2, x_3)$ is in the range of $\\sigma_1$ if and only if $0 \\leq x_3 \\leq x_2 \\leq x_1 \\leq 1$.\n\nShow that the ranges of $\\sigma_1, \\ldots, \\sigma_6$ have disjoint interiors, and that their union covers $I^3$. (Compare with Exercise 13; note that $3! = 6$.)",
-          "sourcePageRef": "p. 291–292",
+          "sourcePageRef": "p. 291\u2013292",
           "tags": [
             "differential-forms",
             "multivariable"
@@ -4886,7 +4886,7 @@
             },
             {
               "order": 3,
-              "content": "For $\\partial J^3$: apply the boundary operator to each $\\sigma_l$ and sum. Many boundary faces cancel (interior faces appear twice with opposite signs), leaving the 12 triangles covering the surface of $I^3$. The range of $\\sigma_1$ is $\\{(x_1,x_2,x_3): 0\\leq x_3\\leq x_2\\leq x_1\\leq 1\\}$ since $\\sigma_1(t_1,t_2,t_3) = (t_1+t_2+t_3)\\mathbf{e}_1+ (t_2+t_3)\\mathbf{e}_2+t_3\\mathbf{e}_3$ for $t_i\\geq 0$, $\\sum t_i\\leq 1$ — set $x_1=t_1+t_2+t_3$, $x_2=t_2+t_3$, $x_3=t_3$."
+              "content": "For $\\partial J^3$: apply the boundary operator to each $\\sigma_l$ and sum. Many boundary faces cancel (interior faces appear twice with opposite signs), leaving the 12 triangles covering the surface of $I^3$. The range of $\\sigma_1$ is $\\{(x_1,x_2,x_3): 0\\leq x_3\\leq x_2\\leq x_1\\leq 1\\}$ since $\\sigma_1(t_1,t_2,t_3) = (t_1+t_2+t_3)\\mathbf{e}_1+ (t_2+t_3)\\mathbf{e}_2+t_3\\mathbf{e}_3$ for $t_i\\geq 0$, $\\sum t_i\\leq 1$ \u2014 set $x_1=t_1+t_2+t_3$, $x_2=t_2+t_3$, $x_3=t_3$."
             }
           ]
         },
@@ -4941,7 +4941,7 @@
         {
           "number": "21",
           "statement": "As in Example 10.36, consider the 1-form\n$$\\eta = \\frac{x\\, dy - y\\, dx}{x^2 + y^2}$$\nin $R^2 - \\{\\mathbf{0}\\}$.\n\n(a) Carry out the computation that leads to formula (113), and prove that $d\\eta = 0$.\n\n(b) Let $\\gamma(t) = (r\\cos t, r\\sin t)$, for some $r > 0$, and let $\\Gamma$ be a $\\mathscr{C}''$-curve in $R^2 - \\{\\mathbf{0}\\}$, with parameter interval $[0, 2\\pi]$, with $\\Gamma(0) = \\Gamma(2\\pi)$, such that the intervals $[\\gamma(t), \\Gamma(t)]$ do not contain $\\mathbf{0}$ for any $t \\in [0, 2\\pi]$. Prove that\n$$\\int_{\\Gamma} \\eta = 2\\pi.$$\n\\textit{Hint:} For $0 \\leq t \\leq 2\\pi$, $0 \\leq u \\leq 1$, define\n$$\\Phi(t, u) = (1 - u)\\,\\Gamma(t) + u\\gamma(t).$$\nThen $\\Phi$ is a 2-surface in $R^2 - \\{\\mathbf{0}\\}$ whose parameter domain is the indicated rectangle. Because of cancellations (as in Example 10.32),\n$$\\partial \\Phi = \\Gamma - \\gamma.$$\nUse Stokes' theorem to deduce that\n$$\\int_{\\Gamma} \\eta = \\int_{\\gamma} \\eta$$\nbecause $d\\eta = 0$.\n\n(c) Take $\\Gamma(t) = (a\\cos t, b\\sin t)$ where $a > 0$, $b > 0$ are fixed. Use part (b) to show that\n$$\\int_0^{2\\pi} \\frac{ab}{a^2 \\cos^2 t + b^2 \\sin^2 t}\\, dt = 2\\pi.$$\n\n(d) Show that\n$$\\eta = d\\!\\left(\\arctan\\frac{y}{x}\\right)$$\nin any convex open set in which $x \\neq 0$, and that\n$$\\eta = d\\!\\left(-\\arctan\\frac{x}{y}\\right)$$\nin any convex open set in which $y \\neq 0$.\n\nExplain why this justifies the notation $\\eta = d\\theta$, in spite of the fact that $\\eta$ is not exact in $R^2 - \\{\\mathbf{0}\\}$.\n\n(e) Show that (b) can be derived from (d).\n\n(f) If $\\Gamma$ is any closed $\\mathscr{C}'$-curve in $R^2 - \\{\\mathbf{0}\\}$, prove that\n$$\\frac{1}{2\\pi} \\int_{\\Gamma} \\eta = \\operatorname{Ind}(\\Gamma).$$\n(See Exercise 23 of Chap. 8 for the definition of the index of a curve.)",
-          "sourcePageRef": "p. 292–293",
+          "sourcePageRef": "p. 292\u2013293",
           "tags": [
             "differential-forms",
             "special-functions"
@@ -5094,7 +5094,7 @@
           "hints": [
             {
               "order": 1,
-              "content": "You need to show $d\\lambda = \\omega$, i.e., that $\\partial g_1/\\partial y - \\partial g_2/\\partial x = f_3$, $\\partial g_1/\\partial z = f_2$, $-\\partial g_2/\\partial z = -f_1$ (wait—work out what $d(g_1\\,dx+g_2\\,dy)$ equals in terms of 2-forms and match coefficients)."
+              "content": "You need to show $d\\lambda = \\omega$, i.e., that $\\partial g_1/\\partial y - \\partial g_2/\\partial x = f_3$, $\\partial g_1/\\partial z = f_2$, $-\\partial g_2/\\partial z = -f_1$ (wait\u2014work out what $d(g_1\\,dx+g_2\\,dy)$ equals in terms of 2-forms and match coefficients)."
             },
             {
               "order": 2,
@@ -5216,7 +5216,7 @@
           "hints": [
             {
               "order": 1,
-              "content": "The key identification is $\\Phi(\\pi,t) = \\Phi(0,-t)$, which makes the Möbius band non-orientable. Trace carefully where the corner points $\\mathbf{p}_1,\\ldots,\\mathbf{p}_4$ map under $\\Phi$, and compute $\\Phi(0,\\pm\\delta)$ and $\\Phi(\\pi,\\pm\\delta)$."
+              "content": "The key identification is $\\Phi(\\pi,t) = \\Phi(0,-t)$, which makes the M\u00f6bius band non-orientable. Trace carefully where the corner points $\\mathbf{p}_1,\\ldots,\\mathbf{p}_4$ map under $\\Phi$, and compute $\\Phi(0,\\pm\\delta)$ and $\\Phi(\\pi,\\pm\\delta)$."
             },
             {
               "order": 2,
@@ -5329,7 +5329,7 @@
         },
         {
           "number": "5",
-          "statement": "Put\n\\[\ng(x) = \\begin{cases} 0 & (0 \\leq x \\leq \\tfrac{1}{2}), \\\\ 1 & (\\tfrac{1}{2} < x \\leq 1), \\end{cases}\n\\]\n\\[\nf_{2k}(x) = g(x) \\qquad (0 \\leq x \\leq 1),\n\\]\n\\[\nf_{2k+1}(x) = g(1-x) \\qquad (0 \\leq x \\leq 1).\n\\]\nShow that\n\\[\n\\liminf_{n \\to \\infty} f_n(x) = 0 \\qquad (0 \\leq x \\leq 1),\n\\]\nbut\n\\[\n\\int_0^1 f_n(x)\\, dx = \\tfrac{1}{2}.\n\\]\n[Compare with (77).]",
+          "statement": "Put\n\\[\ng(x) = \\begin{cases} 0 & (0 \\leq x \\leq \\tfrac{1}{2}), \\\\ 1 & (\\tfrac{1}{2} < x \\leq 1), \\end{cases}\n\\]\n\\[\nf_{2k}(x) = g(x) \\qquad (0 \\leq x \\leq 1, \\ k = 0, 1, 2, \\ldots),\n\\]\n\\[\nf_{2k+1}(x) = g(1-x) \\qquad (0 \\leq x \\leq 1, \\ k = 0, 1, 2, \\ldots).\n\\]\nShow that\n\\[\n\\liminf_{n \\to \\infty} f_n(x) = 0 \\qquad (0 \\leq x \\leq 1),\n\\]\nbut\n\\[\n\\int_0^1 f_n(x)\\, dx = \\tfrac{1}{2}.\n\\]",
           "sourcePageRef": "p. 332",
           "tags": [
             "lebesgue-theory",
@@ -5353,7 +5353,7 @@
         },
         {
           "number": "6",
-          "statement": "Let\n\\[\nf_n(x) = \\begin{cases} \\dfrac{1}{n} & (|x| \\leq n), \\\\ 0 & (|x| > n). \\end{cases}\n\\]\nThen $f_n(x) \\to 0$ uniformly on $R^1$, but\n\\[\n\\int_{-\\infty}^{\\infty} f_n\\, dx = 2 \\qquad (n = 1, 2, 3, \\ldots).\n\\]\n(We write $\\int_{-\\infty}^{\\infty}$ in place of $\\int_{R^1}$.) Thus uniform convergence does not imply dominated convergence in the sense of Theorem 11.32. However, on sets of finite measure, uniformly convergent sequences of bounded functions do satisfy Theorem 11.32.",
+          "statement": "Let\n\\[\nf_n(x) = \\begin{cases} \\frac{1}{n} & (|x| \\leq n), \\\\ 0 & (|x| > n). \\end{cases}\n\\]\nThen $f_n(x) \\to 0$ uniformly on $R^1$, but\n\\[\n\\int_{-\\infty}^{\\infty} f_n\\, dx = 2 \\qquad (n = 1, 2, 3, \\ldots).\n\\]\n(We write $\\int_{-\\infty}^{\\infty}$ in place of $\\int_{R^1}$.) Thus uniform convergence does not imply dominated convergence in the sense of Theorem 11.32. However, on sets of finite measure, uniformly convergent sequences of bounded functions do satisfy Theorem 11.32.",
           "sourcePageRef": "p. 333",
           "tags": [
             "lebesgue-theory",
@@ -5387,7 +5387,7 @@
           "hints": [
             {
               "order": 1,
-              "content": "Recall Example 11.6(b): the Riemann–Stieltjes integral $\\int f\\,d\\alpha$ exists when $f$ and $\\alpha$ have no common discontinuities. How does this connect to Lebesgue integrability with respect to $\\alpha$?"
+              "content": "Recall Example 11.6(b): the Riemann\u2013Stieltjes integral $\\int f\\,d\\alpha$ exists when $f$ and $\\alpha$ have no common discontinuities. How does this connect to Lebesgue integrability with respect to $\\alpha$?"
             },
             {
               "order": 2,
@@ -5395,7 +5395,7 @@
             },
             {
               "order": 3,
-              "content": "The necessary and sufficient condition is that $f$ is bounded on $[a,b]$ and the set of discontinuities of $f$ has $\\mu_\\alpha$-measure zero (where $\\mu_\\alpha$ is the Lebesgue–Stieltjes measure induced by $\\alpha$). This combines Example 11.6(b) with Theorem 11.33."
+              "content": "The necessary and sufficient condition is that $f$ is bounded on $[a,b]$ and the set of discontinuities of $f$ has $\\mu_\\alpha$-measure zero (where $\\mu_\\alpha$ is the Lebesgue\u2013Stieltjes measure induced by $\\alpha$). This combines Example 11.6(b) with Theorem 11.33."
             }
           ]
         },
@@ -5459,15 +5459,15 @@
           "hints": [
             {
               "order": 1,
-              "content": "When $\\mu(X) < +\\infty$, try to bound $\\int_X |f|\\,d\\mu$ using the Cauchy–Schwarz inequality."
+              "content": "When $\\mu(X) < +\\infty$, try to bound $\\int_X |f|\\,d\\mu$ using the Cauchy\u2013Schwarz inequality."
             },
             {
               "order": 2,
-              "content": "Apply the Cauchy–Schwarz inequality: $\\int_X |f| \\cdot 1\\,d\\mu \\leq \\left(\\int_X |f|^2\\,d\\mu\\right)^{1/2}\\left(\\int_X 1\\,d\\mu\\right)^{1/2} = \\|f\\|_2 \\cdot \\mu(X)^{1/2}$."
+              "content": "Apply the Cauchy\u2013Schwarz inequality: $\\int_X |f| \\cdot 1\\,d\\mu \\leq \\left(\\int_X |f|^2\\,d\\mu\\right)^{1/2}\\left(\\int_X 1\\,d\\mu\\right)^{1/2} = \\|f\\|_2 \\cdot \\mu(X)^{1/2}$."
             },
             {
               "order": 3,
-              "content": "Since $f \\in \\mathscr{L}^2(\\mu)$ and $\\mu(X) < +\\infty$, the Cauchy–Schwarz inequality gives $\\int_X |f|\\,d\\mu \\leq \\|f\\|_2 \\cdot \\mu(X)^{1/2} < +\\infty$, so $f \\in \\mathscr{L}(\\mu)$. For the counterexample: $\\int_{-\\infty}^\\infty \\frac{1}{(1+|x|)^2}\\,dx < \\infty$ but $\\int_{-\\infty}^\\infty \\frac{1}{1+|x|}\\,dx = +\\infty$."
+              "content": "Since $f \\in \\mathscr{L}^2(\\mu)$ and $\\mu(X) < +\\infty$, the Cauchy\u2013Schwarz inequality gives $\\int_X |f|\\,d\\mu \\leq \\|f\\|_2 \\cdot \\mu(X)^{1/2} < +\\infty$, so $f \\in \\mathscr{L}(\\mu)$. For the counterexample: $\\int_{-\\infty}^\\infty \\frac{1}{(1+|x|)^2}\\,dx < \\infty$ but $\\int_{-\\infty}^\\infty \\frac{1}{1+|x|}\\,dx = +\\infty$."
             }
           ]
         },
@@ -5523,7 +5523,7 @@
         {
           "number": "13",
           "statement": "Consider the functions\n\\[\nf_n(x) = \\sin nx \\qquad (n = 1, 2, 3, \\ldots,\\ -\\pi \\leq x \\leq \\pi)\n\\]\nas points of $\\mathscr{L}^2$. Prove that the set of these points is closed and bounded, but not compact.",
-          "sourcePageRef": "p. 333–334",
+          "sourcePageRef": "p. 333\u2013334",
           "tags": [
             "lebesgue-theory",
             "compactness",
@@ -5537,7 +5537,7 @@
             },
             {
               "order": 2,
-              "content": "Each $\\|\\sin nx\\|_2^2 = \\int_{-\\pi}^\\pi \\sin^2(nx)\\,dx = \\pi$, so the set is bounded. Use the Riemann–Lebesgue lemma (or the fact that $\\{\\sin nx\\}$ is an orthogonal system) to show that no subsequence of $\\{\\sin n_k x\\}$ converges in $\\mathscr{L}^2$."
+              "content": "Each $\\|\\sin nx\\|_2^2 = \\int_{-\\pi}^\\pi \\sin^2(nx)\\,dx = \\pi$, so the set is bounded. Use the Riemann\u2013Lebesgue lemma (or the fact that $\\{\\sin nx\\}$ is an orthogonal system) to show that no subsequence of $\\{\\sin n_k x\\}$ converges in $\\mathscr{L}^2$."
             },
             {
               "order": 3,
@@ -5583,7 +5583,7 @@
             },
             {
               "order": 2,
-              "content": "Additivity: verify that whenever an elementary set is expressed as a finite disjoint union, $\\phi$ of the whole equals the sum of $\\phi$ of the parts — paying attention to whether $0$ is a left endpoint. Non-regularity: examine approximation of $(0,b]$ from inside by sets bounded away from $0$."
+              "content": "Additivity: verify that whenever an elementary set is expressed as a finite disjoint union, $\\phi$ of the whole equals the sum of $\\phi$ of the parts \u2014 paying attention to whether $0$ is a left endpoint. Non-regularity: examine approximation of $(0,b]$ from inside by sets bounded away from $0$."
             },
             {
               "order": 3,
@@ -5607,11 +5607,11 @@
             },
             {
               "order": 2,
-              "content": "On $E$, $\\sin n_k x$ converges, so $\\sin^2 n_k x \\to f^2(x)$ (where $f = \\lim \\sin n_k x$) for a.e. $x \\in E$. By the dominated convergence theorem (since $|\\sin^2 n_k x| \\leq 1$), $\\int_A \\sin^2 n_k x\\,dx \\to \\int_A f^2\\,dx$ for measurable $A \\subset E$. Also use the Riemann–Lebesgue lemma."
+              "content": "On $E$, $\\sin n_k x$ converges, so $\\sin^2 n_k x \\to f^2(x)$ (where $f = \\lim \\sin n_k x$) for a.e. $x \\in E$. By the dominated convergence theorem (since $|\\sin^2 n_k x| \\leq 1$), $\\int_A \\sin^2 n_k x\\,dx \\to \\int_A f^2\\,dx$ for measurable $A \\subset E$. Also use the Riemann\u2013Lebesgue lemma."
             },
             {
               "order": 3,
-              "content": "The Riemann–Lebesgue lemma gives $\\int_A \\sin n_k x\\,dx \\to 0$ and $\\int_A \\cos 2n_k x\\,dx \\to 0$. Thus $2\\int_A \\sin^2 n_k x\\,dx = \\int_A(1-\\cos 2n_k x)\\,dx \\to m(A)$. But on $A$, $\\sin n_k x \\to f$ so $\\int_A \\sin^2 n_k x \\to \\int_A f^2$. Choosing $A = E$ gives $\\int_E f^2 = m(E)/2$, while choosing $A = \\{x \\in E: f(x) > 0\\}$ and using $\\int_A \\sin n_k x \\to 0$ forces $\\int_A f\\,dx = 0$. This leads to $f = 0$ a.e., contradicting $\\int_E f^2 = m(E)/2 > 0$."
+              "content": "The Riemann\u2013Lebesgue lemma gives $\\int_A \\sin n_k x\\,dx \\to 0$ and $\\int_A \\cos 2n_k x\\,dx \\to 0$. Thus $2\\int_A \\sin^2 n_k x\\,dx = \\int_A(1-\\cos 2n_k x)\\,dx \\to m(A)$. But on $A$, $\\sin n_k x \\to f$ so $\\int_A \\sin^2 n_k x \\to \\int_A f^2$. Choosing $A = E$ gives $\\int_E f^2 = m(E)/2$, while choosing $A = \\{x \\in E: f(x) > 0\\}$ and using $\\int_A \\sin n_k x \\to 0$ forces $\\int_A f\\,dx = 0$. This leads to $f = 0$ a.e., contradicting $\\int_E f^2 = m(E)/2 > 0$."
             }
           ]
         },
@@ -5650,11 +5650,11 @@
           "hints": [
             {
               "order": 1,
-              "content": "Equality in the Cauchy–Schwarz inequality $|\\langle f, g\\rangle|^2 \\leq \\|f\\|_2^2\\|g\\|_2^2$ has a well-known condition. What is it, and how do you translate it into a condition on $f$ and $g$ almost everywhere?"
+              "content": "Equality in the Cauchy\u2013Schwarz inequality $|\\langle f, g\\rangle|^2 \\leq \\|f\\|_2^2\\|g\\|_2^2$ has a well-known condition. What is it, and how do you translate it into a condition on $f$ and $g$ almost everywhere?"
             },
             {
               "order": 2,
-              "content": "Equality in Cauchy–Schwarz holds if and only if $f$ and $g$ are linearly dependent in $\\mathscr{L}^2$, i.e., $\\alpha f + \\beta g = 0$ a.e. for some constants $\\alpha, \\beta$ not both zero. Translate this into $g = cf$ a.e."
+              "content": "Equality in Cauchy\u2013Schwarz holds if and only if $f$ and $g$ are linearly dependent in $\\mathscr{L}^2$, i.e., $\\alpha f + \\beta g = 0$ a.e. for some constants $\\alpha, \\beta$ not both zero. Translate this into $g = cf$ a.e."
             },
             {
               "order": 3,
