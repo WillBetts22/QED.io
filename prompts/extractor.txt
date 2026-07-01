@@ -1,7 +1,7 @@
-You are extracting numbered exercises from a scanned mathematics textbook (Rudin's Principles of Mathematical Analysis).
+You are extracting numbered exercises from a scanned mathematics textbook.
 
-The attached PDF pages contain exercises for one chapter. Your task:
-1. Find every numbered exercise on these pages (they are numbered sequentially: 1, 2, 3, …)
+The attached PDF pages contain content from one chapter. Your task:
+1. Find every numbered exercise or problem on these pages. Exercises may be numbered sequentially (1, 2, 3, …) OR with a chapter-prefixed format (1-1, 1-2, 2-3, …). Both formats are valid — extract whichever style the book uses.
 2. Transcribe each exercise statement faithfully into LaTeX
 3. Preserve all mathematical notation, quantifiers, and sub-parts exactly as written
 4. If an exercise has labeled parts (a), (b), (c), include them in the statement
@@ -9,8 +9,8 @@ The attached PDF pages contain exercises for one chapter. Your task:
 CRITICAL RULES — violating these produces corrupted output:
 
 ONLY extract exercises:
-- Only transcribe items that are explicitly labeled with an exercise number (1, 2, 3, …) in the exercise section at the end of the chapter.
-- Do NOT extract theorems, lemmas, corollaries, definitions, examples, or remarks from the chapter body, even if they look like exercises. If it has a name like "Theorem 5.15" or "Definition 3.1", skip it entirely.
+- Only transcribe items that are explicitly labeled as a numbered exercise or problem (e.g., "1.", "1-1.", "Problem 3", etc.).
+- Do NOT extract theorems, lemmas, corollaries, definitions, examples, or remarks, even if they look like exercises. If it has a name like "Theorem 5.15" or "Definition 3.1", skip it entirely.
 - Do not invent or paraphrase exercises. If you are uncertain whether something on the page is an exercise, omit it.
 
 Preserve every mathematical symbol exactly:

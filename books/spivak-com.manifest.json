@@ -1,0 +1,40 @@
+{
+  "slug": "spivak-com",
+  "title": "Calculus on Manifolds",
+  "author": "Michael Spivak",
+  "edition": 1,
+  "year": 1965,
+  "pdfPath": "spivak-calculus-on-manifolds.pdf",
+  "chapters": [
+    {
+      "number": 1,
+      "title": "Functions on Euclidean Space",
+      "exerciseStartPage": 13,
+      "exerciseEndPage": 26
+    },
+    {
+      "number": 2,
+      "title": "Differentiation",
+      "exerciseStartPage": 27,
+      "exerciseEndPage": 57
+    },
+    {
+      "number": 3,
+      "title": "Integration",
+      "exerciseStartPage": 58,
+      "exerciseEndPage": 86
+    },
+    {
+      "number": 4,
+      "title": "Integration on Chains",
+      "exerciseStartPage": 87,
+      "exerciseEndPage": 120
+    },
+    {
+      "number": 5,
+      "title": "Integration on Manifolds",
+      "exerciseStartPage": 121,
+      "exerciseEndPage": 150
+    }
+  ]
+}

@@ -69,23 +69,64 @@ function loadPrompt(name: string): string {
   return fs.readFileSync(path.join(process.cwd(), "prompts", `${name}.txt`), "utf-8");
 }
 
+function repairJsonEscapes(raw: string): string {
+  // Walk the string character by character, fixing invalid escape sequences inside JSON strings.
+  // This correctly handles LaTeX backslash commands (\omega, \nabla, \frac, etc.) that the
+  // model sometimes writes without doubling the backslash.
+  let result = '';
+  let i = 0;
+  let inString = false;
+
+  while (i < raw.length) {
+    const ch = raw[i];
+    if (!inString) {
+      result += ch;
+      if (ch === '"') inString = true;
+      i++;
+    } else if (ch === '\\') {
+      const next = raw[i + 1] ?? '';
+      if (next === '"' || next === '\\' || next === '/' ||
+          next === 'b' || next === 'f' || next === 'n' || next === 'r' || next === 't') {
+        // Valid single-char JSON escape — pass through
+        result += ch + next;
+        i += 2;
+      } else if (next === 'u' && /^[0-9a-fA-F]{4}$/.test(raw.slice(i + 2, i + 6))) {
+        // Valid \uXXXX Unicode escape — pass through
+        result += raw.slice(i, i + 6);
+        i += 6;
+      } else {
+        // Invalid escape (LaTeX command like \omega, \frac, \in, etc.) — double the backslash
+        result += '\\\\';
+        i++;
+      }
+    } else if (ch === '"') {
+      result += ch;
+      inString = false;
+      i++;
+    } else if (ch.charCodeAt(0) < 0x20) {
+      // Raw control character inside string — escape it
+      result += `\\u${ch.charCodeAt(0).toString(16).padStart(4, '0')}`;
+      i++;
+    } else {
+      result += ch;
+      i++;
+    }
+  }
+  return result;
+}
+
 function parseJsonRobust(text: string, label: string): unknown {
   const start = text.indexOf("{");
   const end = text.lastIndexOf("}");
   if (start === -1 || end === -1) throw new Error(`${label}: no JSON object in response`);
   const raw = text.slice(start, end + 1);
-  try {
-    return JSON.parse(raw);
-  } catch {
-    // Fix invalid escape sequences: LaTeX uses \alpha, \frac etc.
-    // In JSON, backslash must be doubled unless it's a valid escape (", \, /, n, r, t)
-    const fixed = raw.replace(/\\(?!["\\\/nrt])/g, "\\\\");
-    try {
-      return JSON.parse(fixed);
-    } catch (e2) {
-      console.error(`  Raw response (first 300 chars):\n${text.slice(0, 300)}`);
-      throw new Error(`${label}: ${String(e2)}`);
-    }
+
+  try { return JSON.parse(raw); } catch { /* fall through */ }
+
+  const repaired = repairJsonEscapes(raw);
+  try { return JSON.parse(repaired); } catch (e2) {
+    console.error(`  Raw response (first 300 chars):\n${text.slice(0, 300)}`);
+    throw new Error(`${label}: ${String(e2)}`);
   }
 }
 
@@ -176,18 +217,16 @@ async function extractChapterProblems(
   return parsed.chapter.problems;
 }
 
-async function tagChapterProblems(
+async function tagBatch(
   chapterNumber: number,
   chapterTitle: string,
-  problems: ExtractedProblem[]
+  problems: ExtractedProblem[],
+  systemPrompt: string
 ): Promise<TaggerProblem[]> {
-  const systemPrompt = loadPrompt("tagger");
-
   const problemsList = problems
     .map((p) => `Problem ${p.number}:\n${p.statement}`)
     .join("\n\n---\n\n");
 
-  console.log(`  Tagging ${problems.length} problems…`);
   const response = await withRetry(() => anthropic.messages.create({
     model: MODEL,
     max_tokens: 16000,
@@ -203,6 +242,30 @@ async function tagChapterProblems(
   const text = response.content[0].type === "text" ? response.content[0].text : "";
   const parsed = parseJsonRobust(text, `Chapter ${chapterNumber} tagger`) as { problems: TaggerProblem[] };
   return parsed.problems;
+}
+
+async function tagChapterProblems(
+  chapterNumber: number,
+  chapterTitle: string,
+  problems: ExtractedProblem[]
+): Promise<TaggerProblem[]> {
+  const systemPrompt = loadPrompt("tagger");
+  const BATCH_SIZE = 20;
+
+  if (problems.length <= BATCH_SIZE) {
+    console.log(`  Tagging ${problems.length} problems…`);
+    return tagBatch(chapterNumber, chapterTitle, problems, systemPrompt);
+  }
+
+  // Split into batches for large chapters
+  const results: TaggerProblem[] = [];
+  for (let i = 0; i < problems.length; i += BATCH_SIZE) {
+    const batch = problems.slice(i, i + BATCH_SIZE);
+    console.log(`  Tagging problems ${i + 1}–${i + batch.length} of ${problems.length}…`);
+    const tagged = await tagBatch(chapterNumber, chapterTitle, batch, systemPrompt);
+    results.push(...tagged);
+  }
+  return results;
 }
 
 async function main() {
@@ -247,39 +310,29 @@ async function main() {
     console.log(`Chapter ${chapter.number}: ${chapter.title}`);
     console.log(`  Pages ${chapter.exerciseStartPage}–${chapter.exerciseEndPage}`);
 
-    const pageCount = chapter.exerciseEndPage - chapter.exerciseStartPage + 1;
-    let extracted: ExtractedProblem[];
-    if (pageCount > 4) {
-      // Split long chapters to avoid output token limit
-      const mid = Math.floor((chapter.exerciseStartPage + chapter.exerciseEndPage) / 2);
-      console.log(`  Splitting into two passes (pages ${chapter.exerciseStartPage}–${mid} and ${mid + 1}–${chapter.exerciseEndPage})`);
-      const [base64a, base64b] = await Promise.all([
-        extractPagesAsPdf(pdfBytes, chapter.exerciseStartPage, mid),
-        extractPagesAsPdf(pdfBytes, mid + 1, chapter.exerciseEndPage),
-      ]);
-      const [part1, part2] = await Promise.all([
-        extractChapterProblems(base64a, chapter.number, chapter.title),
-        extractChapterProblems(base64b, chapter.number, chapter.title),
-      ]);
-      // Deduplicate by problem number in case a problem spans the split boundary
-      const seen = new Set<string>();
-      extracted = [...part1, ...part2].filter((p) => {
-        if (seen.has(p.number)) return false;
-        seen.add(p.number);
-        return true;
-      });
-    } else {
-      const pdfBase64 = await extractPagesAsPdf(
-        pdfBytes,
-        chapter.exerciseStartPage,
-        chapter.exerciseEndPage
-      );
-      extracted = await extractChapterProblems(
-        pdfBase64,
-        chapter.number,
-        chapter.title
-      );
+    // Recursively split page ranges until each chunk is ≤7 pages (handles wide-range books like Spivak)
+    async function extractRange(start: number, end: number): Promise<ExtractedProblem[]> {
+      const count = end - start + 1;
+      if (count <= 4) {
+        const b64 = await extractPagesAsPdf(pdfBytes, start, end);
+        return extractChapterProblems(b64, chapter.number, chapter.title);
+      }
+      const mid = Math.floor((start + end) / 2);
+      console.log(`    Splitting ${start}–${end} → ${start}–${mid} | ${mid + 1}–${end}`);
+      const part1 = await extractRange(start, mid);
+      const part2 = await extractRange(mid + 1, end);
+      return [...part1, ...part2];
     }
+
+    console.log(`  Pages ${chapter.exerciseStartPage}–${chapter.exerciseEndPage}`);
+    const rawExtracted = await extractRange(chapter.exerciseStartPage, chapter.exerciseEndPage);
+    // Deduplicate by problem number (splits can overlap at boundaries)
+    const seen = new Set<string>();
+    const extracted = rawExtracted.filter((p) => {
+      if (seen.has(p.number)) return false;
+      seen.add(p.number);
+      return true;
+    });
 
     if (extracted.length === 0) {
       console.warn(`  WARNING: No problems extracted — skipping chapter ${chapter.number}.\n`);
